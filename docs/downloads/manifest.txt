@@ -21,5 +21,5 @@ Contents (arcname -> role):
   docx/6-Appendix-G-Governance-and-References.docx    Appendix G - Governance and References (Word)
   pdf/6-Appendix-G-Governance-and-References.pdf    Appendix G - Governance and References (PDF)
 
-Note: JSON schemas are deferred to post-substrate-publication (Phase 4).
-The schemas live in the not-yet-de-V2V'd substrate and are intentionally not included here.
+Note: the machine-readable files (JSON schemas and related files, reference release 5.1.0) are published
+separately at https://decisionprovenancestandard.org/standard/v5.0/ and are not included in this bundle.
