@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="250" height="40" viewBox="0 0 250 40" role="img" aria-label="Implements the Decision Provenance Standard (self-declared)">
+<title>Implements the Decision Provenance Standard (self-declared)</title>
+<rect x="0.5" y="0.5" width="249" height="39" rx="6" fill="#11202E" stroke="#8FA8C0" stroke-width="1"/>
+<rect x="8" y="8" width="24" height="24" rx="4.5" fill="#3A5A78"/>
+<rect x="14.75" y="14" width="10.5" height="2.25" rx="1.1" fill="#FFFFFF"/>
+<rect x="14.75" y="18.9" width="10.5" height="2.25" rx="1.1" fill="#FFFFFF"/>
+<rect x="14.75" y="23.75" width="6.75" height="2.25" rx="1.1" fill="#8FA8C0"/>
+<g font-family="Verdana, 'DejaVu Sans', Arial, Helvetica, sans-serif" font-weight="700">
+<text x="40" y="17" font-size="7.5" fill="#B8CADB" textLength="118" lengthAdjust="spacingAndGlyphs">IMPLEMENTS · SELF-DECLARED</text>
+<text x="40" y="31" font-size="12" fill="#FFFFFF" textLength="200" lengthAdjust="spacingAndGlyphs">Decision Provenance Standard™</text>
+</g>
+</svg>

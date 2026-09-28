@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badge maker — show that you use the Decision Provenance Standard</title>
+<meta name="description" content="Write your own Decision Provenance Standard self-declaration, with your own AI if you like, and get one piece of code: the badge with your declaration inside it. Nothing you type leaves the page.">
+<link rel="canonical" href="https://decisionprovenancestandard.org/badges.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Decision Provenance Standard">
+<meta property="og:title" content="Badge maker — show that you use the Decision Provenance Standard">
+<meta property="og:description" content="Write your own self-declaration and get one piece of code: the badge, with your declaration inside it. Self-declared; no one certifies it.">
+<meta property="og:url" content="https://decisionprovenancestandard.org/badges.html">
+<meta property="og:image" content="https://decisionprovenancestandard.org/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Decision Provenance Standard — audit-ready provenance for decisions made by humans and AI together.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://decisionprovenancestandard.org/assets/og-image.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233A5A78'/><rect x='9' y='8' width='14' height='3' rx='1.5' fill='white'/><rect x='9' y='14.5' width='14' height='3' rx='1.5' fill='white'/><rect x='9' y='21' width='9' height='3' rx='1.5' fill='%238FA8C0'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1A1A1A;--ink-soft:#3F4750;--paper:#F5F5F5;--card:#FFFFFF;--accent:#3A5A78;
+  --accent-soft:#8FA8C0;--rule:#E2E5E9;--rule-soft:#EDEFF2;--callout:#F0F3F6;--ink-dark:#11202E;
+  --nav:#F2F4F6;--field:#FFFFFF;--code:#11202E;--code-ink:#E6EDF4;--error:#A4262C;--ok:#1F6F43;--pick:#E9EFF5;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace;}
+*{box-sizing:border-box;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:var(--accent);}
+.topnav{position:sticky;top:0;z-index:50;background:var(--nav);border-bottom:1px solid var(--rule);}
+.topnav-inner{max-width:880px;margin:0 auto;padding:.6rem 16px;display:flex;align-items:center;
+  justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;padding:.5rem .9rem;
+  border-radius:0 0 6px 0;z-index:200;font-family:var(--sans);font-weight:700;text-decoration:none;}
+.skip-link:focus{left:0;}
+.brandmark{font-family:var(--sans);font-weight:800;font-size:1rem;color:var(--accent);text-decoration:none;}
+.brandmark .tm{font-size:.6em;vertical-align:super;font-weight:600;}
+.docnav{display:flex;gap:.2rem;flex-wrap:wrap;}
+.navlink{font-family:var(--sans);font-size:.82rem;font-weight:600;text-decoration:none;color:var(--ink-soft);
+  padding:.3rem .6rem;border-radius:6px;}
+.navlink:hover{background:var(--rule-soft);color:var(--accent);}
+main{max-width:880px;margin:0 auto;padding:2rem 16px 4rem;}
+.eyebrow{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 .4rem;}
+h1{font-family:var(--sans);font-size:2.3rem;line-height:1.15;font-weight:800;margin:0 0 .8rem;}
+h2{font-family:var(--sans);font-size:1.35rem;font-weight:800;margin:0 0 .6rem;display:flex;align-items:baseline;gap:.6rem;}
+h3{font-family:var(--sans);font-size:1.02rem;font-weight:800;margin:1.2rem 0 .4rem;}
+h2 .step{font-size:.8rem;font-weight:800;color:#fff;background:var(--accent);border-radius:999px;
+  min-width:1.7rem;height:1.7rem;display:inline-flex;align-items:center;justify-content:center;flex:none;}
+.lede{font-size:1.15rem;color:var(--ink-soft);margin:0 0 1.2rem;}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:1.4rem;margin:0 0 1.4rem;}
+.isnot{background:var(--callout);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:0 0 1.6rem;}
+.isnot ul{margin:.3rem 0 0;padding-left:1.2rem;}
+.isnot li{margin-bottom:.25rem;}
+.private{font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);margin:.2rem 0 1.6rem;}
+.private strong{color:var(--ink);}
+.kinds{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.kind{display:flex;gap:.7rem;align-items:flex-start;border:1px solid var(--rule);border-radius:8px;padding:.9rem 1rem;cursor:pointer;
+  font-family:var(--sans);font-size:.92rem;}
+.kind input{width:auto;margin-top:.3rem;flex:none;}
+.kind strong{display:block;font-size:1rem;}
+.kind:has(input:checked){border-color:var(--accent);background:var(--pick);}
+.ways{display:grid;grid-template-columns:1fr;gap:1rem;}
+.way{border:1px solid var(--rule);border-radius:8px;padding:1rem 1.1rem;}
+.way h3{margin-top:0;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media (max-width:640px){.grid,.kinds{grid-template-columns:1fr;} h1{font-size:1.8rem;} body{font-size:17px;}}
+.field{display:flex;flex-direction:column;gap:.3rem;min-width:0;}
+.field.wide{grid-column:1/-1;}
+label{font-family:var(--sans);font-size:.88rem;font-weight:700;}
+.hint{font-family:var(--sans);font-size:.8rem;color:var(--ink-soft);font-weight:500;}
+input,select,textarea{font:inherit;font-family:var(--sans);font-size:.95rem;color:var(--ink);background:var(--field);
+  border:1px solid var(--rule);border-radius:6px;padding:.55rem .65rem;width:100%;min-width:0;}
+textarea{resize:vertical;min-height:4.2rem;}
+textarea.answer{min-height:7rem;font-family:var(--mono);font-size:.8rem;}
+[aria-invalid="true"]{border-color:var(--error);}
+.err{font-family:var(--sans);font-size:.82rem;color:var(--error);min-height:1.1em;white-space:pre-line;}
+.out-h{font-family:var(--sans);font-size:.88rem;font-weight:700;margin:1.2rem 0 .4rem;display:flex;
+  align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;}
+.btns{display:flex;gap:.5rem;flex-wrap:wrap;}
+pre{margin:0;background:var(--code);color:var(--code-ink);font-family:var(--mono);font-size:.78rem;line-height:1.55;
+  padding:.9rem 1rem;border-radius:8px;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;}
+pre.scroll{max-height:18rem;overflow:auto;}
+.btn{font-family:var(--sans);font-size:.82rem;font-weight:700;color:#fff;background:var(--accent);border:0;
+  border-radius:6px;padding:.45rem .85rem;cursor:pointer;}
+.btn[disabled]{opacity:.45;cursor:not-allowed;}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent);}
+details{font-family:var(--sans);font-size:.9rem;}
+details summary{cursor:pointer;font-weight:700;}
+details.lvl{border-top:1px solid var(--rule-soft);padding:.5rem 0;}
+details.lvl ul{margin:.3rem 0 .4rem;padding-left:1.2rem;}
+details.lvl li{margin-bottom:.5rem;overflow-wrap:anywhere;}
+details.lvl .sec{font-weight:400;font-size:.85rem;}
+details.lvl .intro{margin:.45rem 0 .2rem;}
+details.lvl .looks{margin:.5rem 0 0;font-family:var(--sans);font-size:.85rem;font-weight:700;}
+details.lvl .cid{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);white-space:nowrap;}
+details.exact{margin-top:.1rem;}
+details.exact summary{font-weight:400;font-family:var(--sans);font-size:.78rem;color:var(--ink-soft);}
+details.exact p{margin:.25rem 0;font-size:.85rem;}
+.preview{display:flex;flex-wrap:wrap;gap:1rem;}
+.pv{flex:1 1 260px;border:1px solid var(--rule);border-radius:8px;padding:1rem;min-width:0;}
+.pv.light{background:#FFFFFF;color:#1A1A1A;}
+.pv.dark{background:#0D1117;color:#E6EDF3;}
+.pv .cap{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.7;margin:0 0 .6rem;}
+.pv a{font-family:var(--sans);font-size:.85rem;}
+.pv.light a{color:#3A5A78;} .pv.dark a{color:#9DB9D4;}
+.pv img{display:block;max-width:100%;height:auto;}
+.pv details{margin-top:.5rem;font-size:.85rem;}
+.pv details p{margin:.4rem 0 0;font-size:.82rem;line-height:1.5;overflow-wrap:anywhere;}
+.check{display:flex;align-items:flex-start;gap:.5rem;font-family:var(--sans);font-size:.9rem;margin-top:.8rem;}
+.check input{width:auto;margin-top:.25rem;}
+.status{font-family:var(--sans);font-size:.82rem;color:var(--ok);min-height:1.1em;}
+.muted{color:var(--ink-soft);}
+.small{font-family:var(--sans);font-size:.85rem;}
+.org-only[hidden]{display:none;}
+.judge{display:block;margin-top:.2rem;}
+footer{max-width:880px;margin:0 auto;padding:1.5rem 16px 3rem;font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);border-top:1px solid var(--rule);}
+footer p{margin:.3rem 0;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="topnav"><div class="topnav-inner">
+  <a class="brandmark" href="https://decisionprovenancestandard.org/">Decision Provenance Standard<span class="tm">&trade;</span></a>
+  <nav class="docnav" aria-label="Site"><a class="navlink" href="https://decisionprovenancestandard.org/">Home</a><a class="navlink" href="https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html">The Standard</a><a class="navlink" href="https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html#section-7-conformance-levels">Conformance Levels</a></nav>
+</div></header>
+
+<main id="main">
+  <p class="eyebrow">Badge maker</p>
+  <h1>Show that you use the Standard</h1>
+  <p class="lede">Write your declaration, with your own AI if you like, and get one piece of code: the badge, with your declaration inside it.</p>
+
+  <div class="isnot">
+    <strong>What the badge is, and is not</strong>
+    <ul>
+      <li>It is <strong>your own statement</strong>. Your declaration travels with the badge, on your own page.</li>
+      <li>The Standard's Steward, the organization that looks after its text, does <strong>not</strong> validate, grade or audit it. There is no application, no badge number and no register.</li>
+      <li>It is not a certificate, and must never be presented as certified, verified or approved by anyone.</li>
+      <li>Organizations show a Conformance Level (1, 2 or 3) for their Charters (a Charter is the written rulebook for one area of decisions). Products show "Implements", with no Level. There are no badges by mode.</li>
+      <li>Clicking the badge opens the Standard's own description of that Level.</li>
+    </ul>
+  </div>
+  <p class="private"><strong>Nothing you type leaves this page.</strong> It has no server, stores nothing and counts nothing.</p>
+
+  <section class="card" aria-labelledby="h-kind">
+    <h2 id="h-kind"><span class="step">1</span>What are you declaring?</h2>
+    <div class="kinds" role="radiogroup" aria-label="Kind of declaration">
+      <label class="kind"><input type="radio" name="kind" value="organization" checked><span><strong>An organization</strong>Your own Charters meet a Conformance Level.</span></label>
+      <label class="kind"><input type="radio" name="kind" value="product"><span><strong>A product</strong>Your product implements the Standard. No Level.</span></label>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-write">
+    <h2 id="h-write"><span class="step">2</span>Write your declaration</h2>
+    <div class="ways">
+      <div class="way">
+        <h3>With your own AI</h3>
+        <p class="small" style="margin-top:0">Copy this prompt into the AI assistant you already use. It asks you about your Charters one question at a time, works out your Level with you, and ends with a block of data. Paste that block below. Your AI helps you judge; the claim stays yours.</p>
+        <div class="btns"><button class="btn" type="button" data-copy="promptView">Copy the prompt</button></div>
+        <div class="status" id="s-promptView"></div>
+        <details><summary>Read the prompt</summary><pre class="scroll" id="promptView"></pre><p class="small muted">Its source, with the criteria it is built from: <a href="https://github.com/decision-provenance-standard/standard/tree/main/kit/declaration">the declaration kit on GitHub</a>.</p></details>
+        <p class="small muted">Using a coding agent? The same check comes as <a href="https://github.com/decision-provenance-standard/standard/tree/main/kit/skill/dps-declaration">an agent skill</a> that reads your actual records and writes the declaration from the evidence.</p>
+        <div class="field" style="margin-top:.8rem"><label for="answer">Paste your AI's answer</label>
+          <textarea id="answer" class="answer" spellcheck="false" placeholder="Paste the whole answer, or just the JSON block."></textarea>
+          <span class="err" id="e-answer" role="alert"></span></div>
+        <div class="btns"><button class="btn" type="button" id="useAnswer">Use this answer</button></div>
+        <div class="status" id="s-answer"></div>
+      </div>
+
+      <div class="way">
+        <h3>Or fill it in yourself</h3>
+        <form id="declForm" novalidate>
+          <div class="grid">
+            <div class="field wide"><label for="f-name"><span class="org-only">Organization name</span><span class="prod-only" hidden>Product name</span></label><input id="f-name" maxlength="120" autocomplete="organization"><span class="err" id="e-name"></span></div>
+            <div class="field wide org-only"><label for="f-charters">Charters covered <span class="hint">(one per line: each Charter's name and ID, or your own words)</span></label><textarea id="f-charters" placeholder="For example: Pricing exceptions (pricing-decision)"></textarea><span class="err" id="e-charters"></span></div>
+            <div class="field org-only"><label for="f-level">Conformance Level</label><select id="f-level"><option value="1">Level 1: Charter-Conformant</option><option value="2">Level 2: Mode-Disambiguated</option><option value="3">Level 3: Continuously Auditable</option></select><span class="err" id="e-level"></span></div>
+            <div class="field"><label for="f-date">Date of the declaration</label><input id="f-date" type="date"><span class="err" id="e-date"></span></div>
+            <div class="field wide org-only" id="levelGuide"><span class="hint">What each Level means, and what it looks at. Each Level includes everything in the Levels below it.</span>
+<!--GEN:checklist-->
+<details class="lvl" data-level="1"><summary>Level 1: Charter-Conformant <span class="sec">(<a href="https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html#72-conformance-level-1-charter-conformant">§7.2</a>)</span></summary>
+<p class="intro">Your rulebook for one area of decisions, which the Standard calls a Charter, is written down in full, and the records kept under it can be found in one place. It suits an organization that has set up a Charter and is starting to keep decision records under it.</p>
+<p class="looks">What it looks at:</p><ul>
+<li><span class="plain">A complete Charter: every field the Standard lists is actually filled in, not just labeled complete. A few fields are needed only in some cases, for example when records are about staff below executive level.</span> <span class="cid">L1-01</span><details class="exact"><summary>Exact check</summary><p>Is there a written Charter for this area of decisions, with every field the Standard requires filled in, so that it has reached the &quot;fields-completed&quot; state?</p><p class="muted judge">How to judge: Check the fields themselves. A &quot;fields-completed&quot; label on the Charter is not evidence on its own: &quot;A Charter that omits any required field at the field's required-at-state has not reached that state&quot; (§3.2). A field counts when it is present and meets its definition in §3.2: for example, accountable_owner must name one person, not a role. (Which record types the schedule lists is judged under L1-03, not here.) Every Charter at &quot;fields-completed&quot; has these filled in (§3.2, §3.3): charter_id, charter_name, decision_class, accountable_owner, created_at, inside_decisions, outside_decisions, mode_declaration, cadence, record_location, re_decision_triggers, escalation_rule, schedule_of_records and conformance_level_declared. It also needs disclosure_metadata_pointer when mode_declaration is mode-2 or mode-1-with-embedded-mode-2-summary (§3.2). Three more are needed only in some cases (§3.1, §G.11.3): use_case_scope_limit_declaration, when any record would describe a person below executive level; works_council_consultation_record, when the Charter works in an EU or UK country with a works council (such as Germany, France or the Netherlands) and covers records at function-leader level or below; and named_employment_counsel_of_record, when the Charter creates records at function-leader, team-leader or individual-professional level describing natural persons (Appendix G §G.11.3), with the counsel's most recent attestation no more than 365 days old. The use_case_scope_limit_declaration must be one of the scopes §3.1 lists (audit-readiness; internal-optimization; team-level-measurement, at team-leader level and above; or individual-development-coaching with its three sub-fields affirmer_consent.coaching_consent_record_pointer, excluded_downstream_uses and hr_of_record_charter_scope_confirmation): &quot;free-text or hybrid scopes are not conformant&quot; (§3.1). In the works_council_consultation_record, the consultation completion date must be on or before the Charter's &quot;fields-completed&quot; date (§3.1). A record's level is its altitude field (§6.2.3): executive, function-leader, team-leader or individual-professional; if the records carry no such field, ask which levels they are at. A field may use another name if it means the same thing (§3.2). One missing or wrong field can fail two criteria: for example, a role named as owner fails L1-01 and L1-05, and a missing escalation rule fails L1-01 and L1-07. That is intended: record it under both.</p></details></li>
+<li><span class="plain">A declared drafting method, one of three: a person drafts; an AI system drafts and a named person reviews; or a person drafts with an AI-drafted summary inside.</span> <span class="cid">L1-02</span><details class="exact"><summary>Exact check</summary><p>Does the Charter declare how its decisions are drafted, using exactly one of these three values: &quot;mode-1&quot; (a person drafts), &quot;mode-2&quot; (an AI system drafts and a named person reviews and signs off), or &quot;mode-1-with-embedded-mode-2-summary&quot; (a person drafts, with an AI-drafted summary inside)?</p></details></li>
+<li><span class="plain">A schedule of records: the Charter's list of the kinds of records it will keep. At least decisions, reopened decisions, escalations and changes to the Charter, plus reviews of the labels on AI-drafted content where AI drafts.</span> <span class="cid">L1-03</span><details class="exact"><summary>Exact check</summary><p>Does the Charter commit to a list of the records it will keep, at least by type: decision records, re-decision records, escalation records and Charter-amendment records, plus disclosure-review records when the Charter needs them?</p><p class="muted judge">How to judge: Disclosure-review records must be listed when the Charter's mode_declaration is mode-2 or mode-1-with-embedded-mode-2-summary (§7.2.1). They should be listed when a mode-1 Charter's records embed AI-drafted content that carries a disclosure block (§4.7): that is a recommendation, so leaving them out does not fail this criterion, but put it on the list of fixes. They are not needed for a mode-1 Charter whose records carry no AI-generated content. Nor are they needed for AI-drafted outputs outside the Standard's disclosure requirement (§4.6): outputs made outside the EU that, as the organization has checked, reach no one in the EU, which the Charter declares outside it (§4.6.1; a Charter written before v1.1 of the Standard may rely on this without the declaration). Such outputs carry no disclosure block, so they need no disclosure-review record. A Charter written before v1.1 whose schedule met revision 8's requirement remains valid without adding disclosure-review records (§7.2.1). Ask about this only for a mode-2 or mode-1-with-embedded-mode-2-summary Charter that does not list disclosure-review records.</p></details></li>
+<li><span class="plain">One lasting place where the records live, searchable at least by type of record and by date, with each record opening from its own link. A simple list giving each record's type and date is enough for the search.</span> <span class="cid">L1-04</span><details class="exact"><summary>Exact check</summary><p>Does the Charter point to one lasting place (an index) where its records live, can that index be searched at least by record type and by date range, and does each record listed there open from its own location?</p><p class="muted judge">How to judge: A table or list that gives each record's type and date counts as searchable by record type and by date range. Each record must also open from its own record_location: &quot;A schedule whose Charter index resolves but whose individual records do not ... is a Level-1 conformance failure even if the schedule-enumeration field is populated&quot; (§6.3.2).</p></details></li>
+<li><span class="plain">An owner: one named person accountable for the Charter, not a role, a team or a department.</span> <span class="cid">L1-05</span><details class="exact"><summary>Exact check</summary><p>Does the Charter name exactly one person as its accountable owner (a person, not a role, a team or a department)?</p></details></li>
+<li><span class="plain">At least two triggers that reopen a decision: one based on how the decision is working out, and one based on a change outside the organization.</span> <span class="cid">L1-06</span><details class="exact"><summary>Exact check</summary><p>Does the Charter set at least two triggers that reopen a decision: at least one based on outcome evidence (how the decision is working out) and at least one based on market evidence (a change outside the organization)?</p></details></li>
+<li><span class="plain">An escalation rule: a stated, exact condition that moves a decision out of its usual forum, not &quot;when it feels stuck&quot;.</span> <span class="cid">L1-07</span><details class="exact"><summary>Exact check</summary><p>Does the Charter set an escalation rule with a named, exact trigger: a stated condition that moves a decision out of its usual forum (not &quot;when it feels stuck&quot;)?</p></details></li>
+</ul></details>
+<details class="lvl" data-level="2"><summary>Level 2: Mode-Disambiguated <span class="sec">(<a href="https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html#73-conformance-level-2-mode-disambiguated">§7.3</a>)</span></summary>
+<p class="intro">On top of Level 1, every decision record says whether a person or an AI system drafted it, content drafted by AI carries a label, and a named person signs off each decision. It suits an organization already keeping records under its Charter, especially one that uses AI to draft them.</p>
+<p class="looks">What it looks at:</p><ul>
+<li><span class="plain">A drafting label on every decision record: whether a person or an AI system drafted it, set when the record is opened and never changed on that record; a change of mode is recorded as a new record.</span> <span class="cid">L2-01</span><details class="exact"><summary>Exact check</summary><p>Does every decision record under the Charter carry its dispatch_mode field (who drafted it: a person or an AI system), set when the record was opened and never silently changed?</p><p class="muted judge">How to judge: Met when every decision record carries dispatch_mode and no record's dispatch_mode was changed on the record itself: the mode &quot;cannot be silently mutated thereafter (mutation is a re-dispatch event with its own decision record)&quot; (§6.2.1). A change of mode appears as a new, re-dispatched record; for a demotion from AI-drafted to person-drafted, the new record carries prior_state_archive pointing to the earlier one (§4.5). A Charter amendment does not change the mode of records already made: they &quot;remain bound to the pre-amendment Mode&quot; (§4.5). A history of past values is not required.</p></details></li>
+<li><span class="plain">A disclosure block on every AI-drafted record: the label that gives five facts, namely who stands behind it (a person, the organization, or both), which AI system drafted it, for which countries, what kind of content it is, and when it was made. Only where an AI system drafts records.</span> <span class="cid">L2-02</span><details class="exact"><summary>Exact check</summary><p>Does every AI-drafted (mode-2) record carry a complete disclosure block with all five required fields: declaring authority, AI system identity, jurisdictions it applies to, content type, and generation timestamp?</p><p class="muted">Applies only if: The Charter has any records drafted by an AI system (mode-2), other than outputs outside the Standard's disclosure requirement: those the Charter declares outside it, or, for a Charter written before v1.1, outputs that already met the §4.6.1 test (§4.6.1; see L1-03).</p><p class="muted judge">How to judge: The declaring authority may name the person who prepares the disclosure, the organization they act for, or both: any of the three counts, though the Standard asks new records to name both (§4.6.2). It is never the AI system's vendor.</p></details></li>
+<li><span class="plain">A disclosure block at the exact spot where AI-drafted content sits inside a record a person drafted. Only where person-drafted records contain AI-drafted content.</span> <span class="cid">L2-03</span><details class="exact"><summary>Exact check</summary><p>Does every person-drafted record that contains AI-drafted content carry a disclosure block at the point where that content sits?</p><p class="muted">Applies only if: The Charter has any person-drafted records with AI-drafted content inside them (records flagged mode_1_edge_case_flag).</p></details></li>
+<li><span class="plain">A regular drift check: person-drafted records are sampled at the rates the Standard sets, a named peer reviewer confirms any the sample flags, and the latest run found none that should have been marked as AI-drafted. Only where there are person-drafted records.</span> <span class="cid">L2-04</span><details class="exact"><summary>Exact check</summary><p>Has the sample audit run at the rate the Standard sets (15% rolling; every one of a Charter's first 100 records; 30% for Charters declaring the embedded-summary mode), with a designated peer reviewer confirming the records it flagged, and did the most recent run end with no peer-confirmed findings of records that should have been marked as AI-drafted?</p><p class="muted">Applies only if: The Charter has person-drafted records to sample (mode-1 records, including those with AI-drafted content inside).</p></details></li>
+<li><span class="plain">A recorded sign-off on every affirmed record. An affirmation is a person actively signing off a decision; its record shows when, by whom (the accountable owner or a named delegate) and how. Closed records count as affirmed; drafts do not.</span> <span class="cid">L2-05</span><details class="exact"><summary>Exact check</summary><p>Does every affirmed record carry an affirmation record saying when, by whom (the accountable owner or a named delegate) and how a person affirmed it?</p><p class="muted">Applies only if: The Charter has any affirmed records: records that are closed, or marked affirmed. Drafts and records still awaiting sign-off are not affirmed records.</p><p class="muted judge">How to judge: Met only when each affirmed record says all three: when, by whom and how. L2-05 and L2-07 both turn on how each affirmation was made, so ask about it once and use the answer for both. The person who affirmed must be the accountable owner or a named delegate (§6.2.3). A closed record counts as affirmed here, because the Standard expects every closed decision record to have been affirmed by a person, with that affirmation recorded (§7.1): a closed record with no affirmation recorded fails this criterion. If the person does not know how the affirmations were made, record &quot;not sure&quot;; if they say it is not recorded, &quot;not met&quot;.</p></details></li>
+<li><span class="plain">A seal on every affirmed record, made at the moment of sign-off. A seal is a digital fingerprint of the record that shows whether it was changed afterwards; a seal added later does not count.</span> <span class="cid">L2-06</span><details class="exact"><summary>Exact check</summary><p>Does every affirmed record carry a seal (the seal_hash field) stored when it was affirmed?</p><p class="muted">Applies only if: The Charter has any affirmed records (closed, or marked affirmed; see L2-05).</p><p class="muted judge">How to judge: The seal is computed and stored at the moment the record is affirmed (§5.1(3)). A seal added later does not count, so a record affirmed before sealing began cannot meet this criterion. Seal every record at the moment it is affirmed from now on: that stops the gap growing, but it does not close it for records already affirmed without a seal.</p></details></li>
+<li><span class="plain">Real sign-offs: in the organization's own recorded sample of affirmed records, every affirmation was an active act by a person, never time passing, silence or a default approval.</span> <span class="cid">L2-07</span><details class="exact"><summary>Exact check</summary><p>In the organization's own recorded sample of affirmed records, was every affirmation an active act by a person, never time passing, silence, or a default approval?</p><p class="muted">Applies only if: The Charter has any affirmed records (closed, or marked affirmed; see L2-05).</p><p class="muted judge">How to judge: The sample is one the organization took and recorded itself (for example in a review log). Do not pick a sample yourself. This turns on the same fact as L2-05 (how each affirmation was made): use the answer already given. If no sample has been taken and recorded, record &quot;not met&quot;; if the person does not know whether one exists, &quot;not sure&quot;.</p></details></li>
+<li><span class="plain">The drafting authority on every affirmed record that an AI system drafted, in whole or as a summary inside it: a pointer to the role under which your organization lets that system draft (its name and version are optional). This is separate from the person who signed off.</span> <span class="cid">L2-08</span><details class="exact"><summary>Exact check</summary><p>Does every affirmed record that is AI-drafted, or carries an AI-drafted summary, record its drafting authority: a pointer to the role under which your organization lets the AI system draft (the system's name and version are optional)?</p><p class="muted">Applies only if: The Charter has any affirmed records (closed, or marked affirmed; see L2-05) that are AI-drafted (mode-2) or carry an AI-drafted summary (mode-1-with-embedded-mode-2-summary).</p><p class="muted judge">How to judge: The drafting authority is the record's drafting_authority field (§6.2.3). Its deployer_role_pointer points to the role under which your organization authorizes the AI system to draft (for example &quot;pricing team drafting assistant under Charter pricing-decision&quot;); the system's name and version are optional. It is not the person who affirmed the record (affirmed_by or affirmation_record), and not the disclosure block's declaring authority: those name people or the organization, not the AI system. It must use the Standard's field name, drafting_authority (see the rule on record field names).</p></details></li>
+<li><span class="plain">Protection for records about people: records of one person's own work point to that person's consent, stop when consent is withdrawn, and are readable only by those the Charter names; sign-offs on records about function or team leaders check that the Charter allows that level. Only where there are such records.</span> <span class="cid">L2-09</span><details class="exact"><summary>Exact check</summary><p>For records about one person's own work (individual-professional level): does each carry a pointer to that person's consent record, are no records added after consent was withdrawn, and can only the readers named in the Charter's use-case scope read them? And for records at function-leader or team-leader level: does each sign-off check that the Charter's use-case scope allows that level before the record is sealed?</p><p class="muted">Applies only if: The Charter has any records at function-leader, team-leader or individual-professional level (see L1-01).</p><p class="muted judge">How to judge: §6.2.3.1 sets these checks for the system that controls access to the records, and applies them to AI systems too: an AI system drafting at these levels must act under a role the Charter's use-case scope allows. An organization whose access control does not perform them &quot;SHALL NOT self-declare Conformance Level 2 or above&quot; (§6.2.3.1).</p></details></li>
+<li><span class="plain">A minimum group size for records about teams: set through your data protection officer's assessment, written down, and enforced when records are written. Only where records are at team-leader level or below.</span> <span class="cid">L2-10</span><details class="exact"><summary>Exact check</summary><p>Is the minimum group size for team-level records set through your data protection officer's assessment, written down (in the Charter's works-council consultation record, or in your data protection impact assessment where no works council applies), and enforced when records are written?</p><p class="muted">Applies only if: The Charter has any records at team-leader level or below (records at altitude team-leader or individual-professional).</p></details></li>
+<li><span class="plain">A deletion record for every removal of information: who confirmed the deletion, when, how the data was deleted, and how the deletion was checked. Only where information has been removed.</span> <span class="cid">L2-11</span><details class="exact"><summary>Exact check</summary><p>Does every redaction-event record carry a deletion attestation with all four parts: who attested, when, how the data was deleted, and how the deletion was checked?</p><p class="muted">Applies only if: The Charter has any redaction-event records (records of removing information).</p></details></li>
+</ul></details>
+<details class="lvl" data-level="3"><summary>Level 3: Continuously Auditable <span class="sec">(<a href="https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html#74-conformance-level-3-continuously-auditable">§7.4</a>)</span></summary>
+<p class="intro">On top of Levels 1 and 2, the Charter keeps running as written: decisions are reopened and escalated when its rules say, its own checks run on schedule, and its records can be searched and exported for an audit at any time. It suits an organization that expects auditors, lawyers or regulators to ask for its records.</p>
+<p class="looks">What it looks at:</p><ul>
+<li><span class="plain">Reopening on time: the triggers that reopen decisions have produced those records at the pace the Charter declares, with none missed.</span> <span class="cid">L3-01</span><details class="exact"><summary>Exact check</summary><p>Have the Charter's re-decision triggers produced re-decision records on the cadence the Charter declares, with no missed firings?</p></details></li>
+<li><span class="plain">Escalations on record: each time the escalation rule fired, a record gives the outcome and the escalation owner's call.</span> <span class="cid">L3-02</span><details class="exact"><summary>Exact check</summary><p>Each time the escalation rule fired, was an escalation record produced, stating the outcome and the escalation owner's call?</p></details></li>
+<li><span class="plain">Labels kept current: every disclosure block has been reviewed within the Charter's review cycle. Only where records carry disclosure blocks.</span> <span class="cid">L3-03</span><details class="exact"><summary>Exact check</summary><p>Does every disclosure block carry a last_reviewed_at date within the review cadence the Charter declares?</p><p class="muted">Applies only if: The Charter has any records carrying a disclosure block.</p></details></li>
+<li><span class="plain">Records ready for an audit: they can be searched and exported on demand by type, date, drafting method, owner and trigger, within the response time you have stated.</span> <span class="cid">L3-04</span><details class="exact"><summary>Exact check</summary><p>Can the records be searched and exported on demand for lawyers and auditors, by record type, date range, drafting mode, accountable owner and re-decision trigger, within the response time your organization has stated?</p></details></li>
+<li><span class="plain">A recent level check: your own check of which Level you reach (the Standard calls it the conformance-level reporter) has run within the Charter's reporting cycle.</span> <span class="cid">L3-05</span><details class="exact"><summary>Exact check</summary><p>Has your level check (the Standard calls it the conformance-level reporter) been run within the reporting cadence the Charter declares?</p></details></li>
+<li><span class="plain">Replaced records kept whole: when a record is replaced, the old one is kept in full and unchanged, and the new one points to it.</span> <span class="cid">L3-06</span><details class="exact"><summary>Exact check</summary><p>When a record is replaced by a newer one, is the old record kept in full and unchanged, with the new record pointing to it (supersedes)?</p></details></li>
+</ul></details>
+<!--/GEN:checklist-->
+            </div>
+            <div class="field"><label for="f-by-name">Who stands behind it <span class="hint">(a person's name)</span></label><input id="f-by-name" maxlength="120" autocomplete="name"><span class="err" id="e-affirmed_by"></span></div>
+            <div class="field"><label for="f-by-role">Their role</label><input id="f-by-role" maxlength="120" autocomplete="organization-title"></div>
+            <div class="field wide"><label for="f-page">Page where it will be published <span class="hint">(optional, https://)</span></label><input id="f-page" type="url" inputmode="url" maxlength="500" placeholder="https://example.com/decision-provenance"><span class="err" id="e-declaration_page"></span></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-badge">
+    <h2 id="h-badge"><span class="step">3</span>Your badge and declaration, in one paste</h2>
+    <p class="small" style="margin-top:0">One piece of code carries the badge, a small "Our declaration" fold-out that anyone can open and read, and the same declaration as data for search engines and tools.</p>
+    <div class="out-h"><span>Preview</span></div>
+    <div class="preview" id="preview">
+      <div class="pv light"><p class="cap">On a light page</p><div class="pv-slot"></div></div>
+      <div class="pv dark"><p class="cap">On a dark page</p><div class="pv-slot"></div></div>
+    </div>
+    <label class="check"><input type="checkbox" id="textlink" checked><span>Also add a plain text link to the Standard's website. <span class="muted">Optional: keep it, remove it, or mark it however you like (for example with rel="nofollow").</span></span></label>
+
+    <div class="out-h"><span>For your website</span><button class="btn" type="button" data-copy="webOut" disabled>Copy</button></div>
+    <pre id="webOut">Complete step 2 first.</pre>
+    <div class="status" id="s-webOut"></div>
+
+    <div class="out-h"><span>For a README on GitHub</span><span class="btns"><button class="btn ghost" type="button" id="dlSvg" disabled>Download the badge file</button><button class="btn" type="button" data-copy="ghOut" disabled>Copy</button></span></div>
+    <pre id="ghOut">Complete step 2 first.</pre>
+    <div class="status" id="s-ghOut"></div>
+    <p class="small muted">GitHub does not run pasted scripts, so your declaration's data goes inside the badge file itself. Download it, commit it next to your README as <code>dps-declaration-badge.svg</code>, then paste the code above.</p>
+
+    <div class="out-h"><span>The declaration as data<span class="org-only">, for your own decision register</span></span><button class="btn" type="button" data-copy="jsonOut" disabled>Copy</button></div>
+    <pre id="jsonOut">Complete step 2 first.</pre>
+    <div class="status" id="s-jsonOut"></div>
+    <p class="small muted org-only" id="registerNote">The Standard asks you to keep your self-declaration in your own decision register (§7.1).</p>
+  </section>
+</main>
+<footer><p>Your declaration is your own claim. Conformance under the Decision Provenance Standard is self-declared, and no one certifies it. "Decision Provenance Standard" is a name held by its Steward; see <a href="https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html#111-trademark-convention">§11.1</a> for how it may be used.</p>
+<p>Decision Provenance Standard&trade; v1.1 — Reading Edition (rev. 9). The records are input, not evidence. The Standard informs frameworks without satisfying them. Conformance is self-declared; no body certifies it. It is not legal advice and not a regulatory substitute.</p></footer>
+
+<script type="text/plain" id="dps-prompt">You are helping me write a self-declaration under the Decision Provenance Standard v1.1, reading edition rev. 9 (https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html). A self-declaration is our own claim about our own records. Nobody grades it for us: the Standard's Steward does not validate, grade or audit declarations.
+
+How to work with me:
+1. Ask about one topic per message, and wait for my answer. Facts that belong to the same step go together in one short message (for example our name and our Charters, or the date, the person and the page at the end). You may ask for the evidence in the same message ("If yes, where is that written?").
+2. Never ask again for a fact I have already given, including an "Applies only if" condition. Use my earlier answer.
+3. Never guess or fill in a fact I have not given you. If I am not sure, record "not sure". "Not sure" does not meet the criterion.
+4. When I answer yes, note where the evidence lives in a few words: a document, a field, a system, or a document kept elsewhere with its reference. If I say something is true but cannot say where it is written or recorded, record "not sure" too. The list of fixes then tells us what evidence to record, and where.
+5. If I answer only part of a question, name the missing part. If I am sure it is missing (for example "we record who and when, but not how"), record "not met". If I don't know whether it is there, record "not sure".
+6. When I answer a plain no, do not ask for evidence. Record "not met" and move on.
+7. If I ask for a particular Level, or say we are certified, do not agree. Say plainly that the Level comes only from the criteria below, and that this is a self-declaration that no one certifies. Then carry on with the questions.
+8. Never describe us or the result as certified, compliant, verified or approved. The word to use is "self-declared".
+9. Keep questions short and plain. Explain a term only if I ask.
+
+Step 1. Ask whether this declaration is for an organization (about its own Charters, with a Level) or for a product (a product that implements the Standard; a product never carries a Level). For a product, go straight to Step 5.
+
+Step 2 (organization). In one message, ask for the organization's name and which Charters the declaration should cover, in our own words.
+If we have no Charter, or do not know what one is, tell me in these two sentences: "A Charter is the written setup for one area of decisions: who owns them, how they are drafted, which records are kept and where. The Standard's Levels are about Charters, so an organization cannot declare any Level until it has at least one." In the same message, offer a product declaration instead (Step 5), in case we make a product that implements the Standard, and point me to the Standard's section on Charters (https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html#section-3-the-charter-mechanism). Unless I then ask for a product declaration, stop there: no Level, no declaration and no JSON block.
+
+Step 3. For each Charter, go through the criteria below. Check one Level at a time, starting with Level 1. Check every criterion of that Level, even after one is not met, so the list of gaps is complete. Only if every criterion of the Level is met, go on to the next Level. Stop at the first Level with any criterion not met, report that Level's gaps, and do not check the Levels above it. Where a criterion says "Applies only if", ask that first, unless I have already answered it; if it is not true for us, record "does not apply" with the reason: it counts as met. Where it says "How to judge", use that to decide.
+Before L1-01, unless I have already said, ask in one message: at which levels are this Charter's decisions made and signed off (its records' altitude)? Ask me to name every level that applies: executive; function leader (the head of a function or department); team leader; an individual professional deciding about their own work. In the same message, ask whether we work in an EU or UK country with a works council. Use the answers this way: any level below executive needs use_case_scope_limit_declaration (L1-01); function leader or below, where the records describe people, needs named_employment_counsel_of_record (L1-01), and, in a country with a works council, works_council_consultation_record (L1-01); function leader or below also brings in L2-09; team leader or below brings in L2-10.
+Ask L1-01 as one checklist in plain words, as given under it, not as one question per field. Leave out any "if" item that my earlier answers already settle.
+
+Level 1: Charter-Conformant (§7.2). The Charter is written down in full.
+- [L1-01] Is there a written Charter for this area of decisions, with every field the Standard requires filled in, so that it has reached the "fields-completed" state?
+  How to judge: Check the fields themselves. A "fields-completed" label on the Charter is not evidence on its own: "A Charter that omits any required field at the field's required-at-state has not reached that state" (§3.2). A field counts when it is present and meets its definition in §3.2: for example, accountable_owner must name one person, not a role. (Which record types the schedule lists is judged under L1-03, not here.) Every Charter at "fields-completed" has these filled in (§3.2, §3.3): charter_id, charter_name, decision_class, accountable_owner, created_at, inside_decisions, outside_decisions, mode_declaration, cadence, record_location, re_decision_triggers, escalation_rule, schedule_of_records and conformance_level_declared. It also needs disclosure_metadata_pointer when mode_declaration is mode-2 or mode-1-with-embedded-mode-2-summary (§3.2). Three more are needed only in some cases (§3.1, §G.11.3): use_case_scope_limit_declaration, when any record would describe a person below executive level; works_council_consultation_record, when the Charter works in an EU or UK country with a works council (such as Germany, France or the Netherlands) and covers records at function-leader level or below; and named_employment_counsel_of_record, when the Charter creates records at function-leader, team-leader or individual-professional level describing natural persons (Appendix G §G.11.3), with the counsel's most recent attestation no more than 365 days old. The use_case_scope_limit_declaration must be one of the scopes §3.1 lists (audit-readiness; internal-optimization; team-level-measurement, at team-leader level and above; or individual-development-coaching with its three sub-fields affirmer_consent.coaching_consent_record_pointer, excluded_downstream_uses and hr_of_record_charter_scope_confirmation): "free-text or hybrid scopes are not conformant" (§3.1). In the works_council_consultation_record, the consultation completion date must be on or before the Charter's "fields-completed" date (§3.1). A record's level is its altitude field (§6.2.3): executive, function-leader, team-leader or individual-professional; if the records carry no such field, ask which levels they are at. A field may use another name if it means the same thing (§3.2). One missing or wrong field can fail two criteria: for example, a role named as owner fails L1-01 and L1-05, and a missing escalation rule fails L1-01 and L1-07. That is intended: record it under both.
+  Ask it as one checklist, in plain words. Does the Charter have: an ID and a name (charter_id, charter_name); when it was created (created_at); the kind of decisions it governs, and which decisions are inside it and outside it (decision_class, inside_decisions, outside_decisions); one named person who owns it (accountable_owner); how its decisions are drafted (mode_declaration); how often decisions are made (cadence); where its records live (record_location); what reopens a decision, and what escalates one (re_decision_triggers, escalation_rule); which records it keeps (schedule_of_records); the Level it aims for (conformance_level_declared); if an AI system drafts, or drafts parts: a link to its disclosure block (disclosure_metadata_pointer); if records describe people below executive level: what the records may be used for (use_case_scope_limit_declaration); if you work in an EU or UK country with a works council and records cover function-leader level or below: the works-council consultation record (works_council_consultation_record); if records at function-leader level or below describe people: the named employment counsel of record, with an attestation less than a year old (named_employment_counsel_of_record)?
+  Evidence to ask for: The Charter document or record, and each of the fields listed under "How to judge".
+  (Standard: §7.2.1, §3.2, §3.3, §3.1, §G.11.3; signal: charter_state_is_fields_completed)
+- [L1-02] Does the Charter declare how its decisions are drafted, using exactly one of these three values: "mode-1" (a person drafts), "mode-2" (an AI system drafts and a named person reviews and signs off), or "mode-1-with-embedded-mode-2-summary" (a person drafts, with an AI-drafted summary inside)?
+  Evidence to ask for: The Charter's mode_declaration field.
+  (Standard: §7.2.1, §3.4, §4.4; signal: mode_declaration_populated)
+- [L1-03] Does the Charter commit to a list of the records it will keep, at least by type: decision records, re-decision records, escalation records and Charter-amendment records, plus disclosure-review records when the Charter needs them?
+  How to judge: Disclosure-review records must be listed when the Charter's mode_declaration is mode-2 or mode-1-with-embedded-mode-2-summary (§7.2.1). They should be listed when a mode-1 Charter's records embed AI-drafted content that carries a disclosure block (§4.7): that is a recommendation, so leaving them out does not fail this criterion, but put it on the list of fixes. They are not needed for a mode-1 Charter whose records carry no AI-generated content. Nor are they needed for AI-drafted outputs outside the Standard's disclosure requirement (§4.6): outputs made outside the EU that, as the organization has checked, reach no one in the EU, which the Charter declares outside it (§4.6.1; a Charter written before v1.1 of the Standard may rely on this without the declaration). Such outputs carry no disclosure block, so they need no disclosure-review record. A Charter written before v1.1 whose schedule met revision 8's requirement remains valid without adding disclosure-review records (§7.2.1). Ask about this only for a mode-2 or mode-1-with-embedded-mode-2-summary Charter that does not list disclosure-review records.
+  Evidence to ask for: The Charter's schedule of records and its mode_declaration, whether any record under it carries a disclosure block, and any statement in the Charter that its AI-drafted outputs are outside the disclosure requirement.
+  (Standard: §7.2.1, §3.2, §6.3.1, §4.6.1, §4.7; signal: schedule_of_records_committed)
+- [L1-04] Does the Charter point to one lasting place (an index) where its records live, can that index be searched at least by record type and by date range, and does each record listed there open from its own location?
+  How to judge: A table or list that gives each record's type and date counts as searchable by record type and by date range. Each record must also open from its own record_location: "A schedule whose Charter index resolves but whose individual records do not ... is a Level-1 conformance failure even if the schedule-enumeration field is populated" (§6.3.2).
+  Evidence to ask for: The Charter's record_location, the index it points to, and a few records opened from it.
+  (Standard: §7.2.1, §3.2, §6.4, §6.3.2; signal: record_location_resolvable)
+- [L1-05] Does the Charter name exactly one person as its accountable owner (a person, not a role, a team or a department)?
+  Evidence to ask for: The Charter's accountable_owner field.
+  (Standard: §7.2.1, §3.2; signal: accountable_owner_named)
+- [L1-06] Does the Charter set at least two triggers that reopen a decision: at least one based on outcome evidence (how the decision is working out) and at least one based on market evidence (a change outside the organization)?
+  Evidence to ask for: The Charter's re_decision_triggers field.
+  (Standard: §7.2.1, §3.2; signal: re_decision_triggers_minimum_met)
+- [L1-07] Does the Charter set an escalation rule with a named, exact trigger: a stated condition that moves a decision out of its usual forum (not "when it feels stuck")?
+  Evidence to ask for: The Charter's escalation_rule field.
+  (Standard: §7.2.1, §3.2; signal: none named in §7)
+
+Level 2: Mode-Disambiguated (§7.3). Every record says whether a person or an AI system drafted it, and carries the disclosure and sign-off the Standard asks for.
+- [L2-01] Does every decision record under the Charter carry its dispatch_mode field (who drafted it: a person or an AI system), set when the record was opened and never silently changed?
+  How to judge: Met when every decision record carries dispatch_mode and no record's dispatch_mode was changed on the record itself: the mode "cannot be silently mutated thereafter (mutation is a re-dispatch event with its own decision record)" (§6.2.1). A change of mode appears as a new, re-dispatched record; for a demotion from AI-drafted to person-drafted, the new record carries prior_state_archive pointing to the earlier one (§4.5). A Charter amendment does not change the mode of records already made: they "remain bound to the pre-amendment Mode" (§4.5). A history of past values is not required.
+  Evidence to ask for: The dispatch_mode field on each decision record.
+  (Standard: §7.3.1, §6.2.1, §4.5; signal: every_record_carries_mode_declaration)
+- [L2-02] Does every AI-drafted (mode-2) record carry a complete disclosure block with all five required fields: declaring authority, AI system identity, jurisdictions it applies to, content type, and generation timestamp?
+  Applies only if: The Charter has any records drafted by an AI system (mode-2), other than outputs outside the Standard's disclosure requirement: those the Charter declares outside it, or, for a Charter written before v1.1, outputs that already met the §4.6.1 test (§4.6.1; see L1-03).
+  How to judge: The declaring authority may name the person who prepares the disclosure, the organization they act for, or both: any of the three counts, though the Standard asks new records to name both (§4.6.2). It is never the AI system's vendor.
+  Evidence to ask for: The disclosure block on each mode-2 record.
+  (Standard: §7.3.1, §4.6, §4.6.2, §6.2.2; signal: every_mode_2_record_has_disclosure_block, disclosure_block_required_fields_populated)
+- [L2-03] Does every person-drafted record that contains AI-drafted content carry a disclosure block at the point where that content sits?
+  Applies only if: The Charter has any person-drafted records with AI-drafted content inside them (records flagged mode_1_edge_case_flag).
+  Evidence to ask for: The mode_1_edge_case_flag and the per-record disclosure pointer.
+  (Standard: §7.3.1, §4.7, §6.2.2; signal: every_mode_1_edge_case_record_has_disclosure_block)
+- [L2-04] Has the sample audit run at the rate the Standard sets (15% rolling; every one of a Charter's first 100 records; 30% for Charters declaring the embedded-summary mode), with a designated peer reviewer confirming the records it flagged, and did the most recent run end with no peer-confirmed findings of records that should have been marked as AI-drafted?
+  Applies only if: The Charter has person-drafted records to sample (mode-1 records, including those with AI-drafted content inside).
+  Evidence to ask for: The record of the most recent sample audit, its date, and the peer reviewer's findings on the records it flagged. The confirmation is a person's work; look for its record.
+  (Standard: §7.3.1, §7.3.2, §4.8; signal: no_silent_mode_drift_in_sample)
+- [L2-05] Does every affirmed record carry an affirmation record saying when, by whom (the accountable owner or a named delegate) and how a person affirmed it?
+  Applies only if: The Charter has any affirmed records: records that are closed, or marked affirmed. Drafts and records still awaiting sign-off are not affirmed records.
+  How to judge: Met only when each affirmed record says all three: when, by whom and how. L2-05 and L2-07 both turn on how each affirmation was made, so ask about it once and use the answer for both. The person who affirmed must be the accountable owner or a named delegate (§6.2.3). A closed record counts as affirmed here, because the Standard expects every closed decision record to have been affirmed by a person, with that affirmation recorded (§7.1): a closed record with no affirmation recorded fails this criterion. If the person does not know how the affirmations were made, record "not sure"; if they say it is not recorded, "not met".
+  Evidence to ask for: The affirmation_record field on each affirmed record.
+  (Standard: §7 lifecycle signals, §5.1(3), §7.1; signal: every_affirmed_record_carries_affirmation_event)
+- [L2-06] Does every affirmed record carry a seal (the seal_hash field) stored when it was affirmed?
+  Applies only if: The Charter has any affirmed records (closed, or marked affirmed; see L2-05).
+  How to judge: The seal is computed and stored at the moment the record is affirmed (§5.1(3)). A seal added later does not count, so a record affirmed before sealing began cannot meet this criterion. Seal every record at the moment it is affirmed from now on: that stops the gap growing, but it does not close it for records already affirmed without a seal.
+  Evidence to ask for: The seal_hash field on each affirmed record.
+  (Standard: §7 lifecycle signals, §5.1(3); signal: every_affirmed_record_carries_seal_hash)
+- [L2-07] In the organization's own recorded sample of affirmed records, was every affirmation an active act by a person, never time passing, silence, or a default approval?
+  Applies only if: The Charter has any affirmed records (closed, or marked affirmed; see L2-05).
+  How to judge: The sample is one the organization took and recorded itself (for example in a review log). Do not pick a sample yourself. This turns on the same fact as L2-05 (how each affirmation was made): use the answer already given. If no sample has been taken and recorded, record "not met"; if the person does not know whether one exists, "not sure".
+  Evidence to ask for: The organization's record of its sample, and the affirmation method on each sampled record.
+  (Standard: §7 lifecycle signals, §5.2; signal: no_passive_promotion_to_affirmed_in_sample)
+- [L2-08] Does every affirmed record that is AI-drafted, or carries an AI-drafted summary, record its drafting authority: a pointer to the role under which your organization lets the AI system draft (the system's name and version are optional)?
+  Applies only if: The Charter has any affirmed records (closed, or marked affirmed; see L2-05) that are AI-drafted (mode-2) or carry an AI-drafted summary (mode-1-with-embedded-mode-2-summary).
+  How to judge: The drafting authority is the record's drafting_authority field (§6.2.3). Its deployer_role_pointer points to the role under which your organization authorizes the AI system to draft (for example "pricing team drafting assistant under Charter pricing-decision"); the system's name and version are optional. It is not the person who affirmed the record (affirmed_by or affirmation_record), and not the disclosure block's declaring authority: those name people or the organization, not the AI system. It must use the Standard's field name, drafting_authority (see the rule on record field names).
+  Evidence to ask for: The drafting_authority field and its deployer_role_pointer.
+  (Standard: §7 lifecycle signals, §6.2.3; signal: every_mode_2_record_carries_drafting_authority)
+- [L2-09] For records about one person's own work (individual-professional level): does each carry a pointer to that person's consent record, are no records added after consent was withdrawn, and can only the readers named in the Charter's use-case scope read them? And for records at function-leader or team-leader level: does each sign-off check that the Charter's use-case scope allows that level before the record is sealed?
+  Applies only if: The Charter has any records at function-leader, team-leader or individual-professional level (see L1-01).
+  How to judge: §6.2.3.1 sets these checks for the system that controls access to the records, and applies them to AI systems too: an AI system drafting at these levels must act under a role the Charter's use-case scope allows. An organization whose access control does not perform them "SHALL NOT self-declare Conformance Level 2 or above" (§6.2.3.1).
+  Evidence to ask for: The consent_posture fields, the access policy, and how sign-offs at function-leader and team-leader level check the Charter's use-case scope.
+  (Standard: §7 lifecycle signals, §6.2.3.1, §6.2.3.1 item 3; signal: altitude_to_consent_posture_binding_enforced)
+- [L2-10] Is the minimum group size for team-level records set through your data protection officer's assessment, written down (in the Charter's works-council consultation record, or in your data protection impact assessment where no works council applies), and enforced when records are written?
+  Applies only if: The Charter has any records at team-leader level or below (records at altitude team-leader or individual-professional).
+  Evidence to ask for: The documented aggregation floor (for example in works_council_consultation_record or the data protection impact assessment) and the access-policy rule that enforces it.
+  (Standard: §G.11.3, §6.2.3.1; signal: none named in §7)
+- [L2-11] Does every redaction-event record carry a deletion attestation with all four parts: who attested, when, how the data was deleted, and how the deletion was checked?
+  Applies only if: The Charter has any redaction-event records (records of removing information).
+  Evidence to ask for: The operational_store_deletion_attestation on each redaction-event record.
+  (Standard: §7.3.2, §6.2.3, §6.2.3.2; signal: every_redaction_event_carries_operational_store_deletion_attestation)
+
+Level 3: Continuously Auditable (§7.4). The Charter runs as declared over time, and its records can be searched and exported on demand.
+- [L3-01] Have the Charter's re-decision triggers produced re-decision records on the cadence the Charter declares, with no missed firings?
+  Evidence to ask for: Re-decision records and their dates, against the declared cadence.
+  (Standard: §7.4.1, §3.2, §6.3.1; signal: re_decision_triggers_firing_on_schedule)
+- [L3-02] Each time the escalation rule fired, was an escalation record produced, stating the outcome and the escalation owner's call?
+  Evidence to ask for: Escalation records, matched to the times the rule fired.
+  (Standard: §7.4.1, §3.2, §6.3.1; signal: escalation_rule_records_present_when_invoked)
+- [L3-03] Does every disclosure block carry a last_reviewed_at date within the review cadence the Charter declares?
+  Applies only if: The Charter has any records carrying a disclosure block.
+  Evidence to ask for: The last_reviewed_at field on each disclosure block, against the declared cadence.
+  (Standard: §7.4.1, §4.6, §4.6.2; signal: disclosure_review_cadence_current)
+- [L3-04] Can the records be searched and exported on demand for lawyers and auditors, by record type, date range, drafting mode, accountable owner and re-decision trigger, within the response time your organization has stated?
+  Evidence to ask for: The export or query tool, and a recent export.
+  (Standard: §7.4.1, §6.3, §6.4; signal: schedule_of_records_queryable)
+- [L3-05] Has your level check (the Standard calls it the conformance-level reporter) been run within the reporting cadence the Charter declares?
+  Evidence to ask for: The date of the most recent level check, against the declared reporting cadence.
+  (Standard: §7.4.2; signal: conformance_level_reporter_output_recent)
+- [L3-06] When a record is replaced by a newer one, is the old record kept in full and unchanged, with the new record pointing to it (supersedes)?
+  Evidence to ask for: A superseded record and the record that supersedes it.
+  (Standard: §7 lifecycle signals, §5.1(3); signal: superseded_records_retained_in_full)
+
+Step 4. Work out the Level. Levels are graded per Charter. A Charter reaches a Level only when every criterion of that Level, and of every Level below it, is met (§7.2.1, §7.3.1, §7.4.1). A criterion whose "applies only if" condition is false counts as met; record it as "does not apply", with the reason. Record "not met" when the evidence shows the criterion is not met, or when the person is sure a part is missing (for example "we record who and when, but not how"). Record "not sure" when the person does not know. "Not sure" also counts as not met. Evidence counts when someone can say where it is kept: a file, a field or a system, or a document kept elsewhere, named with its reference (for example "kept by HR, reference HR-2026-007"). When checking a repository, mark evidence kept outside it as "outside the repository". A claim with no location counts as "not sure"; the fix is to record that evidence and say where. A Charter field may use another name if it means the same thing (§3.2). Record fields use the Standard's names, which "match Section 6 verbatim" (§6.2.4): a record field under another name does not count; note the mapping in the report and list renaming as the fix. A Charter whose works_council_consultation_record was added after it reached "fields-completed" can reach Level 1 only, until it is re-authored as a new version (§3.1). A declaration lists exactly the Charters it covers, and its Level applies to those Charters only: it is the lowest Level any of them reaches. A Charter may be left out, for example one that reaches no Level; then say which Charter was left out and why. If a Charter's own text claims a Level (its conformance_level_declared) higher than the Level it reaches, say so plainly: the evidence does not bear that claim out yet. Then add to the list of fixes: lower the Charter's own claimed Level to the Level it reaches, or close the gaps between them. If a Charter reaches no Level, tell me plainly and list what we would need to fix for Level 1. If no Charter reaches Level 1, give me the evidence table (Step 6a) and the list of fixes, then stop: there is nothing to declare yet.
+
+Step 5. Ask for the date of the declaration (YYYY-MM-DD); the name and role of the person at our organization who stands behind it; and, optionally, the https:// page where it will be published. For a product, also ask for the product's name.
+
+Step 6. Give me, in this order:
+a) For an organization only, and also when no Level is reached: a short evidence table, one row per criterion checked (criterion ID; met, not met, not sure or does not apply; the evidence I named and where it lives; what to fix where it is not met). Then the gaps at the Level where each Charter stopped, and any Charter left out and why. A product has no evidence table: skip this for a product.
+b) The declaration in plain text, in exactly this form (fill the braces; name each Charter as "Name (ID)" from its own charter_name and charter_id fields if I gave them, otherwise in my words; for several Charters, separate them with "; "; for "where", use the page I gave you, and if I gave no page, leave that line out, so the text never points at a page that does not exist yet):
+
+For an organization:
+    Decision Provenance Standard: self-declaration
+    Organization: {name}
+    Standard: Decision Provenance Standard v1.1, reading edition rev. 9 (https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html)
+    Charters covered: {charters}
+    Conformance Level claimed: Level {level} ({level_name}), self-declared on {date}
+    Where this declaration can be read: {where}
+    Stands behind it: {affirmed_name}, {affirmed_role}
+    This is our own self-declaration, not a statement by the Standard's Steward. The Steward has not audited our records.
+
+For a product:
+    Decision Provenance Standard: self-declaration
+    Product: {name}
+    Standard: Decision Provenance Standard v1.1, reading edition rev. 9 (https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html)
+    Claim: this product implements the Decision Provenance Standard, self-declared on {date}
+    Where this declaration can be read: {where}
+    Stands behind it: {affirmed_name}, {affirmed_role}
+    This is our own statement about our product, not a statement by the Standard's Steward. The Steward has not reviewed or tested our product.
+
+   The level names are: Level 1 = Charter-Conformant; Level 2 = Mode-Disambiguated; Level 3 = Continuously Auditable.
+c) The same declaration as one JSON block, in a ```json fence, with exactly these fields and no others:
+
+For an organization:
+    {
+      "format": "dps-declaration/v1",
+      "kind": "organization",
+      "name": "<organization name>",
+      "declaration_page": "<https:// page, or leave this field out>",
+      "standard_version": "v1.1-rev9",
+      "charters": [
+        "<Charter name (ID)>"
+      ],
+      "level": 1,
+      "date": "<YYYY-MM-DD>",
+      "statement": "This is our own self-declaration, not a statement by the Standard's Steward. The Steward has not audited our records.",
+      "affirmed_by": {
+        "name": "<person's name>",
+        "role": "<their role>"
+      }
+    }
+
+For a product (never include "level" or "charters"):
+    {
+      "format": "dps-declaration/v1",
+      "kind": "product",
+      "name": "<product name>",
+      "declaration_page": "<https:// page, or leave this field out>",
+      "standard_version": "v1.1-rev9",
+      "date": "<YYYY-MM-DD>",
+      "statement": "This is our own statement about our product, not a statement by the Standard's Steward. The Steward has not reviewed or tested our product.",
+      "affirmed_by": {
+        "name": "<person's name>",
+        "role": "<their role>"
+      }
+    }
+
+   "level" is the number 1, 2 or 3. Copy the statement word for word. Leave "declaration_page" out if I gave no page; if I gave one, it must start with https://.
+   "standard_version" is always "v1.1-rev9": declarations are drafted against this version only.
+   Only if I tell you that our organization is the Standard's Steward, use this organization statement instead, in both the plain text and the JSON block: "This is a self-declaration by the organization named here. The Standard's Steward does not certify it, including when the Steward is that organization."
+   Only if I tell you that the Standard's Steward made the product, use this product statement instead, in both the plain text and the JSON block: "This is a self-declaration for the product named here. The Standard's Steward does not certify it, including when the Steward made the product."
+
+Then remind me: this is our own claim, and the person named should read and confirm it before it is published; and to get the badge, we paste the JSON block into the badge page: https://decisionprovenancestandard.org/badges.html. For an organization only, also remind me that the Standard asks us to keep the declaration in our own decision register (§7.1).
+</script>
+<script>
+/*GEN:data*/
+var DPS = {
+ "site": "https://decisionprovenancestandard.org/",
+ "badgePage": "https://decisionprovenancestandard.org/badges.html",
+ "standard": {
+  "id": "v1.1-rev9",
+  "label": "Decision Provenance Standard v1.1, reading edition rev. 9",
+  "url": "https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html"
+ },
+ "standards": {
+  "v1.1-rev9": {
+   "label": "Decision Provenance Standard v1.1, reading edition rev. 9",
+   "url": "https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html"
+  },
+  "v1.0-rev8": {
+   "label": "Decision Provenance Standard v1.0, revision 8",
+   "url": "https://decisionprovenancestandard.org/dps-v1.0-rev8-core.html"
+  }
+ },
+ "levels": {
+  "1": {
+   "name": "Charter-Conformant",
+   "section": "§7.2",
+   "anchor": "72-conformance-level-1-charter-conformant"
+  },
+  "2": {
+   "name": "Mode-Disambiguated",
+   "section": "§7.3",
+   "anchor": "73-conformance-level-2-mode-disambiguated"
+  },
+  "3": {
+   "name": "Continuously Auditable",
+   "section": "§7.4",
+   "anchor": "74-conformance-level-3-continuously-auditable"
+  }
+ },
+ "statements": {
+  "organization": "This is our own self-declaration, not a statement by the Standard's Steward. The Steward has not audited our records.",
+  "product": "This is our own statement about our product, not a statement by the Standard's Steward. The Steward has not reviewed or tested our product."
+ },
+ "stewardStatements": {
+  "organization": "This is a self-declaration by the organization named here. The Standard's Steward does not certify it, including when the Steward is that organization.",
+  "product": "This is a self-declaration for the product named here. The Standard's Steward does not certify it, including when the Steward made the product."
+ },
+ "templates": {
+  "organization": [
+   "Decision Provenance Standard: self-declaration",
+   "Organization: {name}",
+   "Standard: {standard_label} ({standard_url})",
+   "Charters covered: {charters}",
+   "Conformance Level claimed: Level {level} ({level_name}), self-declared on {date}",
+   "Where this declaration can be read: {where}",
+   "Stands behind it: {affirmed_name}, {affirmed_role}",
+   "{statement}"
+  ],
+  "product": [
+   "Decision Provenance Standard: self-declaration",
+   "Product: {name}",
+   "Standard: {standard_label} ({standard_url})",
+   "Claim: this product implements the Decision Provenance Standard, self-declared on {date}",
+   "Where this declaration can be read: {where}",
+   "Stands behind it: {affirmed_name}, {affirmed_role}",
+   "{statement}"
+  ]
+ },
+ "whereLine": "Where this declaration can be read: {where}",
+ "schema": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
+  "$id": "https://decisionprovenancestandard.org/schemas/dps-declaration-v1.schema.json",
+  "title": "Decision Provenance Standard self-declaration, format v1",
+  "description": "A self-declaration an organization or a product makes about itself under the Decision Provenance Standard. An organization's declaration that includes declaration_page carries the four elements of Appendix G §G.11.4. It is the declarer's own claim; the Standard's Steward does not validate, grade or audit it. An organization declares a Conformance Level for its Charters (§7). A product never carries a Level.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+   "format",
+   "kind",
+   "name",
+   "standard_version",
+   "date",
+   "statement",
+   "affirmed_by"
+  ],
+  "properties": {
+   "format": {
+    "const": "dps-declaration/v1"
+   },
+   "kind": {
+    "enum": [
+     "organization",
+     "product"
+    ]
+   },
+   "name": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 120,
+    "pattern": "\\S",
+    "description": "The organization's or the product's name."
+   },
+   "declaration_page": {
+    "type": "string",
+    "pattern": "^https://[^\\s/?#@\"'<>`]+[^\\s@\"'<>`]*$",
+    "maxLength": 500,
+    "description": "Optional. The public https:// page where the declaration can be read (usually the page carrying the badge). It may not contain spaces, quotes, angle brackets or backticks."
+   },
+   "standard_version": {
+    "enum": [
+     "v1.1-rev9",
+     "v1.0-rev8"
+    ],
+    "description": "The version the declaration is made against. New declarations use v1.1-rev9, the current text: v1.1 is a minor release, so a Charter that meets revision 8 also meets v1.1. v1.0-rev8 is still accepted for declarations already made against it."
+   },
+   "charters": {
+    "type": "array",
+    "minItems": 1,
+    "maxItems": 20,
+    "uniqueItems": true,
+    "items": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 200,
+     "pattern": "\\S"
+    },
+    "description": "Organizations only. The Charters covered, each as its name and ID, \"Name (ID)\", or in the organization's own words."
+   },
+   "level": {
+    "enum": [
+     1,
+     2,
+     3
+    ],
+    "description": "Organizations only. The Level every listed Charter reaches."
+   },
+   "date": {
+    "type": "string",
+    "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+    "description": "The date of the declaration, YYYY-MM-DD."
+   },
+   "statement": {
+    "type": "string"
+   },
+   "affirmed_by": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "role"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "pattern": "\\S"
+     },
+     "role": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "pattern": "\\S"
+     }
+    },
+    "description": "The person at the declaring organization who stands behind the declaration."
+   }
+  },
+  "allOf": [
+   {
+    "if": {
+     "properties": {
+      "kind": {
+       "const": "organization"
+      }
+     },
+     "required": [
+      "kind"
+     ]
+    },
+    "then": {
+     "required": [
+      "charters",
+      "level"
+     ],
+     "properties": {
+      "statement": {
+       "enum": [
+        "This is our own self-declaration, not a statement by the Standard's Steward. The Steward has not audited our records.",
+        "This is a self-declaration by the organization named here. The Standard's Steward does not certify it, including when the Steward is that organization."
+       ],
+       "description": "Copied word for word. Use the first statement, unless the organization declaring is the Standard's Steward: then use the second."
+      }
+     }
+    }
+   },
+   {
+    "if": {
+     "properties": {
+      "kind": {
+       "const": "product"
+      }
+     },
+     "required": [
+      "kind"
+     ]
+    },
+    "then": {
+     "not": {
+      "anyOf": [
+       {
+        "required": [
+         "level"
+        ]
+       },
+       {
+        "required": [
+         "charters"
+        ]
+       }
+      ]
+     },
+     "properties": {
+      "statement": {
+       "enum": [
+        "This is our own statement about our product, not a statement by the Standard's Steward. The Steward has not reviewed or tested our product.",
+        "This is a self-declaration for the product named here. The Standard's Steward does not certify it, including when the Steward made the product."
+       ],
+       "description": "Copied word for word. Use the first statement, unless the Standard's Steward made the product: then use the second."
+      }
+     }
+    }
+   }
+  ]
+ },
+ "svg": {
+  "1": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"220\" height=\"40\" viewBox=\"0 0 220 40\" role=\"img\" aria-label=\"Decision Provenance Standard™: self-declared Level 1\">\n<title>Decision Provenance Standard™: self-declared Level 1<\/title>\n<rect x=\"0.5\" y=\"0.5\" width=\"219\" height=\"39\" rx=\"6\" fill=\"#11202E\" stroke=\"#8FA8C0\" stroke-width=\"1\"/>\n<rect x=\"8\" y=\"8\" width=\"24\" height=\"24\" rx=\"4.5\" fill=\"#3A5A78\"/>\n<rect x=\"14.75\" y=\"14\" width=\"10.5\" height=\"2.25\" rx=\"1.1\" fill=\"#FFFFFF\"/>\n<rect x=\"14.75\" y=\"18.9\" width=\"10.5\" height=\"2.25\" rx=\"1.1\" fill=\"#FFFFFF\"/>\n<rect x=\"14.75\" y=\"23.75\" width=\"6.75\" height=\"2.25\" rx=\"1.1\" fill=\"#8FA8C0\"/>\n<g font-family=\"Verdana, 'DejaVu Sans', Arial, Helvetica, sans-serif\" font-weight=\"700\">\n<text x=\"40\" y=\"17\" font-size=\"7.5\" fill=\"#B8CADB\" textLength=\"121\" lengthAdjust=\"spacingAndGlyphs\">DECISION PROVENANCE STANDARD™<\/text>\n<text x=\"40\" y=\"31\" font-size=\"12\" fill=\"#FFFFFF\" textLength=\"84\" lengthAdjust=\"spacingAndGlyphs\">Self-declared<\/text>\n<rect x=\"164\" y=\"8\" width=\"48\" height=\"24\" rx=\"4\" fill=\"#8FA8C0\"/>\n<text x=\"188\" y=\"24.3\" font-size=\"11\" fill=\"#11202E\" text-anchor=\"middle\">Level 1<\/text>\n<\/g>\n<\/svg>",
+  "2": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"220\" height=\"40\" viewBox=\"0 0 220 40\" role=\"img\" aria-label=\"Decision Provenance Standard™: self-declared Level 2\">\n<title>Decision Provenance Standard™: self-declared Level 2<\/title>\n<rect x=\"0.5\" y=\"0.5\" width=\"219\" height=\"39\" rx=\"6\" fill=\"#11202E\" stroke=\"#8FA8C0\" stroke-width=\"1\"/>\n<rect x=\"8\" y=\"8\" width=\"24\" height=\"24\" rx=\"4.5\" fill=\"#3A5A78\"/>\n<rect x=\"14.75\" y=\"14\" width=\"10.5\" height=\"2.25\" rx=\"1.1\" fill=\"#FFFFFF\"/>\n<rect x=\"14.75\" y=\"18.9\" width=\"10.5\" height=\"2.25\" rx=\"1.1\" fill=\"#FFFFFF\"/>\n<rect x=\"14.75\" y=\"23.75\" width=\"6.75\" height=\"2.25\" rx=\"1.1\" fill=\"#8FA8C0\"/>\n<g font-family=\"Verdana, 'DejaVu Sans', Arial, Helvetica, sans-serif\" font-weight=\"700\">\n<text x=\"40\" y=\"17\" font-size=\"7.5\" fill=\"#B8CADB\" textLength=\"121\" lengthAdjust=\"spacingAndGlyphs\">DECISION PROVENANCE STANDARD™<\/text>\n<text x=\"40\" y=\"31\" font-size=\"12\" fill=\"#FFFFFF\" textLength=\"84\" lengthAdjust=\"spacingAndGlyphs\">Self-declared<\/text>\n<rect x=\"164\" y=\"8\" width=\"48\" height=\"24\" rx=\"4\" fill=\"#8FA8C0\"/>\n<text x=\"188\" y=\"24.3\" font-size=\"11\" fill=\"#11202E\" text-anchor=\"middle\">Level 2<\/text>\n<\/g>\n<\/svg>",
+  "3": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"220\" height=\"40\" viewBox=\"0 0 220 40\" role=\"img\" aria-label=\"Decision Provenance Standard™: self-declared Level 3\">\n<title>Decision Provenance Standard™: self-declared Level 3<\/title>\n<rect x=\"0.5\" y=\"0.5\" width=\"219\" height=\"39\" rx=\"6\" fill=\"#11202E\" stroke=\"#8FA8C0\" stroke-width=\"1\"/>\n<rect x=\"8\" y=\"8\" width=\"24\" height=\"24\" rx=\"4.5\" fill=\"#3A5A78\"/>\n<rect x=\"14.75\" y=\"14\" width=\"10.5\" height=\"2.25\" rx=\"1.1\" fill=\"#FFFFFF\"/>\n<rect x=\"14.75\" y=\"18.9\" width=\"10.5\" height=\"2.25\" rx=\"1.1\" fill=\"#FFFFFF\"/>\n<rect x=\"14.75\" y=\"23.75\" width=\"6.75\" height=\"2.25\" rx=\"1.1\" fill=\"#8FA8C0\"/>\n<g font-family=\"Verdana, 'DejaVu Sans', Arial, Helvetica, sans-serif\" font-weight=\"700\">\n<text x=\"40\" y=\"17\" font-size=\"7.5\" fill=\"#B8CADB\" textLength=\"121\" lengthAdjust=\"spacingAndGlyphs\">DECISION PROVENANCE STANDARD™<\/text>\n<text x=\"40\" y=\"31\" font-size=\"12\" fill=\"#FFFFFF\" textLength=\"84\" lengthAdjust=\"spacingAndGlyphs\">Self-declared<\/text>\n<rect x=\"164\" y=\"8\" width=\"48\" height=\"24\" rx=\"4\" fill=\"#8FA8C0\"/>\n<text x=\"188\" y=\"24.3\" font-size=\"11\" fill=\"#11202E\" text-anchor=\"middle\">Level 3<\/text>\n<\/g>\n<\/svg>",
+  "product": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"250\" height=\"40\" viewBox=\"0 0 250 40\" role=\"img\" aria-label=\"Implements the Decision Provenance Standard (self-declared)\">\n<title>Implements the Decision Provenance Standard (self-declared)<\/title>\n<rect x=\"0.5\" y=\"0.5\" width=\"249\" height=\"39\" rx=\"6\" fill=\"#11202E\" stroke=\"#8FA8C0\" stroke-width=\"1\"/>\n<rect x=\"8\" y=\"8\" width=\"24\" height=\"24\" rx=\"4.5\" fill=\"#3A5A78\"/>\n<rect x=\"14.75\" y=\"14\" width=\"10.5\" height=\"2.25\" rx=\"1.1\" fill=\"#FFFFFF\"/>\n<rect x=\"14.75\" y=\"18.9\" width=\"10.5\" height=\"2.25\" rx=\"1.1\" fill=\"#FFFFFF\"/>\n<rect x=\"14.75\" y=\"23.75\" width=\"6.75\" height=\"2.25\" rx=\"1.1\" fill=\"#8FA8C0\"/>\n<g font-family=\"Verdana, 'DejaVu Sans', Arial, Helvetica, sans-serif\" font-weight=\"700\">\n<text x=\"40\" y=\"17\" font-size=\"7.5\" fill=\"#B8CADB\" textLength=\"118\" lengthAdjust=\"spacingAndGlyphs\">IMPLEMENTS · SELF-DECLARED<\/text>\n<text x=\"40\" y=\"31\" font-size=\"12\" fill=\"#FFFFFF\" textLength=\"200\" lengthAdjust=\"spacingAndGlyphs\">Decision Provenance Standard™<\/text>\n<\/g>\n<\/svg>"
+ },
+ "badgeFiles": {
+  "1": "dps-self-declared-level-1.svg",
+  "2": "dps-self-declared-level-2.svg",
+  "3": "dps-self-declared-level-3.svg",
+  "product": "dps-implements.svg"
+ },
+ "badgeSize": {
+  "level": [
+   220,
+   40
+  ],
+  "product": [
+   250,
+   40
+  ]
+ }
+};
+/*/GEN:data*/
+(function () {
+  "use strict";
+  var SITE = DPS.site;
+  var PREVIEW_BASE = "/badges/"; // the site's own copies, for the preview; the pasted code always uses the full site address
+  function $(id) { return document.getElementById(id); }
+  function escHtml(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+  function escXml(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function clean(s) { return String(s == null ? "" : s).replace(/[\u0000-\u001F\u007F]+/g, " ").replace(/\s+/g, " ").trim(); }
+  function deepEqual(a, b) { return JSON.stringify(a) === JSON.stringify(b); }
+  function typeOf(v) {
+    if (v === null) return "null";
+    if (Array.isArray(v)) return "array";
+    if (typeof v === "number") return Number.isInteger(v) ? "integer" : "number";
+    return typeof v;
+  }
+
+  // A small validator for the subset of JSON Schema the declaration format uses.
+  function validate(schema, value, path, errors) {
+    var t = typeOf(value);
+    if (schema.const !== undefined && !deepEqual(schema.const, value)) errors.push({ path: path, kind: "const", want: schema.const });
+    if (schema.enum && !schema.enum.some(function (e) { return deepEqual(e, value); })) errors.push({ path: path, kind: "enum", want: schema.enum });
+    if (schema.type) {
+      var ok = schema.type === t || (schema.type === "number" && t === "integer");
+      if (!ok) { errors.push({ path: path, kind: "type", want: schema.type }); return; }
+    }
+    if (t === "string") {
+      var n = Array.from(value).length;
+      if (schema.minLength !== undefined && n < schema.minLength) errors.push({ path: path, kind: "empty" });
+      if (schema.maxLength !== undefined && n > schema.maxLength) errors.push({ path: path, kind: "long", want: schema.maxLength });
+      if (schema.pattern && !(new RegExp(schema.pattern, "u")).test(value)) errors.push({ path: path, kind: "pattern" });
+    }
+    if (t === "array") {
+      if (schema.minItems !== undefined && value.length < schema.minItems) errors.push({ path: path, kind: "few", want: schema.minItems });
+      if (schema.uniqueItems && new Set(value.map(function (v) { return JSON.stringify(v); })).size !== value.length) errors.push({ path: path, kind: "unique" });
+      if (schema.maxItems !== undefined && value.length > schema.maxItems) errors.push({ path: path, kind: "many", want: schema.maxItems });
+      if (schema.items) value.forEach(function (v, i) { validate(schema.items, v, path.concat(i), errors); });
+    }
+    if (t === "object") {
+      (schema.required || []).forEach(function (k) { if (!(k in value)) errors.push({ path: path.concat(k), kind: "missing" }); });
+      var props = schema.properties || {};
+      Object.keys(value).forEach(function (k) {
+        if (props[k]) validate(props[k], value[k], path.concat(k), errors);
+        else if (schema.additionalProperties === false) errors.push({ path: path.concat(k), kind: "extra" });
+      });
+    }
+    (schema.allOf || []).forEach(function (s) { validate(s, value, path, errors); });
+    if (schema.if && isValid(schema.if, value) && schema.then) validate(schema.then, value, path, errors);
+    if (schema.not && isValid(schema.not, value)) errors.push({ path: path, kind: "not" });
+    if (schema.anyOf && !schema.anyOf.some(function (s) { return isValid(s, value); })) errors.push({ path: path, kind: "anyOf" });
+  }
+  function isValid(schema, value) { var e = []; validate(schema, value, [], e); return e.length === 0; }
+
+  var FIELD_NAMES = { name: "name", charters: "Charters", level: "Level", date: "date", affirmed_by: "person who stands behind it",
+    declaration_page: "publication page", standard_version: "Standard version", statement: "statement", kind: "kind", format: "format" };
+  function friendly(err) {
+    var key = err.path.length ? String(err.path[0]) : "";
+    var field = err.path.join(".");
+    var label = FIELD_NAMES[key] || field;
+    switch (err.kind) {
+      case "missing": return key === "affirmed_by" && err.path.length > 1 ? "Add the " + (err.path[1] === "role" ? "role" : "name") + " of the person who stands behind it." : "Add the " + label + ".";
+      case "extra": return "Remove the field \"" + field + "\"; the declaration format does not have it.";
+      case "empty": return "The " + label + " cannot be empty.";
+      case "long": return "The " + label + " is too long (at most " + err.want + " characters).";
+      case "pattern":
+        if (key === "declaration_page") return "The publication page must be a full address starting with https://, with no spaces, quotes, angle brackets or backticks.";
+        if (key === "date") return "The date must be a real date, written like 2026-10-01.";
+        if (key === "charters") return "A Charter cannot be blank.";
+        if (key === "affirmed_by") return "The " + (err.path[1] === "role" ? "role" : "person's name") + " cannot be blank.";
+        if (key === "name") return "The name cannot be blank.";
+        return "The " + label + " is not in the right form.";
+      case "few": return key === "charters" ? "Name at least one Charter." : "The " + label + " needs more entries.";
+      case "unique": return key === "charters" ? "List each Charter only once." : "The " + label + " has an entry twice.";
+      case "many": return "The " + label + " has too many entries (at most " + err.want + ").";
+      case "enum":
+        if (key === "level") return "The Level must be 1, 2 or 3.";
+        if (key === "statement") return "The statement must be copied word for word: \"" + err.want[0] + "\"" +
+          (err.want[1] ? " (Only if " + (err.want[1] === DPS.stewardStatements.product ? "the Standard's Steward made the product"
+            : "your organization is the Standard's Steward") + ", use instead: \"" + err.want[1] + "\")" : "");
+        return "The " + label + " must be one of: " + err.want.join(", ") + ".";
+      case "const": return key === "statement" ? "The statement must be copied word for word: \"" + err.want + "\"" : "The " + label + " must be exactly \"" + err.want + "\".";
+      case "type": return "The " + label + " has the wrong kind of value.";
+      case "not": case "anyOf": return PRODUCT_RULE;
+      default: return "The " + label + " is not valid.";
+    }
+  }
+  // The schema's only "not" rule: a product never carries a Level or Charters.
+  var PRODUCT_RULE = "A product declaration never carries a Level or Charters: a product can only say it implements the Standard. Remove \"level\" and \"charters\", or choose \"organization\".";
+  function checkDeclaration(obj) {
+    if (typeOf(obj) !== "object") return ["The answer must contain one JSON object."];
+    if (obj.kind === "product" && ("level" in obj || "charters" in obj)) return [PRODUCT_RULE];
+    var errs = []; validate(DPS.schema, obj, [], errs);
+    var msgs = [];
+    errs.forEach(function (e) {
+      var m = friendly(e); if (msgs.indexOf(m) < 0) msgs.push(m);
+    });
+    return msgs;
+  }
+  function checkUrl(s) {
+    try { var u = new URL(s); return u.protocol === "https:" && !!u.hostname && !u.username && !u.password; } catch (e) { return false; }
+  }
+
+  // ---- the AI answer --------------------------------------------------------------------
+  function extractJson(text) {
+    var tries = [], re = /```(?:json)?[ \t]*\r?\n([\s\S]*?)```/gi, m;
+    while ((m = re.exec(text))) tries.push(m[1]);
+    var a = text.indexOf("{"), b = text.lastIndexOf("}");
+    if (a >= 0 && b > a) tries.push(text.slice(a, b + 1));
+    for (var i = 0; i < tries.length; i++) { try { return { ok: true, value: JSON.parse(tries[i]) }; } catch (e) { /* next */ } }
+    return { ok: false };
+  }
+  function useAnswer() {
+    var text = $("answer").value;
+    $("s-answer").textContent = "";
+    if (!text.trim()) { setErr("answer", "Paste your AI's answer first."); return; }
+    var got = extractJson(text);
+    // Older answers spelled the kind the British way; read it as the current US spelling.
+    if (got.ok && got.value && got.value.kind === "organisation") got.value.kind = "organization";
+    if (!got.ok) { setErr("answer", "We could not find a readable JSON block in that answer. Ask your AI to end with the declaration as one JSON block in a ```json fence, then paste again."); return; }
+    var msgs = checkDeclaration(got.value);
+    if (got.value && got.value.declaration_page && !checkUrl(got.value.declaration_page) && msgs.indexOf(friendly({ path: ["declaration_page"], kind: "pattern" })) < 0)
+      msgs.push(friendly({ path: ["declaration_page"], kind: "pattern" }));
+    if (msgs.length) { setErr("answer", "This answer cannot be used yet:\n- " + msgs.join("\n- ")); return; }
+    setErr("answer", "");
+    pasted = { kind: got.value.kind, statement: got.value.statement, standard_version: got.value.standard_version };
+    fillForm(got.value);
+    touched = true;
+    render();
+    $("s-answer").textContent = "Filled in from your AI's answer. Check it, then copy your code in step 3.";
+  }
+
+  // ---- the form -----------------------------------------------------------------------
+  var touched = false, pasted = null;
+  function kind() { return document.querySelector('input[name="kind"]:checked').value; }
+  function setKind(k) {
+    document.querySelector('input[name="kind"][value="' + k + '"]').checked = true;
+    var org = k === "organization";
+    document.querySelectorAll(".org-only").forEach(function (el) { el.hidden = !org; });
+    document.querySelectorAll(".prod-only").forEach(function (el) { el.hidden = org; });
+  }
+  function readForm() {
+    var k = kind();
+    var obj = { format: "dps-declaration/v1", kind: k, name: clean($("f-name").value) };
+    var page = $("f-page").value.trim();
+    if (page) obj.declaration_page = page;
+    // new declarations are made against the current version; a pasted existing declaration keeps its own
+    obj.standard_version = (pasted && pasted.standard_version) || DPS.standard.id;
+    if (k === "organization") {
+      obj.charters = $("f-charters").value.split(/\r?\n/).map(clean).filter(Boolean);
+      obj.level = parseInt($("f-level").value, 10);
+    }
+    obj.date = $("f-date").value;
+    // The fixed statement for the kind. A pasted answer may carry the other allowed statement
+    // (the Standard's Steward declaring about itself); keep it while the kind stays the same.
+    obj.statement = (pasted && pasted.kind === k) ? pasted.statement : DPS.statements[k];
+    obj.affirmed_by = { name: clean($("f-by-name").value), role: clean($("f-by-role").value) };
+    return obj;
+  }
+  function fillForm(o) {
+    setKind(o.kind);
+    $("f-name").value = o.name || "";
+    $("f-page").value = o.declaration_page || "";
+    $("f-charters").value = (o.charters || []).join("\n");
+    if (o.level) $("f-level").value = String(o.level);
+    $("f-date").value = o.date || "";
+    $("f-by-name").value = (o.affirmed_by && o.affirmed_by.name) || "";
+    $("f-by-role").value = (o.affirmed_by && o.affirmed_by.role) || "";
+  }
+  function setErr(id, msg) {
+    var e = $("e-" + id); if (e) e.textContent = msg;
+    var map = { name: "f-name", charters: "f-charters", date: "f-date", affirmed_by: "f-by-name", declaration_page: "f-page", answer: "answer" };
+    var el = $(map[id] || ""); if (el) el.setAttribute("aria-invalid", msg ? "true" : "false");
+  }
+  function formErrors(obj) {
+    var errs = []; validate(DPS.schema, obj, [], errs);
+    var byField = {};
+    errs.forEach(function (e) {
+      var f = String(e.path[0] || "");
+      if (!byField[f]) byField[f] = friendly(e);
+    });
+    if (obj.declaration_page && !checkUrl(obj.declaration_page)) byField.declaration_page = friendly({ path: ["declaration_page"], kind: "pattern" });
+    return byField;
+  }
+
+  // ---- the outputs --------------------------------------------------------------------
+  function lines(o) {
+    var lv = o.level ? DPS.levels[String(o.level)] : null;
+    var vals = {
+      // the version the declaration is made against (the badge itself always links to the current version's Level section)
+      name: o.name, standard_label: (DPS.standards[o.standard_version] || DPS.standard).label,
+      standard_url: (DPS.standards[o.standard_version] || DPS.standard).url,
+      charters: (o.charters || []).join("; "), level: o.level, level_name: lv ? lv.name : "", date: o.date,
+      where: o.declaration_page, affirmed_name: o.affirmed_by.name, affirmed_role: o.affirmed_by.role,
+      statement: o.statement
+    };
+    // No publication page: leave the "where" line out, so the text never points at a page that does not exist yet.
+    return DPS.templates[o.kind].filter(function (line) { return !!o.declaration_page || line !== DPS.whereLine; }).map(function (line) {
+      return line.replace(/\{(\w+)\}/g, function (m, k) { return String(vals[k]); });
+    });
+  }
+  function badgeKey(o) { return o.kind === "product" ? "product" : String(o.level); }
+  function linkUrl(o) {
+    return o.kind === "product" ? SITE : DPS.standard.url + "#" + DPS.levels[String(o.level)].anchor;
+  }
+  function altText(o) {
+    return o.kind === "product" ? o.name + ": implements the Decision Provenance Standard (self-declared)"
+      : o.name + ": self-declared Level " + o.level + ", Decision Provenance Standard";
+  }
+  function size(o) { return DPS.badgeSize[o.kind === "product" ? "product" : "level"]; }
+  function jsonForScript(o) {
+    return JSON.stringify(o, null, 2).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026");
+  }
+  function declHtml(o) { return "<p>" + lines(o).map(escHtml).join("<br>\n") + "</p>"; }
+  function webCode(o, withLink) {
+    var s = size(o);
+    return '<div class="dps-declaration-badge">\n' +
+      '<a href="' + escHtml(linkUrl(o)) + '"><img src="' + escHtml(SITE + "badges/" + DPS.badgeFiles[badgeKey(o)]) +
+      '" alt="' + escHtml(altText(o)) + '" width="' + s[0] + '" height="' + s[1] + '"></a>\n' +
+      "<details>\n<summary>Our declaration</summary>\n" + declHtml(o) + "\n</details>\n" +
+      '<script type="application/json" class="dps-declaration">\n' + jsonForScript(o) + "\n<\/script>\n" +
+      (withLink ? '<p><a href="' + SITE + '">Decision Provenance Standard</a></p>\n' : "") +
+      "</div>";
+  }
+  function githubCode(o, withLink) {
+    var s = size(o);
+    return '<a href="' + escHtml(linkUrl(o)) + '"><img src="dps-declaration-badge.svg" alt="' + escHtml(altText(o)) +
+      '" width="' + s[0] + '" height="' + s[1] + '"></a>\n' +
+      "<details>\n<summary>Our declaration</summary>\n" + declHtml(o) + "\n</details>" +
+      (withLink ? '\n<p><a href="' + SITE + '">Decision Provenance Standard</a></p>' : "");
+  }
+  function svgFile(o) {
+    var base = DPS.svg[badgeKey(o)], alt = escXml(altText(o));
+    var extra = "<title>" + alt + "</title>\n<desc>" + escXml(lines(o).join("\n")) + "</desc>\n<metadata>\n" +
+      '<dps:declaration xmlns:dps="https://decisionprovenancestandard.org/ns/declaration/v1" format="dps-declaration/v1">' +
+      escXml(JSON.stringify(o)) + "</dps:declaration>\n</metadata>";
+    return base.replace(/aria-label="[^"]*"/, 'aria-label="' + alt + '"').replace(/<title>[\s\S]*?<\/title>/, extra) + "\n";
+  }
+  var current = null;
+  function setOut(id, text, ok) {
+    $(id).textContent = text;
+    var b = document.querySelector('[data-copy="' + id + '"]'); if (b) b.disabled = !ok;
+    var st = $("s-" + id); if (st) st.textContent = "";
+  }
+  function render() {
+    var o = readForm(), errs = formErrors(o), withLink = $("textlink").checked;
+    ["name", "charters", "date", "affirmed_by", "declaration_page"].forEach(function (f) { setErr(f, touched ? (errs[f] || "") : ""); });
+    var slots = document.querySelectorAll(".pv-slot");
+    if (Object.keys(errs).length) {
+      current = null;
+      ["webOut", "ghOut", "jsonOut"].forEach(function (id) { setOut(id, "Complete step 2 first.", false); });
+      $("dlSvg").disabled = true;
+      slots.forEach(function (s) { s.textContent = ""; });
+      return;
+    }
+    current = o;
+    setOut("webOut", webCode(o, withLink), true);
+    setOut("ghOut", githubCode(o, withLink), true);
+    setOut("jsonOut", JSON.stringify(o, null, 2), true);
+    $("dlSvg").disabled = false;
+    var s = size(o);
+    slots.forEach(function (slot) {
+      slot.textContent = "";
+      var a = document.createElement("a"); a.href = linkUrl(o); a.rel = "noopener"; a.target = "_blank";
+      var img = document.createElement("img"); img.src = PREVIEW_BASE + DPS.badgeFiles[badgeKey(o)];
+      img.alt = altText(o); img.width = s[0]; img.height = s[1]; a.appendChild(img); slot.appendChild(a);
+      var d = document.createElement("details"), sm = document.createElement("summary"), p = document.createElement("p");
+      sm.textContent = "Our declaration"; d.appendChild(sm);
+      lines(o).forEach(function (ln, i) { if (i) p.appendChild(document.createElement("br")); p.appendChild(document.createTextNode(ln)); });
+      d.appendChild(p); slot.appendChild(d);
+      if (withLink) {
+        var t = document.createElement("a"); t.href = SITE; t.textContent = "Decision Provenance Standard";
+        t.rel = "noopener"; t.target = "_blank"; slot.appendChild(t);
+      }
+    });
+  }
+  function downloadSvg() {
+    if (!current) return;
+    var blob = new Blob([svgFile(current)], { type: "image/svg+xml" });
+    var url = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = url; a.download = "dps-declaration-badge.svg"; document.body.appendChild(a); a.click();
+    document.body.removeChild(a); setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+  }
+
+  // ---- copying ------------------------------------------------------------------------
+  function copyFrom(id) {
+    var text = $(id).textContent, status = $("s-" + id);
+    function done(ok) { if (status) status.textContent = ok ? "Copied." : "Select the text and copy it by hand."; }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallback(text)); });
+    } else { done(fallback(text)); }
+  }
+  function fallback(text) {
+    var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    document.body.removeChild(ta); return ok;
+  }
+
+  // ---- wiring -------------------------------------------------------------------------
+  $("promptView").textContent = $("dps-prompt").textContent;
+  var d = new Date();
+  $("f-date").value = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  document.querySelectorAll('input[name="kind"]').forEach(function (r) {
+    r.addEventListener("change", function () { setKind(kind()); render(); });
+  });
+  ["f-name", "f-charters", "f-level", "f-date", "f-by-name", "f-by-role", "f-page"].forEach(function (id) {
+    function on() { touched = true; render(); }
+    $(id).addEventListener("input", on); $(id).addEventListener("change", on);
+  });
+  $("textlink").addEventListener("change", render);
+  $("useAnswer").addEventListener("click", useAnswer);
+  $("dlSvg").addEventListener("click", downloadSvg);
+  document.querySelectorAll("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () { copyFrom(b.getAttribute("data-copy")); });
+  });
+  document.querySelectorAll("form").forEach(function (f) { f.addEventListener("submit", function (e) { e.preventDefault(); }); });
+  setKind("organization");
+  render();
+  // test seam for the QA script: the same functions the page uses
+  window.__dps = { checkDeclaration: checkDeclaration, webCode: webCode, githubCode: githubCode, svgFile: svgFile, lines: lines };
+})();
+</script>
+</body>
+</html>

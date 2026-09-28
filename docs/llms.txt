@@ -26,6 +26,7 @@
 
 ## Adopt
 
+- [Badges](https://decisionprovenancestandard.org/badges.html): write your own self-declaration, with your own AI assistant or a coding-agent skill, and get one piece of code: the badge with the declaration inside it. Self-declared; no one certifies it. Nothing typed leaves the page.
 - [Reference files](https://decisionprovenancestandard.org/reference-implementation.html): machine-readable reference files, release 5.1.1 (MIT): schemas, state machines, the signal list, the reporter contract and a test plan; the Standard does not depend on them.
 - [Downloads](https://decisionprovenancestandard.org/downloads.html): all six documents of v1.1 as PDF, Markdown and HTML, plus the complete release bundle with SHA-256 checksums; the rev. 8 files, including Word, stay available.
 - [Announcement](https://decisionprovenancestandard.org/dps-announcement.html): what it is, why now, what is available, and how to start.
