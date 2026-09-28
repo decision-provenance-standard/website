@@ -165,14 +165,14 @@ li{margin:.3rem 0;}
 <div class="layout">
 <main class="wrap" id="top">
 <h1 id="the-decision-provenance-standard-and-the-frameworks-it-converses-with">The Decision Provenance Standard and the Frameworks It Converses With</h1>
-<p><em>The Decision Provenance Standard™ · v1.0 · open standard, CC-BY 4.0</em></p>
+<p><em>The Decision Provenance Standard™ · v1.1 · open standard, CC-BY 4.0</em></p>
 <hr />
 <h2 id="read-the-firewall-first">Read the firewall first</h2>
 <p>The Decision Provenance Standard's records are <strong>audit-ready decision provenance</strong>: a structured record of how a decision was made, by whom, against which inputs, with what review, and sealed at what moment. Across every framework below, those records function as an <strong>input substrate</strong> — material that compliance, audit, and governance personnel use when preparing their own work product.</p>
 <blockquote>
-<p><strong>The Standard informs each framework without satisfying it.</strong> A record produced under the Standard may be cited as supporting input; it does <strong>not</strong> satisfy, ensure, certify, or substitute for any control, requirement, or audit obligation under any framework named here. The obligation belongs to the obligated party and is discharged by that party's qualified personnel — counsel, compliance officers, internal auditors, third-party assessors, and certification bodies. The Standard documents process; those personnel make the substantive determinations.</p>
+<p><strong>The Standard informs each framework without satisfying it.</strong> A record produced under the Standard may be used as input when preparing evidence; it does <strong>not</strong> satisfy, ensure, certify, or substitute for any control, requirement, or audit obligation under any framework named here. Whether a framework applies, and how its requirements are met, is for the deployer to determine. The people who do that work may include counsel, compliance officers, internal auditors, third-party assessors, and certification bodies. The Standard documents process; those people make the substantive determinations.</p>
 </blockquote>
-<p>This sheet is grounded strictly in <strong>Companion A — Regulatory Cross-References</strong>. Each row carries that framework's own non-claim. Nothing here is legal advice.</p>
+<p>This sheet is grounded strictly in <strong>Companion A — Regulatory Cross-References</strong>. Each row carries that framework's own non-claim. The “What it governs” column summarizes each cited text for orientation; it is not a rule of this Standard, and whether a cited text applies to a deployer, and what it requires of it, is for the deployer to determine. Nothing here is legal advice.</p>
 <hr />
 <h2 id="ai-governance-frameworks">AI-governance frameworks</h2>
 <table>
@@ -195,25 +195,25 @@ li{margin:.3rem 0;}
 <td><strong>EU AI Act — Article 17</strong> (Quality Management System)</td>
 <td>A <em>provider's</em> obligation to put a quality management system in place for high-risk AI systems.</td>
 <td>Bounded: the Standard's territory is the <em>deployer</em> side; the Charter's <code>ai_system_identity</code> field points at the AI system the deployer uses.</td>
-<td>Does not constitute, replace, or contribute structurally to Article 17 QMS documentation; a deployer that is also a provider discharges Article 17 through its own provider-side QMS.</td>
+<td>Does not constitute, replace, or contribute structurally to Article 17 QMS documentation; whether and how Article 17 applies to a deployer that is also a provider is for it to determine.</td>
 </tr>
 <tr>
 <td><strong>EU AI Act — Article 50</strong> (Transparency)</td>
-<td>Disclosure obligations when an AI system's output reaches a natural person.</td>
-<td>Mode 2 dispatch is the trigger; the five-field disclosure-metadata schema (declaring authority, AI system identity, jurisdiction, content type, timestamp) <em>structures the inputs</em> a named human uses to disclose.</td>
-<td>Does not discharge the disclosure obligation; does not generate, approve, or substitute for the disclosure text, and does not opine on whether a given artifact is within Article 50's substantive scope.</td>
+<td>Transparency obligations for providers and deployers of certain AI systems.</td>
+<td>Mode 2 dispatch is the trigger for the Standard's own disclosure block (§4.6): five fields (declaring authority, AI system identity, jurisdiction, content type, timestamp) <em>structure the inputs</em> the declaring authority records.</td>
+<td>Does not discharge any disclosure obligation; does not generate, approve, or substitute for the disclosure text. Whether a given artifact falls within Article 50, and who carries any duty, is for the deployer to determine.</td>
 </tr>
 <tr>
 <td><strong>EU GDPR — Article 17</strong> (Right to Erasure)</td>
 <td>A data subject's right to obtain erasure of personal data, subject to the Article 17(3) exceptions.</td>
-<td>The redaction-event record pattern documents the lawful basis for archival retention; the seal makes the retained record tamper-evident, which is what makes archival retention defensible.</td>
+<td>The redaction-event record records the deployer's statement that named fields were removed from operational use; it does not by itself remove or erase anything. The seal keeps the historical record of what was decided, by whom, on what basis and with what review.</td>
 <td>Does not opine on whether any erasure request applies, whether an Article 17(3) exception holds, or whether a deletion method is adequate under a given jurisdiction's interpretation.</td>
 </tr>
 <tr>
 <td><strong>EU GDPR — Article 22</strong> (Automated individual decision-making)</td>
-<td>Constraints on decisions based solely on automated processing producing legal or similarly significant effects.</td>
-<td>The Standard's records inform the controller's Article 22 work. Where the decision is an <em>employment</em> decision, the stricter HR-side firewall below applies.</td>
-<td>Does not satisfy GDPR; the Article 22 obligations belong to the controller.</td>
+<td>Automated individual decision-making, including profiling.</td>
+<td>The Standard's records may inform the deployer's work. Where the decision is an <em>employment</em> decision, the HR-side rows below apply.</td>
+<td>Does not satisfy GDPR. Whether Article 22 applies, what it requires, and who carries any duty under it are for the deployer to determine.</td>
 </tr>
 <tr>
 <td><strong>NIST AI RMF — Manage 4.1</strong> (post-deployment monitoring)</td>
@@ -245,7 +245,7 @@ li{margin:.3rem 0;}
 <td><strong>Caremark / Marchand v. Barnhill</strong> (Delaware)</td>
 <td>The subject domain of board-of-directors oversight duties under Delaware corporate law.</td>
 <td>For board-reserved decision classes, the Charter and the sealed affirmation lifecycle produce a structured record of who held authority, on what cadence, with what triggers — material a board, its committees, and its counsel may use as input.</td>
-<td>Does not constitute Caremark/Marchand compliance, does not satisfy a board's oversight duties, and does not characterize what the cases hold; legal sufficiency is a substantive determination by counsel admitted in Delaware.</td>
+<td>Does not constitute Caremark/Marchand compliance, does not satisfy a board's oversight duties, and does not characterize what the cases hold; legal sufficiency is for the board and its counsel to determine.</td>
 </tr>
 <tr>
 <td><strong>COSO 2013</strong> (Internal Control – Integrated Framework)</td>
@@ -257,7 +257,7 @@ li{margin:.3rem 0;}
 <td><strong>SOX § 404</strong> (Management Assessment of ICFR)</td>
 <td>Management's assessment of internal control over financial reporting at in-scope issuers, plus the external-auditor attestation.</td>
 <td>Where § 404 applicability is independently established, the Charter, schedule of records, and sealed affirmation events are structured inputs to the management assessment and the auditor's audit-trail testing.</td>
-<td>Does not constitute § 404 compliance, does not produce a management assessment or auditor attestation, and does not establish applicability; many adopters are not issuers and are outside § 404's direct scope.</td>
+<td>Does not constitute § 404 compliance, does not produce a management assessment or auditor attestation, and does not establish applicability; whether § 404 applies is for the deployer to determine.</td>
 </tr>
 <tr>
 <td><strong>SOC 2 Type II</strong> (AICPA Trust Services Criteria)</td>
@@ -268,8 +268,8 @@ li{margin:.3rem 0;}
 </tbody>
 </table>
 <hr />
-<h2 id="hr-side-regimes-stricter-firewall">HR-side regimes (stricter firewall)</h2>
-<p>The HR-side regulatory regimes have <strong>direct private-right-of-action exposure</strong> that most AI-governance regimes do not yet carry, so the "informs without satisfying" firewall is <strong>stricter</strong> here because the litigation pathway is shorter. The Standard does <strong>not</strong> authorize, validate, certify, or recommend any deployer's use of its records as input to employment decisions under any of these regimes.</p>
+<h2 id="hr-side-regimes-stricter-firewall">HR-side regimes</h2>
+<p>The Standard's records inform the deployer's work under these laws without satisfying any of them. The Standard does <strong>not</strong> authorize, validate, certify, or recommend any deployer's use of its records as input to employment decisions under any of these regimes.</p>
 <table>
 <thead>
 <tr>
@@ -282,27 +282,27 @@ li{margin:.3rem 0;}
 <tbody>
 <tr>
 <td><strong>NYC Local Law 144</strong> (Automated Employment Decision Tools)</td>
-<td>Bias-audit, public-summary, and candidate-notice obligations on AEDTs used in NYC hiring, promotion, retention, or termination.</td>
-<td>The Standard's records inform the deployer's AEDT bias-audit work.</td>
-<td>Does not satisfy NYC LL 144; the AEDT obligations belong to the deployer as AEDT operator.</td>
+<td>Automated employment decision tools (NYC Local Law 144 of 2021).</td>
+<td>Whether it applies to a deployer's use of the records is for the deployer to determine.</td>
+<td>Does not satisfy NYC LL 144. What it requires, and who carries any duty under it, are for the deployer to determine.</td>
 </tr>
 <tr>
 <td><strong>State employment-AI regimes</strong> (Colorado SB 24-205, Illinois HB 3773, California ADMT proposed regs)</td>
-<td>Risk-assessment, anti-discrimination, and notice-and-explanation obligations on consequential employment decisions substantially assisted by automated systems.</td>
-<td>The Standard's records inform the deployer's risk-assessment and notice work.</td>
+<td>Risk assessment, anti-discrimination, and notice and explanation for consequential employment decisions made or substantially assisted by automated systems.</td>
+<td>Whether any of them applies to a deployer's use of the records is for the deployer to determine.</td>
 <td>Does not satisfy any state-level regime.</td>
 </tr>
 <tr>
 <td><strong>EU AI Act — Annex III</strong> (employment-side high-risk)</td>
-<td>Classifies recruitment, performance-evaluation, work-allocation, and monitoring AI systems as high-risk under Articles 8–17.</td>
-<td>The Standard's records inform the deployer's Annex III conformity-assessment work.</td>
+<td>Names employment-side AI systems (recruitment, performance evaluation, work allocation, monitoring) as high-risk.</td>
+<td>Whether it applies to a deployer's use of the records is for the deployer to determine.</td>
 <td>Does not satisfy the EU AI Act high-risk obligations.</td>
 </tr>
 <tr>
 <td><strong>EU Platform Work Directive / UK ICO Monitoring Guidance / Israel PPL 5741-1981</strong></td>
-<td>Algorithmic-management transparency, workplace-monitoring proportionality, and employment-data consent/purpose-limitation obligations.</td>
+<td>Algorithmic management; proportionality, transparency and consultation for workplace monitoring; consent, purpose limitation and data-subject rights for employment data.</td>
 <td>The Standard's records inform the deployer's work under each regime.</td>
-<td>Does not satisfy any of these regimes; the obligations belong to the deployer, controller, or employer of record.</td>
+<td>Does not satisfy any of these regimes. Whether each applies, what it requires, and who carries any duty under it are for the deployer to determine.</td>
 </tr>
 </tbody>
 </table>
@@ -315,7 +315,7 @@ li{margin:.3rem 0;}
 <p><em>Jurisdiction assumed: U.S. federal and Delaware (primary); United Kingdom, the European Union, and Israel (named secondaries). The traditional frameworks above are predominantly U.S. in origin; for non-U.S. jurisdictions, the cross-reference to local analogues is performed by counsel admitted in that jurisdiction. Not legal advice.</em></p><div class="related"><strong>Related:</strong> <a href="firewall.html">The Firewall — what the Standard is not</a> · <a href="dps-v1.1-rev9-companion-A.html">Regulatory Cross-References</a></div>
 <div class="docfoot"><strong>The records are input, not evidence. The Standard informs frameworks without satisfying them. Conformance is self-declared; no body certifies it. It is not legal advice and not a regulatory substitute.</strong><br>Decision Provenance Standard&trade; v1.1 &mdash; Reading Edition (rev.&nbsp;9). Open standard under CC-BY&nbsp;4.0. Not a certified product. Founding Steward: Yohay Etsion; institutional Steward: Etsion Brands Ltd.</div>
 </main>
-<details class="toc" open aria-label="Table of contents"><summary class="toc-summary">Contents</summary><div class="toc-body"><ul><li class="toc-l2"><a href="#read-the-firewall-first">Read the firewall first</a></li><li class="toc-l2"><a href="#ai-governance-frameworks">AI-governance frameworks</a></li><li class="toc-l2"><a href="#internal-control-and-oversight-backbone">Internal-control and oversight backbone</a></li><li class="toc-l2"><a href="#hr-side-regimes-stricter-firewall">HR-side regimes (stricter firewall)</a></li><li class="toc-l2"><a href="#the-discipline-behind-every-row">The discipline behind every row</a></li></ul></div></details>
+<details class="toc" open aria-label="Table of contents"><summary class="toc-summary">Contents</summary><div class="toc-body"><ul><li class="toc-l2"><a href="#read-the-firewall-first">Read the firewall first</a></li><li class="toc-l2"><a href="#ai-governance-frameworks">AI-governance frameworks</a></li><li class="toc-l2"><a href="#internal-control-and-oversight-backbone">Internal-control and oversight backbone</a></li><li class="toc-l2"><a href="#hr-side-regimes-stricter-firewall">HR-side regimes</a></li><li class="toc-l2"><a href="#the-discipline-behind-every-row">The discipline behind every row</a></li></ul></div></details>
 </div>
 <script>
 /* TOC scroll-spy: highlight the section currently in view and keep it visible in the rail. */
