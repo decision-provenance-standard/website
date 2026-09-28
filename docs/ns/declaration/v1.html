@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Declaration namespace, version 1 — Decision Provenance Standard</title>
+<meta name="description" content="The XML namespace used in the data block of a Decision Provenance Standard badge. It names the declaration format; it is not a registry.">
+<meta name="robots" content="noindex,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Decision Provenance Standard">
+<meta property="og:title" content="Declaration namespace, version 1 — Decision Provenance Standard">
+<meta property="og:image" content="https://decisionprovenancestandard.org/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Decision Provenance Standard — audit-ready provenance for decisions made by humans and AI together.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://decisionprovenancestandard.org/assets/og-image.png">
+<link rel="canonical" href="https://decisionprovenancestandard.org/ns/declaration/v1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233A5A78'/><rect x='9' y='8' width='14' height='3' rx='1.5' fill='white'/><rect x='9' y='14.5' width='14' height='3' rx='1.5' fill='white'/><rect x='9' y='21' width='9' height='3' rx='1.5' fill='%238FA8C0'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1A1A1A;--ink-soft:#3F4750;--paper:#F5F5F5;--card:#FFFFFF;--accent:#3A5A78;
+  --accent-soft:#8FA8C0;--rule:#E2E5E9;--ink-dark:#11202E;}
+*{box-sizing:border-box;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--accent);color:#fff;
+  padding:.5rem .9rem;border-radius:0 0 6px 0;z-index:200;
+  font-family:'Manrope',system-ui,sans-serif;font-weight:700;text-decoration:none;}
+.skip-link:focus{left:0;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.7;
+  display:flex;flex-direction:column;min-height:100vh;}
+.topnav{position:sticky;top:0;background:#F2F4F6;border-bottom:1px solid var(--rule);}
+.topnav-inner{max-width:760px;margin:0 auto;padding:.55rem 1.5rem;display:flex;
+  justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.brandmark{font-family:'Manrope',system-ui,sans-serif;font-weight:800;font-size:1rem;
+  color:var(--accent);text-decoration:none;}
+.brandmark .tm{font-size:.6em;vertical-align:super;}
+.navlink{font-family:'Manrope',system-ui,sans-serif;font-size:.82rem;font-weight:600;
+  text-decoration:none;color:var(--ink-soft);padding:.3rem .6rem;border-radius:6px;}
+.navlink:hover{background:var(--rule);color:var(--accent);}
+.wrap{max-width:760px;margin:0 auto;padding:4rem 1.5rem 3rem;flex:1;}
+.code{font-family:'JetBrains Mono','Manrope',monospace;font-size:.85rem;font-weight:700;
+  letter-spacing:.1em;color:var(--accent-soft);text-transform:uppercase;}
+h1{font-family:'Manrope',system-ui,sans-serif;font-size:2.2rem;font-weight:800;
+  letter-spacing:-.01em;margin:.4rem 0 .6rem;}
+.sub{color:var(--ink-soft);font-size:1.1rem;margin:0 0 2rem;max-width:54ch;}
+.links{display:flex;gap:.7rem;flex-wrap:wrap;}
+.btn{font-family:'Manrope',system-ui,sans-serif;font-size:.95rem;font-weight:700;
+  text-decoration:none;padding:.7rem 1.3rem;border-radius:8px;border:2px solid var(--accent);}
+.btn.primary{background:var(--accent);color:#fff;}
+.btn.primary:hover{background:var(--ink-dark);border-color:var(--ink-dark);}
+.btn.ghost{background:transparent;color:var(--accent);}
+.btn.ghost:hover{background:var(--rule);}
+a{color:var(--accent);}
+footer{background:var(--ink-dark);color:#C7D2DC;font-family:'Manrope',system-ui,sans-serif;
+  font-size:.82rem;line-height:1.7;}
+footer .inner{max-width:760px;margin:0 auto;padding:2rem 1.5rem;}
+footer .fw{color:#E6EDF3;font-weight:600;margin:0;}
+code{font-family:'JetBrains Mono',monospace;font-size:.85em;overflow-wrap:anywhere;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="topnav"><div class="topnav-inner">
+  <a class="brandmark" href="/">Decision Provenance Standard<span class="tm">&trade;</span></a>
+  <a class="navlink" href="/">← Home</a>
+</div></header>
+<main class="wrap" id="main">
+  <div class="code">Namespace</div>
+  <h1>Declaration namespace, version 1</h1>
+  <p class="sub">This address names the XML namespace used in the data block inside the badge file that the badge page lets you download (<code>dps-declaration-badge.svg</code>):</p>
+  <p><code>&lt;dps:declaration xmlns:dps="https://decisionprovenancestandard.org/ns/declaration/v1" format="dps-declaration/v1"&gt;</code></p>
+  <p>It identifies the format of that data block. It is not a registry and lists no one.</p>
+  <p>The JSON Schema for the same declaration is at <a href="/schemas/dps-declaration-v1.schema.json">/schemas/dps-declaration-v1.schema.json</a>.</p>
+  <div class="links">
+    <a class="btn primary" href="/badges.html">Make a badge</a>
+    <a class="btn ghost" href="/">Go to the home page</a>
+  </div>
+</main>
+<footer><div class="inner">
+  <p class="fw">The records are input, not evidence. The Standard informs frameworks without satisfying them. Conformance is self-declared; no body certifies it. It is not legal advice and not a regulatory substitute.</p>
+</div></footer>
+</body>
+</html>
