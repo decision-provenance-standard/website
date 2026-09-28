@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Decision Provenance Standard — FAQ</title>
-<meta name="description" content="FAQ for the Decision Provenance Standard — is it legal advice, does it make me compliant, who certifies conformance, Mode 1 vs 2, Article 50, and licensing.">
+<meta name="description" content="FAQ for the Decision Provenance Standard — is it legal advice, does it make me compliant, who certifies conformance, Mode 1 vs 2, the disclosure block, and licensing.">
 <link rel="canonical" href="https://decisionprovenancestandard.org/dps-faq.html">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Decision Provenance Standard">
 <meta property="og:title" content="Decision Provenance Standard — FAQ">
-<meta property="og:description" content="FAQ for the Decision Provenance Standard — is it legal advice, does it make me compliant, who certifies conformance, Mode 1 vs 2, Article 50, and licensing.">
+<meta property="og:description" content="FAQ for the Decision Provenance Standard — is it legal advice, does it make me compliant, who certifies conformance, Mode 1 vs 2, the disclosure block, and licensing.">
 <meta property="og:url" content="https://decisionprovenancestandard.org/dps-faq.html">
 <meta property="og:image" content="https://decisionprovenancestandard.org/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
 <meta property="og:image:alt" content="Decision Provenance Standard — audit-ready provenance for decisions made by humans and AI together.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Decision Provenance Standard — FAQ">
-<meta name="twitter:description" content="FAQ for the Decision Provenance Standard — is it legal advice, does it make me compliant, who certifies conformance, Mode 1 vs 2, Article 50, and licensing.">
+<meta name="twitter:description" content="FAQ for the Decision Provenance Standard — is it legal advice, does it make me compliant, who certifies conformance, Mode 1 vs 2, the disclosure block, and licensing.">
 <meta name="twitter:image" content="https://decisionprovenancestandard.org/assets/og-image.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233A5A78'/><rect x='9' y='8' width='14' height='3' rx='1.5' fill='white'/><rect x='9' y='14.5' width='14' height='3' rx='1.5' fill='white'/><rect x='9' y='21' width='9' height='3' rx='1.5' fill='%238FA8C0'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +58,7 @@
       "name": "Does adopting it make me compliant with regulations?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The Standard informs frameworks without satisfying them. The records it produces are input that counsel and auditors convert into evidence, certifications, or attestations. A record may be cited as supporting input under frameworks such as NIST AI RMF, ISO/IEC 42001, and the EU AI Act, but it does not itself satisfy any control, requirement, or audit obligation. Compliance remains your organization's responsibility, discharged by your qualified personnel."
+        "text": "No. The Standard informs frameworks without satisfying them. The records it produces are input that counsel and auditors convert into evidence, certifications, or attestations. A record may be used as input when preparing evidence under frameworks such as NIST AI RMF, ISO/IEC 42001, and the EU AI Act, but it does not itself satisfy any control, requirement, or audit obligation. Your organization remains responsible for its own regulatory posture."
       }
     },
     {
@@ -87,10 +87,10 @@
     },
     {
       "@type": "Question",
-      "name": "What is Article 50 disclosure?",
+      "name": "What is the disclosure block?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "When an AI authors content that reaches a person, the EU AI Act (Article 50) requires transparency. The Standard does not satisfy that obligation — it structures the inputs a human needs to satisfy it, through a small disclosure block with five required fields: the responsible human (declaring authority), the AI system identity, the jurisdiction, the content type, and the timestamp. A useful property: when records are later anonymized, four of the five fields survive unchanged — only the named person may be replaced by a placeholder. You can hide who without erasing that an AI authored this, where, of what type, and when."
+        "text": "Every AI-authored (Mode 2) artifact carries a small disclosure block, the Standard's own requirement, with five required fields: the declaring authority (the person who prepares the disclosure, named with the organization they act for), the AI system identity, the jurisdiction, the content type, and the timestamp. The block structures the inputs for a disclosure; it does not satisfy any legal obligation. Whether Article 50 of the EU AI Act, or any other law, applies to an artifact, and who carries any duty, is for the deployer to determine. A useful property: when records are later anonymized, four of the five fields survive unchanged — only the declaring authority may be replaced by a placeholder. You can hide who without erasing that an AI authored this, where, of what type, and when."
       }
     },
     {
@@ -106,7 +106,7 @@
       "name": "What are the conformance levels?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Three cumulative, self-declared levels: Level 1 — Charter-Conformant: the Charter is structurally complete. Level 2 — Mode-Disambiguated: every record carries its mode, every AI-authored record carries its Article 50 disclosure block, and an audit finds no silent drift. Level 3 — Continuously Auditable: triggers fire on schedule, escalations produce records, disclosures stay current, and the schedule is queryable on demand. An organization grades itself with a reporter that reads the structural facts. Counsel and auditors read the grade as one input — never as a certification."
+        "text": "Three cumulative, self-declared levels: Level 1 — Charter-Conformant: the Charter is structurally complete. Level 2 — Mode-Disambiguated: every record carries its mode, every AI-authored record carries its disclosure block, and an audit finds no silent drift. Level 3 — Continuously Auditable: triggers fire on schedule, escalations produce records, disclosures stay current, and the schedule is queryable on demand. An organization grades itself with a reporter that reads the structural facts. Counsel and auditors read the grade as one input — never as a certification."
       }
     },
     {
@@ -114,7 +114,7 @@
       "name": "What is the license?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Standard is published under the Creative Commons Attribution 4.0 International License (CC-BY 4.0) — free to read, use, extend, and fork under attribution. The reference implementation is published separately under the MIT License. The name is a protected trademark: trademark rights are not licensed with the text, so anyone may use and extend the text while the name stays protected against misrepresentation. Removing the firewall language, or representing the Standard as certified, attested, or regulator-endorsed, is outside the license."
+        "text": "The Standard is published under the Creative Commons Attribution 4.0 International License (CC-BY 4.0) — free to read, use, extend, and fork under attribution. The reference files (machine-readable schemas, state machines, the signal list, the reporter contract and a test plan, at /standard/v5.0/, reference release 5.1.1) are published separately under the MIT License; they are not the Standard, and the Standard does not depend on them. Etsion Brands Ltd claims \"Decision Provenance Standard\" as an unregistered trademark (™). The licenses cover the text and files, not the name; permitted uses of the name are set out in Standard §11.1. Removing the firewall language, or representing the Standard as certified, attested, or regulator-endorsed, is outside the license."
       }
     },
     {
@@ -130,7 +130,7 @@
       "name": "How does it relate to NIST, ISO, and the EU AI Act?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It informs them without satisfying them. The Charter, the decision records, and the conformance grade are an input substrate your AI-governance, compliance, and audit functions can use when preparing their own work — for example, NIST AI RMF Manage 4.1's continuous-documentation expectation, documented information within an ISO/IEC 42001 management system, or the EU AI Act Article 50 disclosure inputs. In every case the obligation is discharged by your qualified personnel, not by the Standard. The Standard's conformance levels are not ISO/IEC 42001 maturity levels, and there is no defined cross-walk between them."
+        "text": "It informs them without satisfying them. The Charter, the decision records, and the conformance grade are an input substrate your AI-governance, compliance, and audit functions can use when preparing their own work — for example, NIST AI RMF Manage 4.1's continuous-documentation expectation, documented information within an ISO/IEC 42001 management system, or disclosure work under EU AI Act Article 50. In every case the Standard discharges no obligation; whether a framework applies, and who carries any duty under it, is for the deployer to determine. The Standard's conformance levels are not ISO/IEC 42001 maturity levels, and there is no defined cross-walk between them."
       }
     },
     {
@@ -138,7 +138,7 @@
       "name": "What is — and is not — included in the release?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A small, self-contained set, all under CC-BY 4.0: the core Standard, four Companions (regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams), an Appendix for governance and references, and a working open-source reference implementation under the MIT License (a real artifact you may consult, but not the Standard itself — the Standard does not depend on it)."
+        "text": "A small, self-contained set: the core Standard, four Companions (regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams) and an Appendix for governance and references, all under CC-BY 4.0; and the machine-readable reference files (schemas, state machines, the signal list, the reporter contract and a test plan) under the MIT License at /standard/v5.0/, reference release 5.1.1 (not the Standard itself — the Standard does not depend on them)."
       }
     }
   ]
@@ -285,7 +285,7 @@ li{margin:.3rem 0;}
 <div class="layout">
 <main class="wrap" id="top">
 <h1 id="decision-provenance-standard-frequently-asked-questions">Decision Provenance Standard — Frequently Asked Questions</h1>
-<p><em>The Decision Provenance Standard™ · v1.0 · open standard, CC-BY 4.0</em></p>
+<p><em>The Decision Provenance Standard™ · v1.1 (reading edition rev. 9) · open standard, CC-BY 4.0</em></p>
 <hr />
 <h3 id="1-what-is-the-decision-provenance-standard">1. What is the Decision Provenance Standard?</h3>
 <p>It is an open <strong>record format</strong>: a defined, closed set of building blocks for writing down how a consequential decision was made — by whom, against what information, with what review, and at what moment it was affirmed. It works whether a human or an AI produced the underlying analysis. The goal is to turn "how was this decided?" into a record you can find in thirty seconds and trust, instead of something reconstructed from email and memory.</p>
@@ -294,7 +294,7 @@ li{margin:.3rem 0;}
 <h3 id="3-is-it-legal-advice">3. Is it legal advice?</h3>
 <p>No. The Standard is <strong>not legal advice</strong> and <strong>not a regulatory substitute</strong>. No attorney-client relationship is created by reading, citing, or adopting it. Any decision with material legal or regulatory consequences requires review by a licensed attorney in the relevant jurisdiction.</p>
 <h3 id="4-does-adopting-it-make-me-compliant-with-regulations">4. Does adopting it make me compliant with regulations?</h3>
-<p>No. The Standard <strong>informs frameworks without satisfying them.</strong> The records it produces are <em>input</em> that counsel and auditors convert into evidence, certifications, or attestations. A record may be cited as supporting input under frameworks such as NIST AI RMF, ISO/IEC 42001, and the EU AI Act, but it does not itself satisfy any control, requirement, or audit obligation. Compliance remains your organization's responsibility, discharged by your qualified personnel.</p>
+<p>No. The Standard <strong>informs frameworks without satisfying them.</strong> The records it produces are <em>input</em> that counsel and auditors convert into evidence, certifications, or attestations. A record may be used as input when preparing evidence under frameworks such as NIST AI RMF, ISO/IEC 42001, and the EU AI Act, but it does not itself satisfy any control, requirement, or audit obligation. Your organization remains responsible for its own regulatory posture.</p>
 <h3 id="5-who-certifies-conformance">5. Who certifies conformance?</h3>
 <p><strong>No one.</strong> There is no certifying body and no certification track. Every conformance level is <strong>self-declared</strong> by the adopting organization. The Founding Steward governs the text but does not certify, grade, or audit anyone's conformance, and maintains no central registry of conformant organizations.</p>
 <h3 id="6-what-are-mode-1-and-mode-2">6. What are Mode 1 and Mode 2?</h3>
@@ -306,31 +306,31 @@ li{margin:.3rem 0;}
 <p>There is one more value for the common case of an AI-written passage embedded inside a human-authored document — authorship is judged at the content level, not the container. The enumeration is closed: no third mode, no fuzzy "AI-assisted" label.</p>
 <h3 id="7-what-is-the-charter">7. What is the Charter?</h3>
 <p>A Charter governs a <em>recurring kind</em> of decision — launch-readiness calls, pricing exceptions, and the like — not a single decision. It states up front, in writing: the single human accountable, the dispatch mode, the schedule of records it will keep, and the triggers that force the decision to be reopened. It moves through five states in one direction — open, mode declared, required fields set, fields completed, closed — and never backward, which makes it consistent by construction rather than by after-the-fact review.</p>
-<h3 id="8-what-is-article-50-disclosure">8. What is Article 50 disclosure?</h3>
-<p>When an AI authors content that reaches a person, the EU AI Act (Article 50) requires transparency. The Standard does not satisfy that obligation — it <strong>structures the inputs</strong> a human needs to satisfy it, through a small disclosure block with five required fields: the responsible human (declaring authority), the AI system identity, the jurisdiction, the content type, and the timestamp. A useful property: when records are later anonymized, four of the five fields survive unchanged — only the named person may be replaced by a placeholder. You can hide <em>who</em> without erasing <em>that</em> an AI authored this, where, of what type, and when.</p>
+<h3 id="8-what-is-article-50-disclosure">8. What is the disclosure block?</h3>
+<p>Every AI-authored (Mode 2) artifact carries a small <strong>disclosure block</strong>, the Standard's own requirement, with five required fields: the declaring authority (the person who prepares the disclosure, named with the organization they act for), the AI system identity, the jurisdiction, the content type, and the timestamp. The block <strong>structures the inputs</strong> for a disclosure; it does not satisfy any legal obligation. Whether Article 50 of the EU AI Act, or any other law, applies to an artifact, and who carries any duty, is for the deployer to determine. A useful property: when records are later anonymized, four of the five fields survive unchanged — only the declaring authority may be replaced by a placeholder. You can hide <em>who</em> without erasing <em>that</em> an AI authored this, where, of what type, and when.</p>
 <h3 id="9-what-is-the-human-signature-and-why-does-it-matter">9. What is the human signature, and why does it matter?</h3>
 <p>A decision record moves <em>draft → reviewed → affirmed</em>. The load-bearing rule: a record becomes <strong>affirmed</strong> only when a named human performs an explicit act — a signature — and at that moment it is sealed with a tamper-evident hash. There is no passive promotion: a record never drifts into "approved" because time passed or a box auto-checked. This is what separates the Standard from a logging system, and it is the answer to <em>"won't AI just decide everything?"</em> — no, because a human signature gates every consequential record.</p>
 <h3 id="10-what-are-the-conformance-levels">10. What are the conformance levels?</h3>
 <p>Three cumulative, self-declared levels:</p>
 <ul>
 <li><strong>Level 1 — Charter-Conformant:</strong> the Charter is structurally complete.</li>
-<li><strong>Level 2 — Mode-Disambiguated:</strong> every record carries its mode, every AI-authored record carries its Article 50 disclosure block, and an audit finds no silent drift.</li>
+<li><strong>Level 2 — Mode-Disambiguated:</strong> every record carries its mode, every AI-authored record carries its disclosure block, and an audit finds no silent drift.</li>
 <li><strong>Level 3 — Continuously Auditable:</strong> triggers fire on schedule, escalations produce records, disclosures stay current, and the schedule is queryable on demand.</li>
 </ul>
 <p>An organization grades itself with a reporter that reads the structural facts. Counsel and auditors read the grade as <em>one input</em> — never as a certification.</p>
 <h3 id="11-what-is-the-license">11. What is the license?</h3>
-<p>The Standard is published under the <strong>Creative Commons Attribution 4.0 International License (CC-BY 4.0)</strong> — free to read, use, extend, and fork under attribution. The reference implementation is published separately under the MIT License. The <strong>name is a protected trademark</strong>: trademark rights are not licensed with the text, so anyone may use and extend the text while the name stays protected against misrepresentation. Removing the firewall language, or representing the Standard as certified, attested, or regulator-endorsed, is outside the license.</p>
+<p>The Standard is published under the <strong>Creative Commons Attribution 4.0 International License (CC-BY 4.0)</strong> — free to read, use, extend, and fork under attribution. The reference files (machine-readable schemas, state machines, the signal list, the reporter contract and a test plan, at /standard/v5.0/, reference release 5.1.1) are published separately under the MIT License; they are not the Standard, and the Standard does not depend on them. Etsion Brands Ltd claims "Decision Provenance Standard" as an <strong>unregistered trademark (™)</strong>. The licenses cover the text and files, not the name; permitted uses of the name are set out in <a href="dps-v1.1-rev9-core.html#111-trademark-convention">Standard §11.1</a>. Removing the firewall language, or representing the Standard as certified, attested, or regulator-endorsed, is outside the license.</p>
 <h3 id="12-how-do-i-start">12. How do I start?</h3>
 <p>Adoption is voluntary and incremental — the path is <strong>Charter-first</strong>. Pick one real recurring decision, author a single Charter for it, name the one human accountable, declare whether it dispatches in Mode 1 or Mode 2, begin producing records, and self-declare Conformance Level 1. From there, work upward against the named criteria for Level 2 and Level 3. One Charter, run honestly, is a conformant start.</p>
 <h3 id="13-how-does-it-relate-to-nist-iso-and-the-eu-ai-act">13. How does it relate to NIST, ISO, and the EU AI Act?</h3>
-<p>It <strong>informs them without satisfying them.</strong> The Charter, the decision records, and the conformance grade are an input substrate your AI-governance, compliance, and audit functions can use when preparing their own work — for example, NIST AI RMF Manage 4.1's continuous-documentation expectation, documented information within an ISO/IEC 42001 management system, or the EU AI Act Article 50 disclosure inputs. In every case the obligation is discharged by your qualified personnel, not by the Standard. The Standard's conformance levels are not ISO/IEC 42001 maturity levels, and there is no defined cross-walk between them.</p>
+<p>It <strong>informs them without satisfying them.</strong> The Charter, the decision records, and the conformance grade are an input substrate your AI-governance, compliance, and audit functions can use when preparing their own work — for example, NIST AI RMF Manage 4.1's continuous-documentation expectation, documented information within an ISO/IEC 42001 management system, or disclosure work under EU AI Act Article 50. In every case the Standard discharges no obligation; whether a framework applies, and who carries any duty under it, is for the deployer to determine. The Standard's conformance levels are not ISO/IEC 42001 maturity levels, and there is no defined cross-walk between them.</p>
 <h3 id="14-what-is-and-is-not-included-in-the-release">14. What is — and is not — included in the release?</h3>
-<p>A small, self-contained set, all under CC-BY 4.0: the <strong>core Standard</strong>, four <strong>Companions</strong> (regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams), an <strong>Appendix</strong> for governance and references, and a working open-source <strong>reference implementation</strong> under the MIT License (a real artifact you may consult, but not the Standard itself — the Standard does not depend on it).</p>
+<p>A small, self-contained set: the <strong>core Standard</strong>, four <strong>Companions</strong> (regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams) and an <strong>Appendix</strong> for governance and references, all under CC-BY 4.0; and the machine-readable <strong>reference files</strong> (schemas, state machines, the signal list, the reporter contract and a test plan) under the MIT License at /standard/v5.0/, reference release 5.1.1 (not the Standard itself — the Standard does not depend on them).</p>
 <hr />
 <p><em>Jurisdiction assumed: U.S. federal and Delaware (primary); United Kingdom, the European Union, and Israel (named secondaries). For any other jurisdiction, treat every statement here as a hypothesis to verify with local counsel. Not legal advice.</em></p>
 <div class="docfoot"><strong>The records are input, not evidence. The Standard informs frameworks without satisfying them. Conformance is self-declared; no body certifies it. It is not legal advice and not a regulatory substitute.</strong><br>Decision Provenance Standard&trade; v1.1 &mdash; Reading Edition (rev.&nbsp;9). Open standard under CC-BY&nbsp;4.0. Not a certified product. Founding Steward: Yohay Etsion; institutional Steward: Etsion Brands Ltd.</div>
 </main>
-<details class="toc" open aria-label="Table of contents"><summary class="toc-summary">Contents</summary><div class="toc-body"><ul><li class="toc-l3"><a href="#1-what-is-the-decision-provenance-standard">1. What is the Decision Provenance Standard?</a></li><li class="toc-l3"><a href="#2-what-problem-does-it-solve">2. What problem does it solve?</a></li><li class="toc-l3"><a href="#3-is-it-legal-advice">3. Is it legal advice?</a></li><li class="toc-l3"><a href="#4-does-adopting-it-make-me-compliant-with-regulations">4. Does adopting it make me compliant with regulations?</a></li><li class="toc-l3"><a href="#5-who-certifies-conformance">5. Who certifies conformance?</a></li><li class="toc-l3"><a href="#6-what-are-mode-1-and-mode-2">6. What are Mode 1 and Mode 2?</a></li><li class="toc-l3"><a href="#7-what-is-the-charter">7. What is the Charter?</a></li><li class="toc-l3"><a href="#8-what-is-article-50-disclosure">8. What is Article 50 disclosure?</a></li><li class="toc-l3"><a href="#9-what-is-the-human-signature-and-why-does-it-matter">9. What is the human signature, and why does it matter?</a></li><li class="toc-l3"><a href="#10-what-are-the-conformance-levels">10. What are the conformance levels?</a></li><li class="toc-l3"><a href="#11-what-is-the-license">11. What is the license?</a></li><li class="toc-l3"><a href="#12-how-do-i-start">12. How do I start?</a></li><li class="toc-l3"><a href="#13-how-does-it-relate-to-nist-iso-and-the-eu-ai-act">13. How does it relate to NIST, ISO, and the EU AI Act?</a></li><li class="toc-l3"><a href="#14-what-is-and-is-not-included-in-the-release">14. What is — and is not — included in the release?</a></li></ul></div></details>
+<details class="toc" open aria-label="Table of contents"><summary class="toc-summary">Contents</summary><div class="toc-body"><ul><li class="toc-l3"><a href="#1-what-is-the-decision-provenance-standard">1. What is the Decision Provenance Standard?</a></li><li class="toc-l3"><a href="#2-what-problem-does-it-solve">2. What problem does it solve?</a></li><li class="toc-l3"><a href="#3-is-it-legal-advice">3. Is it legal advice?</a></li><li class="toc-l3"><a href="#4-does-adopting-it-make-me-compliant-with-regulations">4. Does adopting it make me compliant with regulations?</a></li><li class="toc-l3"><a href="#5-who-certifies-conformance">5. Who certifies conformance?</a></li><li class="toc-l3"><a href="#6-what-are-mode-1-and-mode-2">6. What are Mode 1 and Mode 2?</a></li><li class="toc-l3"><a href="#7-what-is-the-charter">7. What is the Charter?</a></li><li class="toc-l3"><a href="#8-what-is-article-50-disclosure">8. What is the disclosure block?</a></li><li class="toc-l3"><a href="#9-what-is-the-human-signature-and-why-does-it-matter">9. What is the human signature, and why does it matter?</a></li><li class="toc-l3"><a href="#10-what-are-the-conformance-levels">10. What are the conformance levels?</a></li><li class="toc-l3"><a href="#11-what-is-the-license">11. What is the license?</a></li><li class="toc-l3"><a href="#12-how-do-i-start">12. How do I start?</a></li><li class="toc-l3"><a href="#13-how-does-it-relate-to-nist-iso-and-the-eu-ai-act">13. How does it relate to NIST, ISO, and the EU AI Act?</a></li><li class="toc-l3"><a href="#14-what-is-and-is-not-included-in-the-release">14. What is — and is not — included in the release?</a></li></ul></div></details>
 </div>
 <script>
 /* TOC scroll-spy: highlight the section currently in view and keep it visible in the rail. */
