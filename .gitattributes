@@ -5,3 +5,7 @@
 *.zip binary
 *.docx binary
 *.pdf binary
+
+# Downloads are published byte for byte: their checksums cover the exact bytes.
+# Git must never convert their line endings (the core Markdown uses CRLF).
+docs/downloads/** -text
