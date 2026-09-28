@@ -22,4 +22,6 @@ Contents (arcname -> role):
   pdf/6-Appendix-G-Governance-and-References.pdf    Appendix G - Governance and References (PDF)
 
 Note: the machine-readable files (JSON schemas and related files, reference release 5.1.0) are published
-separately at https://decisionprovenancestandard.org/standard/v5.0/ and are not included in this bundle.
+separately and are not included in this bundle. Reference release 5.1.0 is recoverable at tag rev8-published in
+https://github.com/decision-provenance-standard/standard ; the address https://decisionprovenancestandard.org/standard/v5.0/
+now serves the latest reference release.
