@@ -1,28 +1,30 @@
 Decision Provenance Standard
 =============================
 
+Copyright (c) 2026 Etsion Brands Ltd. Author: Yohay Etsion.
+
 LICENSING (by directory)
 ------------------------
-- The Standard TEXT and this website (everything in this repository EXCEPT the
-  reference-implementation substrate) are licensed under the Creative Commons
-  Attribution 4.0 International License (CC-BY 4.0). See the root LICENSE file.
+- The Standard TEXT and this website (everything in this repository EXCEPT
+  docs/standard/v5.0/) are licensed under the Creative Commons Attribution 4.0
+  International License (CC-BY 4.0). See the root LICENSE file.
 
-- The reference-implementation CODE under docs/standard/v5.0/ (the JSON schemas,
-  the conformance-signal reporter contract, the state machines, and the
-  accompanying specifications) is licensed under the MIT License. See
-  docs/standard/v5.0/LICENSE.
+- The reference files under docs/standard/v5.0/ (the JSON schemas, the state
+  machines, the signal list, the reporter contract and the test plan, including
+  their Markdown files) are licensed under the MIT License, for all of the 5.x
+  line of reference releases. See docs/standard/v5.0/LICENSE.
 
 MARK
 ----
-"Decision Provenance Standard" and its associated mark are held defensively
-(unregistered, denoted with the trademark symbol, not the registered-mark
-symbol) and are NOT licensed by either the CC-BY 4.0 license or the MIT
-license. Neither license grants any right to use the name or mark. Self-
+Etsion Brands Ltd claims "Decision Provenance Standard" as an unregistered
+trademark (TM). The licences in this repository cover the text and files, not
+the name. Permitted uses of the name are set out in Standard section 11.1.
+Neither license grants any right to use the name or mark. Self-
 declared, non-certified use of the Standard does not imply endorsement,
 certification, or approval by the Steward.
 
-FIREWALL POSTURE (load-bearing)
--------------------------------
+WHAT THE STANDARD IS NOT
+------------------------
 The records are input, not evidence. The Standard informs frameworks without
 satisfying them. Conformance is self-declared; no body certifies it. It is not
 legal advice and not a regulatory substitute.
