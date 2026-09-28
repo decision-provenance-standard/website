@@ -6,13 +6,16 @@ Copyright (c) 2026 Etsion Brands Ltd. Author: Yohay Etsion.
 LICENSING (by directory)
 ------------------------
 - The Standard TEXT and this website (everything in this repository EXCEPT
-  docs/standard/v5.0/) are licensed under the Creative Commons Attribution 4.0
-  International License (CC-BY 4.0). See the root LICENSE file.
+  docs/standard/v5.0/ and tools/) are licensed under the Creative Commons
+  Attribution 4.0 International License (CC-BY 4.0). See the root LICENSE file.
 
 - The reference files under docs/standard/v5.0/ (the JSON schemas, the state
   machines, the signal list, the reporter contract and the test plan, including
   their Markdown files) are licensed under the MIT License, for all of the 5.x
   line of reference releases. See docs/standard/v5.0/LICENSE.
+
+- The build and check tools under tools/ are licensed under the Apache
+  License 2.0. See LICENSES/Apache-2.0.txt.
 
 MARK
 ----
