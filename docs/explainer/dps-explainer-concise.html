@@ -838,6 +838,7 @@ svg:not(.nav-bar svg) {
 
   function updateNavDots(){
     var dotsEl=document.getElementById('navDots');
+    if(!dotsEl)return;
     dotsEl.querySelectorAll('.nav-slide-dot').forEach(function(d,i){
       d.classList.remove('has-comment');
       var sl=slides[i],cs=sl.querySelectorAll('.commentable'),hc=false;

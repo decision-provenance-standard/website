@@ -648,13 +648,13 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <title id="d1eTitle">Figure 3-1 (explainer) — Charter Lifecycle: five states, forward only</title>
   <desc id="d1eDesc">A left-to-right state machine for a Charter's lifecycle. A start dot leads into five states in strict forward order: open, then mode-declared, then fields-required, then fields-completed, then closed. Each arrow points forward only; there is no backward arrow. The closed state is drawn with a double border to mark it as terminal and irreversible. A separate dashed arrow leaves closed and points down to a distinct box labelled new Charter, showing that reactivation creates a brand-new Charter rather than re-opening the closed one. Color is not used to carry meaning; the double border and the dashed arrow carry the terminal and edge-case distinctions in grayscale.</desc>
   <style>
-    .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
-    .sub   { font-size: 11px; fill: #666666; }
-    .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 12px; fill: #1A1A1A; }
-    .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .boxw  { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; stroke-dasharray: 5 4; }
-    .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
-    .dash  { stroke: #666666; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+    svg[aria-labelledby~="d1eTitle"] .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d1eTitle"] .sub   { font-size: 11px; fill: #666666; }
+    svg[aria-labelledby~="d1eTitle"] .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 12px; fill: #1A1A1A; }
+    svg[aria-labelledby~="d1eTitle"] .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d1eTitle"] .boxw  { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    svg[aria-labelledby~="d1eTitle"] .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
+    svg[aria-labelledby~="d1eTitle"] .dash  { stroke: #666666; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
   </style>
   <defs>
     <marker id="ah1e" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1A1A1A"/></marker>
@@ -716,17 +716,17 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <title id="d2eTitle">Figure 3-2 (explainer) — Two Modes, three enum values, closed set</title>
   <desc id="d2eDesc">A dispatch grammar. At the top, a gate box states that the enumeration is closed at exactly three values, with no fourth mode. Three arrows lead down from the gate to three value boxes. The first is mode-1, the long form Mode 1 — Human-Led, AI-Enforced, summarised as AI checks the human. The second is mode-2, the long form Mode 2 — AI-Led, Human-Reviewed, summarised as the human checks the AI. The third, drawn with an accent border, is mode-1-with-embedded-mode-2-summary, the edge case where an AI-written passage sits inside a human-authored document. Below that third value sits an inset box stating that authorship is judged at the content level, not the container level: the human-authored container holds an embedded AI-generated span that carries its own disclosure block. Color is redundant; the closed-set rule and the content-level rule are carried by labels and the accent border, all legible in grayscale.</desc>
   <style>
-    .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
-    .sub   { font-size: 11px; fill: #666666; }
-    .name  { font-size: 11px; fill: #1A1A1A; }
-    .short { font-size: 10px; fill: #666666; font-style: italic; }
-    .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; fill: #1A1A1A; }
-    .monb  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; font-weight: bold; fill: #1A1A1A; }
-    .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .gate  { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
-    .inset { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; }
-    .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
+    svg[aria-labelledby~="d2eTitle"] .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d2eTitle"] .sub   { font-size: 11px; fill: #666666; }
+    svg[aria-labelledby~="d2eTitle"] .name  { font-size: 11px; fill: #1A1A1A; }
+    svg[aria-labelledby~="d2eTitle"] .short { font-size: 10px; fill: #666666; font-style: italic; }
+    svg[aria-labelledby~="d2eTitle"] .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; fill: #1A1A1A; }
+    svg[aria-labelledby~="d2eTitle"] .monb  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d2eTitle"] .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d2eTitle"] .gate  { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d2eTitle"] .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
+    svg[aria-labelledby~="d2eTitle"] .inset { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; }
+    svg[aria-labelledby~="d2eTitle"] .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
   </style>
   <defs><marker id="ah2e" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1A1A1A"/></marker></defs>
   <text x="20" y="26" class="ttl">Figure 3-2 — Two Modes, three enum values, closed set</text>
@@ -796,17 +796,17 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <title id="d7eTitle">Figure 4-1 (explainer) — Disclosure block: five fields and the 4-of-5 rule</title>
   <desc id="d7eDesc">A flow showing the disclosure block. At the top, a box holds exactly five required fields, listed in monospace: declaring-authority, ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. An arrow leads down to a gate labelled 4-of-5 anonymization. Two arrows leave the gate. The left arrow leads to a box stating that four fields pass through unchanged: ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. The right arrow, drawn with an accent border, leads to a box stating that only declaring-authority may transform, and that it transforms to the single frozen value anonymized-deployer-class:product-organization. A caption at the foot states that the Standard structures the inputs, and that whether Article 50 applies is for the deployer to determine. Color is redundant: the five-field count, the labels, and the accent border on the transform box carry the meaning in grayscale.</desc>
   <style>
-    .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
-    .sub   { font-size: 11px; fill: #666666; }
-    .hdr   { font-size: 12px; font-weight: bold; fill: #1A1A1A; }
-    .name  { font-size: 11px; fill: #1A1A1A; }
-    .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; fill: #1A1A1A; }
-    .monb  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; font-weight: bold; fill: #1A1A1A; }
-    .cap   { font-size: 11px; font-weight: bold; fill: #1A1A1A; }
-    .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .gate  { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
-    .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
+    svg[aria-labelledby~="d7eTitle"] .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d7eTitle"] .sub   { font-size: 11px; fill: #666666; }
+    svg[aria-labelledby~="d7eTitle"] .hdr   { font-size: 12px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d7eTitle"] .name  { font-size: 11px; fill: #1A1A1A; }
+    svg[aria-labelledby~="d7eTitle"] .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; fill: #1A1A1A; }
+    svg[aria-labelledby~="d7eTitle"] .monb  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d7eTitle"] .cap   { font-size: 11px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d7eTitle"] .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d7eTitle"] .gate  { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d7eTitle"] .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
+    svg[aria-labelledby~="d7eTitle"] .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
   </style>
   <defs><marker id="ah7e" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1A1A1A"/></marker></defs>
   <text x="20" y="26" class="ttl">Figure 4-1 — Disclosure block: five fields, the 4-of-5 rule</text>
@@ -865,13 +865,13 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <title id="d3eTitle">Figure 5-1 (explainer) — Decision-record lifecycle: draft to reviewed to affirmed</title>
   <desc id="d3eDesc">A left-to-right state machine for the decision-record lifecycle, showing the three lifecycle states only. A start dot leads to draft, then a forward arrow to reviewed, then a forward arrow to affirmed. The affirmed state is drawn with a double border to mark it as terminal and sealed; a note under it states that at affirmation the record is sealed, its affirmation_record and seal_hash are populated, and a tamper-evident hash is recorded. The arrow into affirmed is labelled explicit human signature, and a caption states there is no passive promotion: a record never drifts into affirmed because time elapsed or a box auto-checked. Color is not load-bearing; the double border marks terminality and the labels carry the rule in grayscale.</desc>
   <style>
-    .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
-    .sub   { font-size: 11px; fill: #666666; }
-    .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 13px; fill: #1A1A1A; }
-    .lbl   { font-size: 10px; fill: #3A5A78; font-weight: bold; }
-    .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
-    .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
+    svg[aria-labelledby~="d3eTitle"] .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d3eTitle"] .sub   { font-size: 11px; fill: #666666; }
+    svg[aria-labelledby~="d3eTitle"] .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 13px; fill: #1A1A1A; }
+    svg[aria-labelledby~="d3eTitle"] .lbl   { font-size: 10px; fill: #3A5A78; font-weight: bold; }
+    svg[aria-labelledby~="d3eTitle"] .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d3eTitle"] .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
+    svg[aria-labelledby~="d3eTitle"] .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
   </style>
   <defs><marker id="ah3e" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1A1A1A"/></marker></defs>
   <text x="20" y="26" class="ttl">Figure 5-1 — Decision-record lifecycle (forward only)</text>
@@ -892,7 +892,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <text x="542" y="160" class="sub" text-anchor="middle">sealed at affirmation:</text>
   <text x="542" y="176" class="sub" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="10">affirmation_record + seal_hash</text>
   <text x="542" y="192" class="sub" text-anchor="middle">tamper-evident</text>
-  <text x="20" y="222" class="sub">No passive promotion: a record never enters <tspan font-family="JetBrains Mono, Consolas, monospace">affirmed</tspan> because time elapsed, a box auto-checked, or no one objected. Affirmation is an affirmative human act.</text>
+  <text x="20" y="214" class="sub">No passive promotion: a record never enters <tspan font-family="JetBrains Mono, Consolas, monospace">affirmed</tspan> because time elapsed, a box auto-checked, or no one objected. <tspan x="20" dy="16">Affirmation is an affirmative human act.</tspan></text>
 </svg>
 </div>
 <div class="commentable" data-section="s9-5" data-label="Figure 5-1 — Decision-Record State Machine (simpli...">
@@ -922,14 +922,14 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <title id="d5eTitle">Figure 4-2 (explainer) — Four-layer mode-drift safeguard, no two layers share an actor</title>
   <desc id="d5eDesc">Four stacked layers of a defense-in-depth safeguard against mode drift, with a separate actor named for each layer so that no two layers share an actor. Layer 1 is statistical detection, run by an independent classifier, looking across records for patterns that suggest a Mode-1 record is behaving like a Mode-2 one. Layer 2 is an in-flow audit hook, a record-close gate run by the original declaring authority, examining records as they move rather than only after the fact. Layer 3 is the periodic Mode-Confirmation Audit, run by a designated peer reviewer who is not the original author. Layer 4 is a named human-attestation fallback, run by a named attestor, and it is drawn with a double border to mark it as the binding terminal layer; when the automated layers cannot resolve a case, a named human attests to the mode directly. A note states that because the layers do not share an actor, the safeguard cannot be quietly defeated by any one person. Color is redundant: the four distinct labels, the actor names, and the double border on Layer 4 carry the meaning in grayscale.</desc>
   <style>
-    .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
-    .sub   { font-size: 11px; fill: #666666; }
-    .lyr   { font-size: 12px; font-weight: bold; fill: #1A1A1A; }
-    .actor { font-size: 11px; fill: #1A1A1A; }
-    .role  { font-size: 10px; fill: #666666; }
-    .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
-    .actbx { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; }
+    svg[aria-labelledby~="d5eTitle"] .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d5eTitle"] .sub   { font-size: 11px; fill: #666666; }
+    svg[aria-labelledby~="d5eTitle"] .lyr   { font-size: 12px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d5eTitle"] .actor { font-size: 11px; fill: #1A1A1A; }
+    svg[aria-labelledby~="d5eTitle"] .role  { font-size: 10px; fill: #666666; }
+    svg[aria-labelledby~="d5eTitle"] .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d5eTitle"] .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
+    svg[aria-labelledby~="d5eTitle"] .actbx { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; }
   </style>
   <text x="20" y="26" class="ttl">Figure 4-2 — Four-layer mode-drift safeguard</text>
   <text x="20" y="44" class="sub">No two layers share an actor — so no one person can quietly defeat it.</text>
@@ -994,15 +994,15 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <title id="d4eTitle">Figure 7-1 (explainer) — The three conformance levels, cumulative and self-declared</title>
   <desc id="d4eDesc">Three nested bands showing the three cumulative conformance levels. The outermost band is Conformance Level 3 — Continuously Auditable: triggers fire on schedule, escalations produce records, disclosures stay current, the schedule is queryable on demand. Inside it sits Conformance Level 2 — Mode-Disambiguated: every record carries its mode, every AI-authored record carries its disclosure block, an audit finds no silent drift. Inside that sits the innermost band, Conformance Level 1 — Charter-Conformant: the Charter is structurally complete. The nesting shows the levels are cumulative; a footer states the cumulative rule, that a Charter that does not grade at Level 1 cannot grade at Level 2 or 3, and that the levels are self-declared with no certifying body and a grade is input, not audit defense. Color is redundant; the nesting and the labels carry the cumulative meaning in grayscale.</desc>
   <style>
-    .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
-    .sub   { font-size: 11px; fill: #666666; }
-    .lname { font-size: 12px; font-weight: bold; fill: #1A1A1A; }
-    .ldesc { font-size: 10px; fill: #666666; }
-    .cap   { font-size: 11px; font-weight: bold; fill: #1A1A1A; }
-    .band3 { fill: #FFFFFF; stroke: #666666; stroke-width: 1; }
-    .band2 { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; }
-    .band1 { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .footer{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
+    svg[aria-labelledby~="d4eTitle"] .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d4eTitle"] .sub   { font-size: 11px; fill: #666666; }
+    svg[aria-labelledby~="d4eTitle"] .lname { font-size: 12px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d4eTitle"] .ldesc { font-size: 10px; fill: #666666; }
+    svg[aria-labelledby~="d4eTitle"] .cap   { font-size: 11px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d4eTitle"] .band3 { fill: #FFFFFF; stroke: #666666; stroke-width: 1; }
+    svg[aria-labelledby~="d4eTitle"] .band2 { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; }
+    svg[aria-labelledby~="d4eTitle"] .band1 { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d4eTitle"] .footer{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
   </style>
   <text x="20" y="26" class="ttl">Figure 7-1 — Three conformance levels: cumulative, self-declared</text>
   <rect x="20" y="40" width="600" height="248" class="band3" rx="8"/>
@@ -1056,21 +1056,21 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <title id="altTitle">Figure (explainer) — Altitude ladder: the Standard relative to four frameworks</title>
   <desc id="altDesc">An altitude ladder placing the Decision Provenance Standard relative to four other frameworks, on a vertical axis from higher executive altitude at the top to lower system altitude at the bottom. At the executive-decision-record altitude sit two items side by side: the Decision Provenance Standard, and NIST AI RMF described as an organization-level voluntary risk-management framework — both voluntary, at related altitude. Below sits ISO/IEC 42001:2023, a management-system standard, within which the Standard's records function as documented information. Below sits EU AI Act Article 50, a transparency obligation that the Standard structures inputs for but does not satisfy. At the lowest, system altitude sits W3C PROV-AGENT, which traces machine-to-machine provenance. Each relationship is informs, without satisfying, and complementary, not derivative. Color is redundant; vertical position and labels carry the altitude and the relationship in grayscale.</desc>
   <style>
-    .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
-    .sub   { font-size: 11px; fill: #666666; }
-    .name  { font-size: 12px; font-weight: bold; fill: #1A1A1A; }
-    .desc  { font-size: 10px; fill: #666666; }
-    .axis  { font-size: 10px; fill: #666666; font-style: italic; }
-    .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
-    .boxw  { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; }
-    .aline { stroke: #666666; stroke-width: 1.5; fill: none; }
+    svg[aria-labelledby~="altTitle"] .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="altTitle"] .sub   { font-size: 11px; fill: #666666; }
+    svg[aria-labelledby~="altTitle"] .name  { font-size: 12px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="altTitle"] .desc  { font-size: 10px; fill: #666666; }
+    svg[aria-labelledby~="altTitle"] .axis  { font-size: 10px; fill: #666666; font-style: italic; }
+    svg[aria-labelledby~="altTitle"] .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="altTitle"] .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
+    svg[aria-labelledby~="altTitle"] .boxw  { fill: #FFFFFF; stroke: #666666; stroke-width: 1.5; }
+    svg[aria-labelledby~="altTitle"] .aline { stroke: #666666; stroke-width: 1.5; fill: none; }
   </style>
   <defs><marker id="ahA" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#666666"/></marker></defs>
   <text x="20" y="26" class="ttl">Altitude + complementarity: informs, without satisfying</text>
   <line x1="40" y1="56" x2="40" y2="300" class="aline" marker-end="url(#ahA)"/>
-  <text x="48" y="62" class="axis">higher — executive-decision-record altitude</text>
-  <text x="48" y="296" class="axis">lower — system altitude</text>
+  <text x="48" y="58" class="axis">higher — executive-decision-record altitude</text>
+  <text x="48" y="313" class="axis">lower — system altitude</text>
   <rect x="90" y="64" width="270" height="56" class="accent" rx="6"/>
   <text x="104" y="86" class="name">Decision Provenance Standard</text>
   <text x="104" y="104" class="desc">record-format instrument at the executive-</text>
@@ -1120,12 +1120,12 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <title id="fwTitle">Figure (explainer) — The firewall: what the records are, and what they are not</title>
   <desc id="fwDesc">A plain bordered callout box, not a badge or seal, stating the firewall. The heading reads: the records are audit-ready decision provenance — structured input that counsel and auditors convert into evidence, certifications, or attestations. Three statements follow. First: they are not evidence, not certification, not attestation on their own. Second: the Standard is not legal advice and not a regulatory substitute; it informs frameworks without satisfying them. Third: conformance is self-declared; no body certifies it. A closing line reads: the Standard structures the inputs; the human professional's review is what gives any implementation its weight. The box is deliberately rendered as a left-bordered callout with no seal, ring, or badge, so it cannot be mistaken for a certification mark. Color is not load-bearing; the text and the callout border carry the meaning in grayscale.</desc>
   <style>
-    .lead  { font-size: 13px; font-weight: bold; fill: #1A1A1A; }
-    .body  { font-size: 12px; fill: #1A1A1A; }
-    .close { font-size: 11px; fill: #666666; font-style: italic; }
-    .neg   { font-weight: bold; }
-    .callout { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .rail    { fill: #1A1A1A; }
+    svg[aria-labelledby~="fwTitle"] .lead  { font-size: 13px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="fwTitle"] .body  { font-size: 12px; fill: #1A1A1A; }
+    svg[aria-labelledby~="fwTitle"] .close { font-size: 11px; fill: #666666; font-style: italic; }
+    svg[aria-labelledby~="fwTitle"] .neg   { font-weight: bold; }
+    svg[aria-labelledby~="fwTitle"] .callout { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="fwTitle"] .rail    { fill: #1A1A1A; }
   </style>
   <rect x="20" y="20" width="680" height="190" class="callout" rx="6"/>
   <rect x="20" y="20" width="8" height="190" class="rail"/>
@@ -1165,18 +1165,18 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <desc id="d6desc">An entity-relationship orientation map showing how the standard's artifacts compose: Charter, Schedule of Records, Decision Record, Disclosure Block, Conformance Signals, and Conformance Levels, plus a one-way dashed pointer to the deploying organization's methodology.</desc>
 
   <style>
-    .ttl   { font-size: 17px; font-weight: bold; fill: #1A1A1A; }
-    .sub   { font-size: 12px; fill: #666666; }
-    .ent   { font-size: 13px; font-weight: bold; fill: #1A1A1A; }
-    .attr  { font-size: 10.5px; fill: #1A1A1A; }
-    .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 10px; fill: #1A1A1A; }
-    .rel   { font-size: 10.5px; font-style: italic; fill: #666666; }
-    .ref   { font-size: 10px; fill: #3A5A78; font-weight: bold; }
-    .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
-    .boxw  { fill: #FFFFFF; stroke: #1A1A1A; stroke-width: 1.5; }
-    .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
-    .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
-    .dash  { stroke: #666666; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+    svg[aria-labelledby~="d6title"] .ttl   { font-size: 17px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d6title"] .sub   { font-size: 12px; fill: #666666; }
+    svg[aria-labelledby~="d6title"] .ent   { font-size: 13px; font-weight: bold; fill: #1A1A1A; }
+    svg[aria-labelledby~="d6title"] .attr  { font-size: 10.5px; fill: #1A1A1A; }
+    svg[aria-labelledby~="d6title"] .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 10px; fill: #1A1A1A; }
+    svg[aria-labelledby~="d6title"] .rel   { font-size: 10.5px; font-style: italic; fill: #666666; }
+    svg[aria-labelledby~="d6title"] .ref   { font-size: 10px; fill: #3A5A78; font-weight: bold; }
+    svg[aria-labelledby~="d6title"] .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d6title"] .boxw  { fill: #FFFFFF; stroke: #1A1A1A; stroke-width: 1.5; }
+    svg[aria-labelledby~="d6title"] .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
+    svg[aria-labelledby~="d6title"] .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
+    svg[aria-labelledby~="d6title"] .dash  { stroke: #666666; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
   </style>
 
   <defs>
@@ -1215,9 +1215,9 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   </g>
 
   <g>
-    <rect x="370" y="250" width="270" height="150" class="box"/>
+    <rect x="370" y="250" width="260" height="150" class="box"/>
     <text x="380" y="272" class="ent">Decision Record</text>
-    <line x1="370" y1="280" x2="640" y2="280" class="dash"/>
+    <line x1="370" y1="280" x2="630" y2="280" class="dash"/>
     <text x="380" y="298" class="attr">dispatched under a Charter</text>
     <text x="380" y="316" class="attr">carries <tspan class="mono">dispatch_mode</tspan></text>
     <text x="380" y="334" class="attr">transits the lifecycle <tspan class="ref">(&#8594; Fig 5-1)</tspan></text>
@@ -1267,14 +1267,14 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <path d="M490,188 L500,248" class="line" marker-end="url(#ah6)"/>
   <text x="500" y="222" class="rel">dispatches</text>
   <path d="M330,330 L368,330" class="line" marker-end="url(#ah6)"/>
-  <path d="M640,330 L678,330" class="line" marker-end="url(#ah6)"/>
-  <text x="642" y="322" class="rel">attaches</text>
+  <path d="M630,330 L678,330" class="line" marker-end="url(#ah6)"/>
+  <text x="635" y="322" class="rel">attaches</text>
   <path d="M360,360 C320,420 320,440 340,468" class="line" marker-end="url(#ah6)"/>
   <text x="300" y="440" class="rel">read off</text>
   <path d="M490,525 L538,525" class="line" marker-end="url(#ah6)"/>
   <text x="495" y="517" class="rel">grade</text>
   <path d="M610,118 L678,114" class="dash" marker-end="url(#ah6g)"/>
-  <text x="616" y="105" class="rel">points to (one-way)</text>
+  <text x="616" y="96" class="rel">points to <tspan x="616" dy="12">(one-way)</tspan></text>
 
   <text x="20" y="640" class="sub">Explanatory figure (non-normative). The standard points one-way to the deploying organization's methodology; it does not depend on any named methodology.</text>
 </svg>
@@ -1501,6 +1501,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 
   function updateNavDots(){
     var dotsEl=document.getElementById('navDots');
+    if(!dotsEl)return;
     dotsEl.querySelectorAll('.nav-slide-dot').forEach(function(d,i){
       d.classList.remove('has-comment');
       var sl=slides[i],cs=sl.querySelectorAll('.commentable'),hc=false;
