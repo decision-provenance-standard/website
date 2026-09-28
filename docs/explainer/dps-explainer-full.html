@@ -786,7 +786,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <blockquote class="card"><em>Caption: the Standard structures the inputs; whether Article 50 applies, and who carries any duty, is for the deployer to determine.</em></blockquote>
 </div>
 <div class="commentable" data-section="s8-3" data-label="A useful property follows when records are later a...">
-  <p>A useful property follows when records are later anonymized. Under anonymization, <strong>four of the five fields survive unchanged</strong>; only <code>declaring-authority</code> may transform, and it transforms to a single frozen value: <code>anonymized-deployer-class:product-organization</code>. In plain terms, you can hide <em>who</em> without erasing <em>that AI authored this, where, of what type, and when.</em></p>
+  <p>A useful property follows when records are later anonymized. Under anonymization, <strong>four of the five fields survive unchanged</strong>; only <code>declaring-authority</code> may change: it may be replaced by a placeholder such as <code>anonymized-deployer-class:product-organization</code>. In plain terms, you can hide <em>who</em> without erasing <em>that AI authored this, where, of what type, and when.</em></p>
 </div>
 <div class="commentable" data-section="s8-4" data-label="Two of the fields draw from controlled vocabularie...">
   <p>Two of the fields draw from controlled vocabularies. <code>jurisdictional-applicability-tag</code> is one of <code>{eu, us-federal, us-delaware, uk, israel, other:&lt;jurisdiction&gt;}</code>. <code>content-type-tag</code> is one of <code>{decision-summary, recommendation, decision-aid, draft, classification, synthetic-media, other:&lt;type&gt;}</code>. Using a fixed vocabulary is what lets one organization's disclosure block be read the same way as another's.</p>
@@ -794,7 +794,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 <div class="commentable" data-section="s8-5" data-label="Content">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="d7eTitle d7eDesc">
   <title id="d7eTitle">Figure 4-1 (explainer) — Disclosure block: five fields and the 4-of-5 rule</title>
-  <desc id="d7eDesc">A flow showing the disclosure block. At the top, a box holds exactly five required fields, listed in monospace: declaring-authority, ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. An arrow leads down to a gate labelled 4-of-5 anonymization. Two arrows leave the gate. The left arrow leads to a box stating that four fields pass through unchanged: ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. The right arrow, drawn with an accent border, leads to a box stating that only declaring-authority may transform, and that it transforms to the single frozen value anonymized-deployer-class:product-organization. A caption at the foot states that the Standard structures the inputs, and that whether Article 50 applies is for the deployer to determine. Color is redundant: the five-field count, the labels, and the accent border on the transform box carry the meaning in grayscale.</desc>
+  <desc id="d7eDesc">A flow showing the disclosure block. At the top, a box holds exactly five required fields, listed in monospace: declaring-authority, ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. An arrow leads down to a gate labelled 4-of-5 anonymization. Two arrows leave the gate. The left arrow leads to a box stating that four fields pass through unchanged: ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. The right arrow, drawn with an accent border, leads to a box stating that only declaring-authority may be replaced, by a placeholder such as anonymized-deployer-class:product-organization. A caption at the foot states that the Standard structures the inputs, and that whether Article 50 applies is for the deployer to determine. Color is redundant: the five-field count, the labels, and the accent border on the replacement box carry the meaning in grayscale.</desc>
   <style>
     svg[aria-labelledby~="d7eTitle"] .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
     svg[aria-labelledby~="d7eTitle"] .sub   { font-size: 11px; fill: #666666; }
@@ -830,8 +830,8 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <text x="44" y="396" class="mono">content-type-tag</text>
   <text x="44" y="416" class="mono">generation-timestamp</text>
   <rect x="410" y="312" width="330" height="120" class="accent" rx="6"/>
-  <text x="424" y="334" class="name" font-weight="bold">ONLY declaring-authority may transform,</text>
-  <text x="424" y="352" class="name">to the single frozen value:</text>
+  <text x="424" y="334" class="name" font-weight="bold">ONLY declaring-authority may be replaced,</text>
+  <text x="424" y="352" class="name">by a placeholder such as:</text>
   <text x="424" y="378" class="monb" font-size="10.5">anonymized-deployer-class:</text>
   <text x="424" y="394" class="monb" font-size="10.5">product-organization</text>
   <text x="424" y="418" class="sub">hide WHO without erasing THAT / WHERE / WHAT / WHEN</text>
@@ -839,7 +839,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 </svg>
 </div>
 <div class="commentable" data-section="s8-6" data-label="Figure 4-1 — Disclosure Block Flow (simplified). T...">
-  <p><strong>Figure 4-1 — Disclosure Block Flow (simplified).</strong> The block has exactly five required fields; under anonymization four survive unchanged and only <code>declaring-authority</code> transforms — to <code>anonymized-deployer-class:product-organization</code>. The Standard structures the inputs; whether Article 50 applies, and who carries any duty, is for the deployer to determine. (Full description: in the figure's embedded text alternative.)</p>
+  <p><strong>Figure 4-1 — Disclosure Block Flow (simplified).</strong> The block has exactly five required fields; under anonymization four survive unchanged and only <code>declaring-authority</code> may be replaced, by a placeholder such as <code>anonymized-deployer-class:product-organization</code>. The Standard structures the inputs; whether Article 50 applies, and who carries any duty, is for the deployer to determine. (Full description: in the figure's embedded text alternative.)</p>
 </div>
 </div>
 <div class="slide" data-slide="9" data-title="The human signature">
@@ -1034,7 +1034,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 </div>
 <h2>How it relates to other frameworks</h2>
 <div class="commentable" data-section="s12-1" data-label="The single most-asked institutional question is: h...">
-  <p>The single most-asked institutional question is: <em>how is this different from, or related to, NIST, ISO, the EU AI Act, and W3C PROV-AGENT?</em> The honest answer is altitude plus complementarity. The Standard sits at the executive-decision-record altitude, and it <em>informs</em> each of these frameworks <strong>without satisfying</strong> them. It is <strong>complementary, not derivative</strong>.</p>
+  <p>The single most-asked institutional question is: <em>how is this different from, or related to, NIST, ISO, the EU AI Act, and PROV-AGENT?</em> The honest answer is altitude plus complementarity. The Standard sits at the executive-decision-record altitude, and it <em>informs</em> each of these frameworks <strong>without satisfying</strong> them. It is <strong>complementary, not derivative</strong>.</p>
 </div>
 <div class="commentable" data-section="s12-2" data-label="NIST AI RMF is an organization-level AI risk-manag...">
   <p><strong>NIST AI RMF</strong> is an organization-level AI risk-management framework, and it is voluntary. The Standard shares that voluntary posture but operates at a different altitude: it is a record-format instrument at the executive-decision-record level. It produces records the NIST framework, and the humans operating it, can read as input. It does not replace the framework.</p>
@@ -1045,8 +1045,8 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 <div class="commentable" data-section="s12-4" data-label="EU AI Act Article 50 is a transparency obligation....">
   <p><strong>EU AI Act Article 50</strong> is a transparency obligation. As described above, the Standard structures the disclosure inputs and does not satisfy the obligation itself; whether Article 50 applies, and who carries any duty, is for the deployer to determine.</p>
 </div>
-<div class="commentable" data-section="s12-5" data-label="W3C PROV-AGENT traces machine-to-machine provenanc...">
-  <p><strong>W3C PROV-AGENT</strong> traces machine-to-machine provenance at the system altitude. The Standard records human-judgment decisions at the executive altitude. The two are complementary: one traces what the machines did; the other records how the humans decided.</p>
+<div class="commentable" data-section="s12-5" data-label="PROV-AGENT, a research provenance model built on W...">
+  <p><strong>PROV-AGENT</strong>, a research provenance model built on W3C PROV, traces what AI agents did inside a workflow, at the system altitude. The Standard records human-judgment decisions at the executive altitude. The two are complementary: one traces what the agents did; the other records how the humans decided.</p>
 </div>
 <div class="commentable" data-section="s12-6" data-label="In every case the relationship pairs &quot;informs&quot; wit...">
   <p>In every case the relationship pairs "informs" with "without satisfying." The Standard does not "map to" or "cover" any of these frameworks. It produces input they — and the qualified humans operating them — can use.</p>
@@ -1054,7 +1054,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 <div class="commentable" data-section="s12-7" data-label="Content">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="altTitle altDesc">
   <title id="altTitle">Figure (explainer) — Altitude ladder: the Standard relative to four frameworks</title>
-  <desc id="altDesc">An altitude ladder placing the Decision Provenance Standard relative to four other frameworks, on a vertical axis from higher executive altitude at the top to lower system altitude at the bottom. At the executive-decision-record altitude sit two items side by side: the Decision Provenance Standard, and NIST AI RMF described as an organization-level voluntary risk-management framework — both voluntary, at related altitude. Below sits ISO/IEC 42001:2023, a management-system standard, within which the Standard's records function as documented information. Below sits EU AI Act Article 50, a transparency obligation that the Standard structures inputs for but does not satisfy. At the lowest, system altitude sits W3C PROV-AGENT, which traces machine-to-machine provenance. Each relationship is informs, without satisfying, and complementary, not derivative. Color is redundant; vertical position and labels carry the altitude and the relationship in grayscale.</desc>
+  <desc id="altDesc">An altitude ladder placing the Decision Provenance Standard relative to four other frameworks, on a vertical axis from higher executive altitude at the top to lower system altitude at the bottom. At the executive-decision-record altitude sit two items side by side: the Decision Provenance Standard, and NIST AI RMF described as an organization-level voluntary risk-management framework — both voluntary, at related altitude. Below sits ISO/IEC 42001:2023, a management-system standard, within which the Standard's records function as documented information. Below sits EU AI Act Article 50, a transparency obligation that the Standard structures inputs for but does not satisfy. At the lowest, system altitude sits PROV-AGENT, a research provenance model that traces what AI agents did inside a workflow. Each relationship is informs, without satisfying, and complementary, not derivative. Color is redundant; vertical position and labels carry the altitude and the relationship in grayscale.</desc>
   <style>
     svg[aria-labelledby~="altTitle"] .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
     svg[aria-labelledby~="altTitle"] .sub   { font-size: 11px; fill: #666666; }
@@ -1086,12 +1086,12 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <text x="104" y="216" class="name">EU AI Act Article 50 — a transparency obligation</text>
   <text x="104" y="232" class="desc">the Standard structures the disclosure inputs; it does not satisfy the obligation</text>
   <rect x="90" y="254" width="610" height="44" class="boxw" rx="6"/>
-  <text x="104" y="274" class="name">W3C PROV-AGENT — machine-to-machine provenance (system altitude)</text>
-  <text x="104" y="290" class="desc">traces what the machines did; the Standard records how the humans decided — complementary, not derivative</text>
+  <text x="104" y="274" class="name">PROV-AGENT — provenance of AI-agent workflows (system altitude)</text>
+  <text x="104" y="290" class="desc">traces what the agents did; the Standard records how the humans decided — complementary, not derivative</text>
 </svg>
 </div>
 <div class="commentable" data-section="s12-8" data-label="Figure — Altitude ladder. The Standard sits at the...">
-  <p><strong>Figure — Altitude ladder.</strong> The Standard sits at the executive-decision-record altitude and <em>informs</em> NIST AI RMF, ISO/IEC 42001:2023, EU AI Act Article 50, and W3C PROV-AGENT <em>without satisfying</em> them — complementary, not derivative. (Full description: in the figure's embedded text alternative.)</p>
+  <p><strong>Figure — Altitude ladder.</strong> The Standard sits at the executive-decision-record altitude and <em>informs</em> NIST AI RMF, ISO/IEC 42001:2023, EU AI Act Article 50, and PROV-AGENT <em>without satisfying</em> them — complementary, not derivative. (Full description: in the figure's embedded text alternative.)</p>
 </div>
 </div>
 <div class="slide" data-slide="13" data-title="What it is NOT (the firewall, ...">
@@ -1154,7 +1154,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <p>It is a small, self-contained set of pieces.</p>
 </div>
 <div class="commentable" data-section="s14-2" data-label="The core Standard is the normative text. Four Comp...">
-  <p>The <strong>core Standard</strong> is the normative text. Four <strong>Companions</strong> support it: regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams. An <strong>Appendix</strong> holds governance and references. And there are machine-readable <strong>reference files</strong> — schemas, state machines, the signal list, the reporter contract and a test plan — published under the MIT License at <code>/standard/v5.0/</code> (reference release 5.1.1), while the Standard's text is separately published under CC-BY 4.0. They are not the Standard, and the Standard does not depend on them.</p>
+  <p>The <strong>core Standard</strong> is the normative text. Four <strong>Companions</strong> support it: regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams. An <strong>Appendix</strong> holds governance and references. And there are machine-readable <strong>reference files</strong> — schemas, state machines, the signal list, the reporter contract and a test plan — published under the MIT License at <code>/standard/v5.0/</code> (reference release 5.1.2), while the Standard's text is separately published under CC-BY 4.0. They are not the Standard, and the Standard does not depend on them.</p>
 </div>
 <div class="commentable" data-section="s14-3" data-label="The reference files structure the inputs; conforma...">
   <p>The reference files structure the inputs; conformance against any framework remains a determination made by the deployer's qualified personnel. They are not a conformance-certifying body, and nothing in them stamps an organization as certified.</p>
