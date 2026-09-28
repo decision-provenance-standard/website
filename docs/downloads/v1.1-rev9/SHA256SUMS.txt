@@ -1,6 +1,6 @@
 a38b097b2eeb58de0ccff4caf450f46c35c53c8a5adbb45dc799d6ddc636b5d3  decision-provenance-standard-v1.1-rev9-appendix-G-governance-and-references.md
 0236c9c9ffd281ee9f01379a409323340b620e50ab9607c6997f3b78faef431a  decision-provenance-standard-v1.1-rev9-appendix-G-governance-and-references.pdf
-83434ae9e5da4634b7bfa6d51daac677c1b2b60891f42aa743cd31e1d0600a28  decision-provenance-standard-v1.1-rev9-bundle.zip
+d8e3cf9359810604a3ad289d7c521c641832dfc5f64ed3db8bdfc4bb9136032f  decision-provenance-standard-v1.1-rev9-bundle.zip
 feef8cd1d74be5bdb3298aac789eff2637172a27ba1e0d44f9ca9eec8af8d607  decision-provenance-standard-v1.1-rev9-companion-A-regulatory-cross-reference.md
 9aff69cbc5d8ba61087b41cc1cd26370f2688f909bc608df266e8a54cab74690  decision-provenance-standard-v1.1-rev9-companion-A-regulatory-cross-reference.pdf
 befc2cfb9398f6cf8070cab1e89632f57dd30e2cd255a20b408aefd3ead3bd8b  decision-provenance-standard-v1.1-rev9-companion-B-worked-charter-library.md
@@ -11,9 +11,9 @@ a8e8be4c78295b33f3c28b8e3097abcced55e35277f9983234c9b3bc7ac82ec8  decision-prove
 7218adb37eb99a6597f0369d5cc07c79e0835c77b496208df6b7b2038c23bc42  decision-provenance-standard-v1.1-rev9-companion-D-diagrams.pdf
 bf57c30e8cbcf91c5e7b194c6b0b9afad05489ccb0e040477b20f38f50879b9d  decision-provenance-standard-v1.1-rev9-core.md
 392f89a5b2755ea1a4281c85af1b180d37fdbb801ae4aa09c9ab40830b8d6417  decision-provenance-standard-v1.1-rev9-core.pdf
-c5780a9de55545e966f2ee5fe107bff83753beaf981547cd827203087b34e1bd  dps-v1.1-rev9-appendix-G.html
-ce4b6f401448501ba4bed88428508bbba5dc74532afe0a7ab910169e1b8236cc  dps-v1.1-rev9-companion-A.html
-2e7985ef5894e9b4ba5a5f8e91230856f97d86a0ff217e690fd7b683e71147c4  dps-v1.1-rev9-companion-B.html
-052ea00cc73e3bae2373b457c13ba7c88cdad50c11d82c2ad888e0ffce485e09  dps-v1.1-rev9-companion-C.html
-7fe8a9dc00a2b46bc96571d2c9e72f0eeb70034afef99a6feb94bcca9c7dd287  dps-v1.1-rev9-companion-D.html
-b07e5a7546b49935542cca047fa1f44be73a6f98505f89454b3bf7a5ce8ad42e  dps-v1.1-rev9-core.html
+fc506d024dc2ec957f6e77c8c733e5375b60ba507f164fc0c927a196f29779f4  dps-v1.1-rev9-appendix-G.html
+3da0f3e771337dbfbd40bde55bef5bdc82d8539523287c92db35e4695358e084  dps-v1.1-rev9-companion-A.html
+fda6b650d48221446f7e0ea0dcd0d41e1825bebe2baa69870c1b2ff8ae603e49  dps-v1.1-rev9-companion-B.html
+c9207bac4fd4335930dc5b0362f48f0a326b6287dd00077d594a5dcc993d0fe8  dps-v1.1-rev9-companion-C.html
+a5476b1419aaa72a9a1b8c64a6f58deea7023d38c1ffcc7c97d1dfa94d02b6ff  dps-v1.1-rev9-companion-D.html
+acbea5985dea32c8b03b0ff71f1ad502238e101056884441f4c2138668cff807  dps-v1.1-rev9-core.html
