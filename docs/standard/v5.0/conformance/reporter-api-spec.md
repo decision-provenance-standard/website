@@ -6,9 +6,7 @@
 
 ---
 
-> ⚠️ **Not legal advice.** This spec is a reference-implementation wire contract for one runnable primitive of the Decision Provenance Standard. It does not declare conformance with any regulation or standards body and creates no attorney-client relationship. The records are input, not evidence; the Standard informs frameworks without satisfying them; conformance is self-declared and no body certifies it.
->
-> **Jurisdiction Assumed:** U.S. federal + Delaware (primary); UK / EU AI Act / Israel (named secondaries). Where deployer jurisdiction differs, treat the auth model and rate-limiting defaults as hypotheses to verify with local counsel and IT-governance review.
+> This file is a reference wire contract for the Decision Provenance Standard's conformance reporter. The records are input, not evidence. The Standard informs frameworks without satisfying them. Conformance is self-declared; no body certifies it. This file is not legal advice and not a regulatory substitute.
 
 ---
 
@@ -40,7 +38,7 @@ POST /dps/conformance/charter-escalation
 2. **Deployer-side, not user-side.** The Reporter is a deployer-operated component running inside the deployer's environment; it asserts the deployer's own identity, not an end-user's. User-delegated flows (authorization_code) would couple Charter-level events to individual end-user sessions, which is the wrong granularity.
 3. **TLS 1.3 not negotiable.** Lower TLS versions rejected at the listener.
 
-**Rejected alternative.** Static `Authorization: ApiKey <key>` was considered for Phase 3 simplicity. Rejected because the Layer-4 named-attestor binding upstream depends on identity-bound provenance that survives credential rotation; static keys conflate "rotated last week" with "different deployer," which corrupts the audit trail.
+**Rejected alternative.** Static `Authorization: ApiKey <key>` was considered for simplicity. Rejected because the Layer-4 named-attestor binding upstream depends on identity-bound provenance that survives credential rotation; static keys conflate "rotated last week" with "different deployer," which corrupts the audit trail.
 
 ---
 
@@ -248,7 +246,7 @@ The endpoint is bounded to ≤ 500ms p99 server-side. If a deployer's Reporter c
     },
     "classifier_metadata": {
       "type": "object",
-      "description": "Required when escalation_type is layer_1_*. Per Mode-Drift sub-spec Layer 1 corpus-version provenance.",
+      "description": "Required when escalation_type is layer_1_*. Per Mode-Drift Layer 1 corpus-version provenance (Standard §4.8.1).",
       "additionalProperties": false,
       "properties": {
         "classifier_version": {"type": "string"},
@@ -315,4 +313,4 @@ Items NOT preserved (locked): everything in §§1-6 above. Deviations require a 
 
 **OpenAPI binding updated**: `reporter-api.openapi.yaml` `info.version` 1.0.0 → 1.1.0; enum extended to 9 values.
 
-**Locked at v1.1.0 for the v1.0 reference-implementation release.**
+**Locked at v1.1.0 for the v1.0 reference-files release.**

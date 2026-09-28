@@ -9,9 +9,9 @@
 Walks a synthetic Charter library (`synthetic-charter-library.md`) through full lifecycle states, asserting field-for-field alignment between:
 
 1. **Standard normative text** (Sections 3, 4, 5, 6) — what the Standard says the Charter should carry, transit, and emit
-2. **Reference-implementation runnable behavior** (state machines, schemas, signal emissions) — what the implementation actually does
+2. **Reference files** (state machines, schemas, signal list) — what the reference files define
 
-A round-trip mismatch is the failure mode the check exists to catch. The check is what makes the claim that this directory implements the Decision Provenance Standard's reporter protocol at Conformance Level 3 structurally defensible: without the apparatus the claim is unsupported; with it, the alignment is demonstrable.
+A round-trip mismatch is the failure mode the check exists to catch. The check is what makes the claim that this directory matches the Decision Provenance Standard's text structurally defensible: without the apparatus the claim is unsupported; with it, the alignment is demonstrable.
 
 ---
 
@@ -89,26 +89,26 @@ For every signal in `../conformance/signal-vocabulary.md`:
 
 ### Category H — Naming Convention Compliance
 
-1. Scan all human-facing artifacts (README, release notes, reader-facing prose, schema `title`/`description` metadata) for `Vision to Value`, `V2V`, or `Product Org OS` in prose contexts
+1. Scan all human-facing artifacts (README, release notes, reader-facing prose, schema `title`/`description` metadata) for the names of internal projects, products or authoring tools in prose contexts
 2. Assert "Decision Provenance Standard" full spelling used in all reader-facing prose
 3. Assert `dps` is the prefix retained in: API endpoint paths, code identifiers, file-system paths
-4. Failure: any `Vision to Value`, `V2V`, or `Product Org OS` occurrence in reader-facing prose, OR any residual `v2v`/`V2V` code-path prefix
+4. Failure: any internal project, product or authoring-tool name in reader-facing prose, OR any residual project-specific code-path prefix
 
-### Category I — Standard ↔ Reference-Implementation Field Alignment
+### Category I — Standard ↔ Reference-File Field Alignment
 
 1. For each field in Standard §3 Charter schema → assert corresponding field in `charter.schema.json`
 2. For each field in Standard §4 Article 50 disclosure block → assert corresponding field in `article-50-disclosure-metadata.json`
 3. For each field in Standard §5 decision-record schema → assert corresponding field in `decision-record.schema.json`
 4. For each Section 6 conformance Level criterion → assert at least one signal in vocabulary corresponds
 
-**Field-name normalization note (v5.1.0 reconciliation, D7 resolution).** When matching a manuscript field name (prose display name) to a substrate JSON key, the check normalizes:
+**Field-name normalization note (v5.1.0 reconciliation).** When matching a manuscript field name (prose display name) to a substrate JSON key, the check normalizes:
 
 - **Hyphen ↔ underscore**: the manuscript uses hyphenated display names (`declaring-authority`); the substrate uses snake_case JSON keys (`declaring_authority`). These are the same binding identifier under the two serialization conventions the Standard explicitly blesses (§3.2: "Field names are the binding identifiers; serializations may be JSON, YAML, typed objects… so long as the field semantics align"; §6.2.4: "Field names are binding; type names are illustrative"). Normalize hyphen ↔ underscore before comparing.
 - **Trailing `-tag` display suffix**: tolerate a trailing `-tag` on a manuscript display name when the JSON key omits it (`jurisdictional-applicability-tag` ↔ `jurisdictional_applicability`).
 
 **Permitted substrate extras.** The check matches the Standard-required fields against the schema; substrate-additional fields are permitted extras and do NOT fail the check. For the Article 50 block, the five Standard-required fields are `declaring_authority`, `ai_system_identity`, `jurisdictional_applicability`, `content_type_tag`, `generation_timestamp`; `disclosure_text_pointer`, `attached_at`, `mode_1_edge_case_flag`, `last_reviewed_at`, `disclosure_provenance` are permitted substrate extras.
 
-**Two state families (decision record).** The check verifies BOTH families exist (per the decision-record state machine's "Two State Families" note): the §6.2 dispatch states on `record_state`, and the §5.1 lifecycle (`draft`/`reviewed`/`affirmed`) expressed via `affirmation_record`/`seal_hash` population. It does NOT require a single normalized enum and does NOT flag the two-family design as a divergence (A5-bis).
+**Two state families (decision record).** The check verifies BOTH families exist (per the decision-record state machine's "Two State Families" note): the §6.2 dispatch states on `record_state`, and the §5.1 lifecycle (`draft`/`reviewed`/`affirmed`) expressed via `affirmation_record`/`seal_hash` population. It does NOT require a single normalized enum and does NOT flag the two-family design as a divergence.
 
 ---
 
@@ -116,9 +116,9 @@ For every signal in `../conformance/signal-vocabulary.md`:
 
 The check produces a binary GO / NO-GO verdict:
 
-- **GO** — every category passes; the Conformance Level 3 claim is structurally defensible
+- **GO** — every category passes; the alignment claim is structurally defensible
 - **NO-GO** — any category fails; the claim must be downgraded or the release blocked
 
 ---
 
-*Test apparatus for the reference implementation.*
+*Test apparatus for the reference files.*

@@ -1,4 +1,4 @@
-# Decision-Record State Machine — v5.0 Runnable Primitive
+# Decision-Record State Machine — v5.0 Reference File
 
 **Authority**: Standard §5 (Required Artifact Set)
 **Naming**: "Decision Provenance Standard" full spelling in prose; `dps_decision_record_state` in code identifiers
@@ -25,7 +25,7 @@ The Standard maintains two distinct, non-conflated state families for a decision
 - **§6.2 schema dispatch states** — carried on the `record_state` field: `dispatched` / `drafted` / `review-required` / `closed` / `re-opened-with-mode-migration`. These drive the dispatch/close workflow above.
 - **§5.1 record lifecycle** — `draft` / `reviewed` / `affirmed`. This is NOT a separate enum field; it is expressed through population of `affirmation_record` + `seal_hash` (a record is in the `affirmed` lifecycle state once those carry a valid affirmation event and integrity seal per §5.1(3)).
 
-Per A5-bis the two families are deliberately distinct and MUST NOT be conflated or normalized into one enum. The cross-stream conformance check (Category I/B) verifies BOTH families exist: the §6.2 states on `record_state`, and the §5.1 lifecycle via `affirmation_record`/`seal_hash` population. This note exists so the gate does not false-positive the deliberate two-family design as a divergence.
+The two families are deliberately distinct and MUST NOT be conflated or normalized into one enum. The cross-stream conformance check (Category I/B) verifies BOTH families exist: the §6.2 states on `record_state`, and the §5.1 lifecycle via `affirmation_record`/`seal_hash` population. This note exists so the gate does not false-positive the deliberate two-family design as a divergence.
 
 ---
 
@@ -49,7 +49,7 @@ Per `../schemas/decision-record.schema.json`:
 - `dispatch_mode` (`mode-1` | `mode-2` | `mode-1-with-embedded-mode-2-summary`; inherited from Charter `mode_declaration` at `dispatched`; may differ post-migration)
 - `disclosure_metadata_pointer` (required when `dispatch_mode` ∈ {`mode-2`, `mode-1-with-embedded-mode-2-summary`} OR per-record edge case fires)
 - `mode_classification_attestation` (Layer 4 structured object — required at `closed`; see `../mode-drift/layer-4-attestation.schema.json`)
-- `layer_2_audit_trail` (the 10 fields per Layer 2 sub-spec)
+- `layer_2_audit_trail` (the 10 fields described in `../mode-drift/layer-2-audit-hook.md`)
 - `peer_reviewer_disposition` (required when `review-required` was traversed)
 
 ---
@@ -78,17 +78,17 @@ This state machine emits the following signals (per `../conformance/signal-vocab
 - `every_mode_2_record_has_disclosure_block` — fires on transition into `closed` for Mode 2 records
 - `every_mode_1_edge_case_record_has_disclosure_block` — fires on transition into `closed` for Mode 1 records carrying embedded-summary edge case
 - `disclosure_block_required_fields_populated` — fires on transition into `closed` (validation: 5 required Article 50 disclosure fields all populated)
-- `no_silent_mode_drift_in_sample` — sample-level signal; fires on Layer 3 audit cadence per Seam 3 convergence lock (NOT every record)
+- `no_silent_mode_drift_in_sample` — sample-level signal; fires on Layer 3 audit cadence per the §4.8.2 emission cadence (NOT every record)
 - `every_affirmed_record_carries_affirmation_event` — fires at the §5.1 `affirmed` lifecycle promotion (validation: `affirmation_record` populated)
 - `every_affirmed_record_carries_seal_hash` — fires at the §5.1 `affirmed` lifecycle promotion (validation: `seal_hash` populated)
 - `every_mode_2_record_carries_drafting_authority` — fires at `affirmed`/`closed` for Mode 2 records (validation: `drafting_authority.deployer_role_pointer` populated)
 - `no_passive_promotion_to_affirmed_in_sample` — sample-level signal; audits a sample of `affirmed` records for §5.2 affirmative-human-act compliance (NOT every record)
-- `every_redaction_event_carries_operational_store_deletion_attestation` — sample-level signal; reads field population of `operational_store_deletion_attestation` on `record_type: redaction_event` records per Seam 3 cadence (§4.8.2)
+- `every_redaction_event_carries_operational_store_deletion_attestation` — sample-level signal; reads field population of `operational_store_deletion_attestation` on `record_type: redaction_event` records per the §4.8.2 emission cadence
 - `altitude_to_consent_posture_binding_enforced` — sample-level signal; audits `altitude: individual-professional` records for consent-posture binding per §6.2.3.1 (emitted in conjunction with the access-policy layer)
 
 **Level 3**:
 - `escalation_rule_records_present_when_invoked` — fires when Charter `escalation_rule` fires AND a corresponding decision record exists
-- `disclosure_review_cadence_current` — fires when `last_reviewed_at` within Privacy Counsel's review-cadence threshold per Section 4
+- `disclosure_review_cadence_current` — fires when `last_reviewed_at` within the re-review cadence the Charter declares, per Section 4
 - `superseded_records_retained_in_full` — reporter/Level-3 signal; fires on-demand/every-transition (validation: superseded records remain in schedule, immutable; current record carries `supersedes` reference per §5.1(3))
 
 ---

@@ -81,7 +81,7 @@ Charter for testing reporter API idempotency:
 |---|---|
 | `charter_id` | `israel-jurisdiction` |
 | Jurisdiction | IL |
-| Layer 4 attestation | Hebrew variant: "במסגרת תפקידי" + Israeli Companies Law §252-§254 reference |
+| Layer 4 attestation | Hebrew variant: "במסגרת תפקידי" |
 
 Use to validate IL jurisdictional variant in Layer 4 attestation.
 

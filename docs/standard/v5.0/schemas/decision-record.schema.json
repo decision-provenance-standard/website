@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://decisionprovenancestandard.org/schemas/v5.0/decision-record.schema.json",
   "title": "Decision Provenance Standard Decision Record",
-  "description": "Decision-record schema per Standard §5 (record lifecycle) + §6.2 (decision-record schema, including §6.2.3 lifecycle/altitude/redaction additions). NOTE on two state families: `record_state` carries the §6.2 schema dispatch states (dispatched/drafted/review-required/closed/re-opened-with-mode-migration). The §5.1 record lifecycle (draft/reviewed/affirmed) is tracked via population of `affirmation_record` + `seal_hash`. Per A5-bis the two families are deliberately distinct and must not be conflated or normalized.",
+  "description": "Decision-record schema per Standard §5 (record lifecycle) + §6.2 (decision-record schema, including §6.2.3 lifecycle/altitude/redaction additions). NOTE on two state families: `record_state` carries the §6.2 schema dispatch states (dispatched/drafted/review-required/closed/re-opened-with-mode-migration). The §5.1 record lifecycle (draft/reviewed/affirmed) is tracked via population of `affirmation_record` + `seal_hash`. The two families are deliberately distinct and must not be conflated or normalized.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -28,7 +28,7 @@
     "record_state": {
       "type": "string",
       "enum": ["dispatched", "drafted", "review-required", "closed", "re-opened-with-mode-migration"],
-      "description": "Standard §6.2 schema dispatch states. Distinct from the §5.1 record lifecycle (draft/reviewed/affirmed), which is tracked via affirmation_record + seal_hash population. Do not conflate (A5-bis)."
+      "description": "Standard §6.2 schema dispatch states. Distinct from the §5.1 record lifecycle (draft/reviewed/affirmed), which is tracked via affirmation_record + seal_hash population. Do not conflate."
     },
     "dispatch_mode": {
       "type": "string",

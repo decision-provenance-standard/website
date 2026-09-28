@@ -29,7 +29,7 @@
     "attestor_employer": {
       "type": "string",
       "minLength": 1,
-      "description": "Legal entity employing the attestor. Capacity cabining language binds liability to the employer."
+      "description": "Legal entity employing the attestor."
     },
     "attestation_timestamp": {
       "type": "string",
@@ -54,7 +54,7 @@
     "attestor_capacity": {
       "type": "string",
       "enum": ["employee", "contractor", "officer", "director"],
-      "description": "Load-bearing for liability analysis. Officer/director capacity carries different indemnification surface than employee/contractor."
+      "description": "The capacity in which the attestor signed."
     }
   }
 }

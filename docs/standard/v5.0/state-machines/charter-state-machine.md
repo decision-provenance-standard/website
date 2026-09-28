@@ -1,8 +1,8 @@
-# Charter State Machine — v5.0 Runnable Primitive
+# Charter State Machine — v5.0 Reference File
 
 **Authority**: Standard §3 (Charter Mechanism)
 **Naming**: "Decision Provenance Standard" full spelling in prose; `dps_charter_state` in code identifiers
-**Status**: v5.0 implementation — reference implementation at Conformance Level 3
+**Status**: v5.0 reference file
 
 ---
 
@@ -23,7 +23,7 @@
 
 The Charter lifecycle is **forward-only**. There is no transition from `closed` back to any prior state; a closed Charter that needs reactivation is a new Charter with a back-pointer.
 
-`review-required` is **not** a Charter-state. It is a RECORD-state interrupt that fires on a single decision record while the Charter remains in `fields-completed`. This was the Phase 2 verification correction: prior drafts mis-modeled `review-required` as a Charter-state, which would have implied the entire Charter halts on a single drift flag.
+`review-required` is **not** a Charter-state. It is a RECORD-state interrupt that fires on a single decision record while the Charter remains in `fields-completed`. Modeling `review-required` as a Charter-state would imply that the entire Charter halts on a single drift flag.
 
 ---
 
@@ -34,7 +34,7 @@ The Charter lifecycle is **forward-only**. There is no transition from `closed` 
 | (creation) | `open` | `charter_id`, `charter_name`, `decision_class`, `accountable_owner` populated |
 | `open` | `mode-declared` | `mode_declaration` populated with one of: `mode-1`, `mode-2`, `mode-1-with-embedded-mode-2-summary` |
 | `mode-declared` | `fields-required` | `inside_decisions`, `outside_decisions`, `cadence`, `record_location`, `re_decision_triggers` (≥1 outcome + ≥1 market evidence trigger), `escalation_rule` populated |
-| `fields-required` | `fields-completed` | `schedule_of_records`, `conformance_level_declared` populated. If `mode_declaration` ∈ {`mode-2`, `mode-1-with-embedded-mode-2-summary`}: `disclosure_metadata_pointer` populated. If `mode_declaration` is anything: `peer_reviewer_pool` populated with ≥3 named individuals (Layer 3 designation rule; pool < 3 fails commitment-check). If any record under this Charter describes a natural person below executive altitude: `use_case_scope_limit_declaration` populated (Standard §3.1, rev6 Wave 0d). In EU/UK works-council jurisdictions where altitude is function-leader or below: `works_council_consultation_record` populated (Standard §3.1, rev6 Wave 0d). |
+| `fields-required` | `fields-completed` | `schedule_of_records`, `conformance_level_declared` populated. If `mode_declaration` ∈ {`mode-2`, `mode-1-with-embedded-mode-2-summary`}: `disclosure_metadata_pointer` populated. If `mode_declaration` is anything: `peer_reviewer_pool` populated with ≥3 named individuals (Layer 3 designation rule; a pool < 3 fails this check). If any record under this Charter describes a natural person below executive altitude: `use_case_scope_limit_declaration` populated (Standard §3.1). In EU/UK works-council jurisdictions where altitude is function-leader or below: `works_council_consultation_record` populated (Standard §3.1). |
 | `fields-completed` | `closed` | Decision-class subsumption, organizational dissolution, or explicit closure event. `closed_at` timestamp set. |
 
 Forward-only enforcement: a Charter in `fields-completed` cannot regress to `fields-required` even if a field is later cleared. The fix is a new Charter version (Charter `v2`) with `prior_charter_ref` back-pointer.
@@ -51,7 +51,7 @@ The enum is exhaustive — no fourth mode. Any drafter or implementer believing 
 
 ## RECORD-state Interrupt: `review-required`
 
-When fired (Layer 1 hard flag, Layer 2 non-Yes audit-hook answer, Layer 3 explicit invocation, or Charter `escalation_rule` invoked), the affected decision record holds at `review-required` and routes to a designated peer reviewer (per `peer_reviewer_pool` + Layer 3 designation rule).
+When fired (Layer 1 hard flag; Layer 2 audit-hook routing on `Yes` or `Uncertain` on Q1-Q3, anything but `Yes` on Q4, a declined answer, or a Layer-1-vs-Layer-2 inconsistency; Layer 3 explicit invocation; or Charter `escalation_rule` invoked), the affected decision record holds at `review-required` and routes to a designated peer reviewer (per `peer_reviewer_pool` + Layer 3 designation rule).
 
 The Charter itself remains in `fields-completed`. Other records under the same Charter continue dispatching normally.
 
@@ -78,4 +78,4 @@ This state machine emits the following Level 1 signals (per `../conformance/sign
 
 ---
 
-*Forward-only lifecycle locked per Phase 2 verification correction. RECORD-state interrupt model preserves Charter-level continuity under per-record drift detection.*
+*Forward-only lifecycle. The RECORD-state interrupt model preserves Charter-level continuity under per-record drift detection.*

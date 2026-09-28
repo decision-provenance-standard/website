@@ -24,9 +24,9 @@ The 15% baseline threads the needle: below it, drift-rate confidence intervals a
 
 | Corpus | Source | Authoring window | Status in v5.0 |
 |---|---|---|---|
-| **Layer A** — Authoritative Mode 2 records | ~200 peer-reviewed Mode-2 decision records from an early-adopter cohort | Implementation lifecycle Weeks 1-3 | Available at first release |
-| **Layer B** — Synthetic Mode 2 examples | Hand-authored from Section 4 worked examples + 0.5.D Article 50 pre-draft + Charter primer documents | implementation-lifecycle Weeks 1-3 | Available at v5.0 launch |
-| **Layer C** — Adversarial negative examples | Mode-1 records with deliberately injected Mode-2 substantive content; AI Architect + Privacy Counsel + Chief Architect joint authorship | **implementation-lifecycle Weeks 4-6** | NOT available at v5.0 launch — authoring runs post-launch |
+| **Layer A** — Authoritative Mode 2 records | Peer-reviewed Mode-2 decision records assembled by the implementer | Implementation lifecycle Weeks 1-3 | Assembled by the implementer |
+| **Layer B** — Synthetic Mode 2 examples | Hand-authored from Section 4 worked examples + Charter primer documents | implementation-lifecycle Weeks 1-3 | Assembled by the implementer |
+| **Layer C** — Adversarial negative examples | Mode-1 records with deliberately injected Mode-2 substantive content | **implementation-lifecycle Weeks 4-6** | Authored by the implementer |
 
 The classifier training pipeline emits `corpus_id` + `corpus_version` provenance fields. The classifier outputs `classifier_version` + `corpus_version` on every flag so a downstream auditor can verify training-set independence at any point.
 
@@ -49,9 +49,9 @@ If a Charter's soft-flag rate exceeds 5% over a rolling 30-day window, the repor
 
 **"Weeks" refers to implementation-lifecycle weeks measured from first release.** Layer 1 phased deployment runs on its own multi-week cadence; enforcement activation at Week 7+ falls 7 weeks after first release.
 
-## R-001 Closure Note
+## Silent-Drift Closure Note
 
-The mode-drift mitigation closes R-001 at first use because **Layers 2, 3, and 4 fire at first use**. Layer 1's Phase 1-2 detection-only mode means the `no_silent_mode_drift_in_sample` Level 2 signal emits in a known-conservative posture during Weeks 1-6 (false-negatives possible due to incomplete Layer C corpus). The composition closes R-001; Layer 1's full firing authority arrives at Week 7+ and adds population-level signal — it does not gate R-001 closure.
+The mode-drift mitigation closes the silent Mode 1 → Mode 2 drift failure mode at first use because **Layers 2, 3, and 4 fire at first use**. Layer 1's Phase 1-2 detection-only mode means the `no_silent_mode_drift_in_sample` Level 2 signal emits in a known-conservative posture during Weeks 1-6 (false-negatives possible due to incomplete Layer C corpus). The composition closes the drift failure mode; Layer 1's full firing authority arrives at Week 7+ and adds population-level signal — it does not gate that closure.
 
 ## Corpus-Authoring Schedule
 
@@ -59,4 +59,4 @@ Layer C adversarial-corpus authoring is scheduled for implementation-lifecycle W
 
 ---
 
-*Layer 1 ships scaffolding only at first release. Enforcement deferred to Week 7+. R-001 closure preserved by Layers 2/3/4 firing at first use.*
+*Layer 1 ships scaffolding only at first release. Enforcement deferred to Week 7+. Silent-drift closure preserved by Layers 2/3/4 firing at first use.*

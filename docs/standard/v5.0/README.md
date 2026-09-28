@@ -1,16 +1,16 @@
-# Decision Provenance Standard — Reference Implementation
+# Decision Provenance Standard — Reference Files
 
-The runnable reference substrate of the Decision Provenance Standard: the conformance-signal reporter, the mode-drift four-layer composed mitigation, the JSON schemas, and the state machines that the Standard's conformance language refers to.
+Machine-readable reference files for the Decision Provenance Standard: schemas, state machines, the signal list, the reporter contract and a test plan. They also describe the mode-drift four-layer composed mitigation that the Standard's conformance language refers to.
 
 > The records are input, not evidence. The Standard informs frameworks without satisfying them. Conformance is self-declared; no body certifies it. It is not legal advice and not a regulatory substitute.
 
-**Standard text is licensed CC-BY 4.0. This reference-implementation code is licensed MIT.**
+**Standard text is licensed CC-BY 4.0. These reference files are licensed MIT.**
 
 ---
 
 ## What This Directory Is
 
-This directory is the reference implementation of the Decision Provenance Standard's conformance reporter at **Conformance Level 3**. It contains the runnable primitives the Standard's normative text points to:
+This directory holds the machine-readable reference files the Standard's normative text points to:
 
 - A **23-signal conformance vocabulary** across Levels 1, 2, and 3.
 - A **single-write conformance reporter API** (Charter-level escalation events).
@@ -19,7 +19,7 @@ This directory is the reference implementation of the Decision Provenance Standa
 - Two **state machines** (Charter lifecycle, decision-record lifecycle).
 - A **cross-stream conformance test apparatus** plus a synthetic Charter library.
 
-The implementation records process. It does not certify, ensure, or substitute for any regulator or auditor review. Conformance to the Standard is self-declared by the implementer; no body certifies it.
+The reference files describe how process is recorded. They do not certify, ensure, or substitute for any regulator or auditor review. Conformance to the Standard is self-declared by the implementer; no body certifies it.
 
 ---
 
@@ -34,18 +34,18 @@ The implementation records process. It does not certify, ensure, or substitute f
 | `schemas/decision-record.schema.json` | Decision-record object schema (JSON Schema Draft 2020-12) |
 | `conformance/reporter-api-spec.md` | `POST /dps/conformance/charter-escalation` contract |
 | `conformance/reporter-api.openapi.yaml` | OpenAPI 3.1 wire contract |
-| `conformance/signal-vocabulary.md` | 23-signal vocabulary across Levels 1, 2, 3 (6 L1 + 13 L2 + 4 L3) + audit-cadence binding |
+| `conformance/signal-vocabulary.md` | 23-signal vocabulary across Levels 1, 2, 3 (6 L1 + 11 L2 + 6 L3) + audit-cadence binding |
 | `mode-drift/layer-1-detection.md` | Statistical detection scaffolding |
 | `mode-drift/layer-2-audit-hook.md` | 4-question challenge prompt at decision-record close |
 | `mode-drift/layer-3-mode-confirmation.md` | `review-required` RECORD-state interrupt + peer-review designation |
 | `mode-drift/layer-4-attestation.md` + `layer-4-attestation.schema.json` | `mode_classification_attestation` structured object (named human attestation) |
 | `tests/cross-stream-conformance-check.md` | Conformance test apparatus |
 | `tests/synthetic-charter-library.md` | Synthetic Charters for round-trip verification |
-| `release/RELEASE-NOTES.md` | Reference-implementation release notes |
+| `release/RELEASE-NOTES.md` | Release notes for the reference files |
 
 ---
 
-## Mode-Drift Mitigation (R-001)
+## Mode-Drift Mitigation
 
 The mode-drift mitigation closes the silent Mode 1 → Mode 2 drift failure mode because three of its four layers fire at first use:
 
@@ -64,8 +64,8 @@ The 23-signal vocabulary maps the Standard's structural requirements to named, m
 | Level | Count | Scope |
 |---|---|---|
 | Level 1 | 6 | Charter structural completeness |
-| Level 2 | 13 | Decision-record discipline |
-| Level 3 | 4 | Continuously auditable |
+| Level 2 | 11 | Decision-record discipline |
+| Level 3 | 6 | Continuously auditable |
 
 The vocabulary is the locked enumeration the reporter API validates the `evidence_metric` field against. See `conformance/signal-vocabulary.md`.
 
@@ -73,7 +73,7 @@ The vocabulary is the locked enumeration the reporter API validates the `evidenc
 
 ## Directory Path Note
 
-The directory name is `v5.0/` and is kept unchanged so the Standard's `standard/v5.0/...` references resolve. The reference-implementation release label is v5.1.0 (see `release/RELEASE-NOTES.md`); the directory path stays `v5.0/`.
+The directory name is `v5.0/` and is kept unchanged so the Standard's `standard/v5.0/...` references resolve. The reference-files release label is v5.1.1 (see `release/RELEASE-NOTES.md`); the directory path stays `v5.0/`.
 
 ---
 
@@ -91,4 +91,4 @@ Amendments to the conformance contract (signal vocabulary, schema field names, r
 
 ---
 
-*Reference implementation aligned to the Decision Provenance Standard. Standard text CC-BY 4.0; reference-implementation code MIT.*
+*Reference files aligned to the Decision Provenance Standard. Standard text CC-BY 4.0; reference files MIT.*

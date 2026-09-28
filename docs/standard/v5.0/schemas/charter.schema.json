@@ -67,7 +67,7 @@
     },
     "escalation_rule": {
       "type": "string",
-      "description": "Pointer to the Charter's escalation rule (handled by /escalation-rule skill)."
+      "description": "Pointer to the Charter's escalation rule."
     },
     "schedule_of_records": {
       "type": "array",
@@ -118,7 +118,7 @@
         },
         "hr_of_record_charter_scope_confirmation": {"type": "string"}
       },
-      "description": "Standard §3.1 (rev6 Wave 0d). Required at fields-completed where any record describes a natural person below executive altitude. Enumerated default-permitted scopes; individual-development-coaching carries conditional consent sub-fields. Load-bearing for §6.2.3.1 access-policy binding."
+      "description": "Standard §3.1. Required at fields-completed where any record describes a natural person below executive altitude. Enumerated default-permitted scopes; individual-development-coaching carries conditional consent sub-fields. Load-bearing for §6.2.3.1 access-policy binding."
     },
     "works_council_consultation_record": {
       "type": "object",
@@ -137,7 +137,7 @@
         },
         "outcome_document_pointer": {"type": "string"}
       },
-      "description": "Standard §3.1 (rev6 Wave 0d). Required at fields-completed in EU/UK works-council jurisdictions where altitude is function-leader or below. Conditional, not top-level required."
+      "description": "Standard §3.1. Required at fields-completed in EU/UK works-council jurisdictions where altitude is function-leader or below. Conditional, not top-level required."
     },
     "created_at": {"type": "string", "format": "date-time"},
     "closed_at": {"type": ["string", "null"], "format": "date-time"}

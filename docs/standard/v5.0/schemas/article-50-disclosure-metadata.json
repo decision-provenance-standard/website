@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://decisionprovenancestandard.org/schemas/v5.0/article-50-disclosure-metadata.json",
   "title": "Article 50 Disclosure Metadata Block",
-  "description": "Decision Provenance Standard — Article 50 disclosure metadata block. The five Standard §4.6.2 required fields are declaring_authority, ai_system_identity, jurisdictional_applicability, content_type_tag, generation_timestamp. The schema additionally carries disclosure_text_pointer and attached_at as permitted substrate fields (serving §6.2.3 attachment-moment audit) plus optional mode_1_edge_case_flag, last_reviewed_at, disclosure_provenance. The schema structures inputs the declaring authority needs to discharge the Article 50 disclosure obligation. The schema does not satisfy, ensure, or certify Article 50 conformance; those verbs belong to the regulator.",
+  "description": "Decision Provenance Standard — Article 50 disclosure metadata block. The five Standard §4.6.2 required fields are declaring_authority, ai_system_identity, jurisdictional_applicability, content_type_tag, generation_timestamp. The schema additionally carries disclosure_text_pointer and attached_at as permitted substrate fields (serving §6.2.3 attachment-moment audit) plus optional mode_1_edge_case_flag, last_reviewed_at, disclosure_provenance. The schema describes the fields of the disclosure block defined in Standard §4.6.2. Whether Article 50, or any other disclosure law, applies to an artifact is for the deployer to determine. The schema does not satisfy, ensure, or certify any regulatory obligation.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -25,7 +25,7 @@
         "employer": {"type": "string", "description": "Legal entity employing the declaring authority"},
         "capacity": {"type": "string", "enum": ["employee", "contractor", "officer", "director"]}
       },
-      "description": "The named human responsible for discharging the Article 50 disclosure obligation. Not the AI system; not the Charter; not the organization at large. The obligation belongs to a person."
+      "description": "The person who prepares the disclosure and the organization they act for (Standard §2.2.12, §4.6.2). Not the AI system; not the Charter."
     },
     "ai_system_identity": {
       "type": "object",
@@ -39,7 +39,7 @@
         "model_card_pointer": {
           "type": "string",
           "format": "uri-reference",
-          "description": "URL or path to the operator's model card; substrate counsel uses to verify Article 50 disclosure adequacy."
+          "description": "URL or path to the operator's model card."
         }
       }
     },
@@ -50,7 +50,7 @@
         "type": "string",
         "enum": ["US-FED", "US-DE", "UK", "EU", "IL", "OTHER"]
       },
-      "description": "Per 0.5.D extraterritorial-reach scoping. Article 50 reaches outputs delivered to EU natural persons regardless of operator location; this field is structured input to that determination, not the determination itself."
+      "description": "Records where the artifact is intended to circulate. It is an input to the deployer's own determination of which laws apply, not that determination itself."
     },
     "content_type_tag": {
       "type": "array",
@@ -82,7 +82,7 @@
     "last_reviewed_at": {
       "type": "string",
       "format": "date-time",
-      "description": "When the declaring authority last reviewed and reaffirmed the disclosure. Drives Privacy Counsel re-review cadence per Section 4."
+      "description": "When the declaring authority last reviewed and reaffirmed the disclosure. Drives the re-review cadence the Charter declares, per Section 4."
     },
     "disclosure_provenance": {
       "type": "object",
