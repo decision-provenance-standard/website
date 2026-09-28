@@ -19,7 +19,7 @@ This directory holds the machine-readable reference files the Standard's normati
 - Two **state machines** (Charter lifecycle, decision-record lifecycle).
 - A **cross-stream conformance test apparatus** plus a synthetic Charter library.
 
-The reference files describe how process is recorded. They do not certify, ensure, or substitute for any regulator or auditor review. Conformance to the Standard is self-declared by the implementer; no body certifies it.
+The reference files describe how process is recorded. They do not certify, ensure, or substitute for any regulator or auditor review. Conformance to the Standard is self-declared by the adopting organization; no body certifies it.
 
 ---
 

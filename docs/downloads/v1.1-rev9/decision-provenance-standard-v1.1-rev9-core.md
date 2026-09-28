@@ -1,13 +1,13 @@
 # The Decision Provenance Standard™
 
-**Version**: 1.1 — Reading Edition (rev. 9 — <RELEASE-DATE>)
+**Version**: 1.1 — Reading Edition (rev. 9 — 2026-09-28)
 **Base text (v1.0)**: 2026-04-30
 **rev. 4**: 2026-05-06
 **rev. 5**: 2026-05-09
 **rev. 6**: 2026-05-15
 **rev. 6.5**: 2026-05-18
 **Reading Edition (rev. 8)**: 2026-05-30. Conformance contract UNCHANGED from v1.0 (no field, lifecycle-state, enum, conformance-level, or signal-definition change). The Standard is restructured into a normative core plus Companion A (Regulatory Cross-References), Companion B (Worked Charter Library), Companion C (Implementation Guidance), and Appendix G (Governance and References).
-**Version 1.1, Reading Edition (rev. 9)**: <RELEASE-DATE>. A minor release: no record or Charter valid under rev. 8 becomes invalid. The changes are recorded in the Steward's decision records DR-2026-0001 to DR-2026-0006, published with the text at github.com/decision-provenance-standard/standard.
+**Version 1.1, Reading Edition (rev. 9)**: 2026-09-28. A minor release: no record or Charter valid under rev. 8 becomes invalid. The rule changes are recorded in the Steward's decision records DR-2026-0001 to DR-2026-0006, published with the text at github.com/decision-provenance-standard/standard.
 **Author**: Yohay Etsion (Founding Steward)
 **Steward**: Etsion Brands Ltd. (institutional Steward, Israeli holding company)
 **License**: Creative Commons Attribution 4.0 International (CC-BY 4.0)
