@@ -97,16 +97,16 @@ For every signal in `../conformance/signal-vocabulary.md`:
 ### Category I — Standard ↔ Reference-File Field Alignment
 
 1. For each field in Standard §3 Charter schema → assert corresponding field in `charter.schema.json`
-2. For each field in Standard §4 Article 50 disclosure block → assert corresponding field in `article-50-disclosure-metadata.json`
+2. For each field in the Standard's §4.6.2 disclosure block → assert corresponding field in `article-50-disclosure-metadata.json`
 3. For each field in Standard §5 decision-record schema → assert corresponding field in `decision-record.schema.json`
 4. For each Section 6 conformance Level criterion → assert at least one signal in vocabulary corresponds
 
-**Field-name normalization note (v5.1.0 reconciliation).** When matching a manuscript field name (prose display name) to a substrate JSON key, the check normalizes:
+**Field-name normalization note (v5.1.0 reconciliation).** When matching the text's field name (prose display name) to the schema's JSON key, the check normalizes:
 
-- **Hyphen ↔ underscore**: the manuscript uses hyphenated display names (`declaring-authority`); the substrate uses snake_case JSON keys (`declaring_authority`). These are the same binding identifier under the two serialization conventions the Standard explicitly blesses (§3.2: "Field names are the binding identifiers; serializations may be JSON, YAML, typed objects… so long as the field semantics align"; §6.2.4: "Field names are binding; type names are illustrative"). Normalize hyphen ↔ underscore before comparing.
-- **Trailing `-tag` display suffix**: tolerate a trailing `-tag` on a manuscript display name when the JSON key omits it (`jurisdictional-applicability-tag` ↔ `jurisdictional_applicability`).
+- **Hyphen ↔ underscore**: the text uses hyphenated display names (`declaring-authority`); the schemas use snake_case JSON keys (`declaring_authority`). These are the same binding identifier under the two serialization conventions the Standard explicitly blesses (§3.2: "Field names are the binding identifiers; serializations may be JSON, YAML, typed objects… so long as the field semantics align"; §6.2.4: "Field names are binding; type names are illustrative"). Normalize hyphen ↔ underscore before comparing.
+- **Trailing `-tag` display suffix**: tolerate a trailing `-tag` on the text's display name when the JSON key omits it (`jurisdictional-applicability-tag` ↔ `jurisdictional_applicability`).
 
-**Permitted substrate extras.** The check matches the Standard-required fields against the schema; substrate-additional fields are permitted extras and do NOT fail the check. For the Article 50 block, the five Standard-required fields are `declaring_authority`, `ai_system_identity`, `jurisdictional_applicability`, `content_type_tag`, `generation_timestamp`; `disclosure_text_pointer`, `attached_at`, `mode_1_edge_case_flag`, `last_reviewed_at`, `disclosure_provenance` are permitted substrate extras.
+**Permitted extra fields.** The check matches the Standard-required fields against the schema; additional schema fields are permitted extras and do NOT fail the check. For the disclosure block, the five Standard-required fields are `declaring_authority`, `ai_system_identity`, `jurisdictional_applicability`, `content_type_tag`, `generation_timestamp`; `disclosure_text_pointer`, `attached_at`, `mode_1_edge_case_flag`, `last_reviewed_at`, `disclosure_provenance` are permitted extras.
 
 **Two state families (decision record).** The check verifies BOTH families exist (per the decision-record state machine's "Two State Families" note): the §6.2 dispatch states on `record_state`, and the §5.1 lifecycle (`draft`/`reviewed`/`affirmed`) expressed via `affirmation_record`/`seal_hash` population. It does NOT require a single normalized enum and does NOT flag the two-family design as a divergence.
 

@@ -45,7 +45,7 @@ Forward-only enforcement: a Charter in `fields-completed` cannot regress to `fie
 
 `mode_declaration` is **required at any state past `open`**. The dispatch state machine refuses to authorize any decision under a Charter still in `open`. This is the structural primitive that catches the unauthored-Mode-2 failure mode (Standard §3 §3.4).
 
-The enum is exhaustive — no fourth mode. Any drafter or implementer believing a fourth mode is needed escalates to General Counsel + Standard amendment, never a runtime workaround.
+The enum is exhaustive — no fourth mode. Any drafter or implementer believing a fourth mode is needed raises it as an issue or pull request (GOVERNANCE.md), never a runtime workaround.
 
 ---
 

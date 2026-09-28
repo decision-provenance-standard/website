@@ -36,7 +36,7 @@ The two families are deliberately distinct and MUST NOT be conflated or normaliz
 | `dispatched` | Human author opens decision under a Charter in `fields-completed`. AI worker prepares conformance-signal scaffold. | AI worker opens decision. Reads Charter state, decision context, prior records. Prepares substantive draft + disclosure metadata block. |
 | `drafted` | Human writes substantive content. AI worker monitors conformance-signal completeness. | AI worker writes substantive content. Disclosure metadata block populates with `declaring_authority`, `ai_system_identity`, `jurisdictional_applicability`, `disclosure_text_pointer`. |
 | `review-required` (interrupt) | Layer 1/2/3 routed flag. Holds at this state until peer reviewer disposition. | Same routing, plus the standard Mode 2 reviewer sign-off path. |
-| `closed` | Layer 2 audit hook fires; all answers `Yes` → close authorized. Layer 4 attestation captured. AI worker writes final conformance signals. Record archives to schedule of records. | Human reviewer signs off; disclosure metadata block finalizes (`last_reviewed_at` set); Layer 4 attestation captured; record archives. |
+| `closed` | Layer 2 audit hook fires; No on Q1–Q3 and Yes on Q4, with every question answered and no Layer 1 / Layer 2 mismatch → close authorized; anything else routes the record to Layer 3 at `review-required` (Standard §4.8; for records that close under v1.1 or later). Layer 4 attestation captured. AI worker writes final conformance signals. Record archives to schedule of records. | Human reviewer signs off; disclosure block finalizes (its review is later shown by `last_reviewed_at` or by a disclosure-review record, Standard §7.4.1); Layer 4 attestation captured; record archives. |
 
 ---
 
@@ -75,9 +75,9 @@ This state machine emits the following signals (per `../conformance/signal-vocab
 - `every_record_carries_mode_declaration` — fires on transition into `closed` (validation: `dispatch_mode` populated)
 
 **Level 2**:
-- `every_mode_2_record_has_disclosure_block` — fires on transition into `closed` for Mode 2 records
-- `every_mode_1_edge_case_record_has_disclosure_block` — fires on transition into `closed` for Mode 1 records carrying embedded-summary edge case
-- `disclosure_block_required_fields_populated` — fires on transition into `closed` (validation: 5 required Article 50 disclosure fields all populated)
+- `every_mode_2_record_has_disclosure_block` — fires on transition into `closed` for Mode 2 records within the §4.6 requirement (Standard §4.6.1)
+- `every_mode_1_edge_case_record_has_disclosure_block` — fires on transition into `closed` for Mode 1 records carrying embedded-summary edge case whose embedded content is within the §4.6 requirement (Standard §4.6.1)
+- `disclosure_block_required_fields_populated` — fires on transition into `closed` (validation: the five disclosure-block fields of Standard §4.6.2 all populated)
 - `no_silent_mode_drift_in_sample` — sample-level signal; fires on Layer 3 audit cadence per the §4.8.2 emission cadence (NOT every record)
 - `every_affirmed_record_carries_affirmation_event` — fires at the §5.1 `affirmed` lifecycle promotion (validation: `affirmation_record` populated)
 - `every_affirmed_record_carries_seal_hash` — fires at the §5.1 `affirmed` lifecycle promotion (validation: `seal_hash` populated)
@@ -88,7 +88,7 @@ This state machine emits the following signals (per `../conformance/signal-vocab
 
 **Level 3**:
 - `escalation_rule_records_present_when_invoked` — fires when Charter `escalation_rule` fires AND a corresponding decision record exists
-- `disclosure_review_cadence_current` — fires when `last_reviewed_at` within the re-review cadence the Charter declares, per Section 4
+- `disclosure_review_cadence_current` — fires when each disclosure block was reviewed within the cadence the Charter declares: a current `last_reviewed_at`, or a disclosure-review record dated within the cadence that names the record (Standard §7.4.1)
 - `superseded_records_retained_in_full` — reporter/Level-3 signal; fires on-demand/every-transition (validation: superseded records remain in schedule, immutable; current record carries `supersedes` reference per §5.1(3))
 
 ---

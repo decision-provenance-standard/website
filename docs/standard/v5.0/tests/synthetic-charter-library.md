@@ -15,7 +15,7 @@
 | `mode_declaration` | `mode-1` |
 | `cadence` | quarterly |
 | `re_decision_triggers` | 1 outcome (NPS Δ > 5pt) + 1 market (competitor major launch) |
-| `peer_reviewer_pool` | 3 named DPMM-level peers |
+| `peer_reviewer_pool` | 3 named Director-level peers |
 | `conformance_level_declared` | 3 |
 | Jurisdiction | US-DE |
 
@@ -29,12 +29,12 @@ Use to validate clean Mode 1 round-trip + Layer 2 hard gate + Layer 4 attestatio
 | `decision_class` | "Enterprise pricing exception approval" |
 | `accountable_owner` | "VP Product" |
 | `mode_declaration` | `mode-2` |
-| `disclosure_metadata_pointer` | populated (5 Article 50 fields) |
+| `disclosure_metadata_pointer` | populated (the five disclosure-block fields) |
 | `peer_reviewer_pool` | 4 named peers |
 | `conformance_level_declared` | 3 |
 | Jurisdiction | EU (German entity) |
 
-Use to validate Mode 2 disclosure block + EU jurisdictional variant in Layer 4 attestation + Article 50 disclosure metadata schema completeness.
+Use to validate Mode 2 disclosure block + EU jurisdictional variant in Layer 4 attestation + disclosure-block schema completeness.
 
 ## Charter 3 — `roadmap-cycle` (Mode 1 with embedded Mode 2 summary)
 

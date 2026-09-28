@@ -1,8 +1,25 @@
 # Reference Files — Release Notes
 
-**Release label**: v5.1.1
-**Directory path**: `standard/v5.0/` (unchanged so the Standard's `standard/v5.0/...` references resolve; v5.1.1 is the version label, the path stays `v5.0/`)
-**Aligned to**: Decision Provenance Standard, version 1.1 (reading edition rev. 9)
+**Release label**: v5.1.2
+**Directory path**: `standard/v5.0/` (unchanged so the Standard's `standard/v5.0/...` references resolve; v5.1.2 is the version label, the path stays `v5.0/`)
+**Aligned to**: Decision Provenance Standard, version 1.2 (reading edition rev. 10)
+
+---
+
+## Release 5.1.2 (2026-09-28), with version 1.2 of the text (reading edition rev. 10)
+
+A wording release with version 1.2 of the text. The reference files follow v1.2's clarifications.
+
+- **Unchanged:** the structure of every JSON schema (properties, required fields, types, allowed values and patterns), the OpenAPI reporter contract (byte for byte) and the names of the 23 signals. Only description strings and prose changed.
+- **Changed wording:**
+  - The Mode 1 row of the decision-record state machine still carried the old Layer 2 closing rule, which release 5.1.1 missed; it now states the route the text states (Standard §4.8).
+  - Disclosure review can be shown by `last_reviewed_at` or by a disclosure-review record (Standard §7.4.1), and the disclosure checks name the exclusion of §4.6.1.
+  - Descriptions no longer call the disclosure block an "Article 50" block, and no longer say who decides a deployer's legal questions.
+- **Still open:** KD-01 to KD-11 in the repository's `tests/known-defects/`, held for release 5.2.0. KD-10 and KD-11 were added during the work on this release.
+- **Release 5.1.1 stays recoverable** at tag `ref-5.1.1`.
+- **License:** MIT, as for all of 5.x.
+
+The text's own release notes, including what changed in version 1.2, are in the repository's root `README.md`.
 
 ---
 
@@ -37,7 +54,7 @@ The reference files describe how process is recorded. They do not certify, ensur
 
 - **23-signal conformance vocabulary** — Level split: 6 Level 1 (Charter structural completeness) + 11 Level 2 (decision-record discipline) + 6 Level 3 (continuously auditable). The vocabulary is the locked enumeration the reporter API validates `evidence_metric` against, identical between `conformance/signal-vocabulary.md` and the OpenAPI `evidence_metric` enum.
 - **3-value `dispatch_mode` enum** — `mode-1`, `mode-2`, `mode-1-with-embedded-mode-2-summary`. Exhaustive; no fourth mode.
-- **5-field Article 50 disclosure schema** — `declaring_authority`, `ai_system_identity`, `jurisdictional_applicability`, `content_type_tag`, `generation_timestamp`, plus permitted implementation extras tolerated by the conformance check. The schema also requires `disclosure_text_pointer` and `attached_at`, seven fields in all, where the text requires five (known defect KD-06; see "Still open" above).
+- **5-field disclosure-block schema** — `declaring_authority`, `ai_system_identity`, `jurisdictional_applicability`, `content_type_tag`, `generation_timestamp`, plus permitted implementation extras tolerated by the conformance check. The schema also requires `disclosure_text_pointer` and `attached_at`, seven fields in all, where the text requires five (known defect KD-06; see "Still open" above).
 - **Mode-drift four-layer composed mitigation** — Layer 1 statistical detection (detection-only scaffolding at first release), Layer 2 in-flow 4-question audit hook (hard gate at Mode-1 record close), Layer 3 Mode-Confirmation Audit primitive (peer-review confirmation), Layer 4 named human attestation (structured `mode_classification_attestation` object at close).
 - **Two state machines** — Charter 5-state forward-only lifecycle + `review-required` RECORD-state interrupt; decision-record `dispatched / drafted / closed` lifecycle with the two deliberately-distinct §5.1-lifecycle and §6.2-dispatch state families.
 - **Reporter API** — single-write `POST /dps/conformance/charter-escalation` endpoint (OAuth 2.0 client_credentials, idempotency-key, synchronous ack-only, standardized error envelope, rate limiting, JSON Schema Draft 2020-12 validation).
@@ -47,7 +64,7 @@ The reference files describe how process is recorded. They do not certify, ensur
 
 ## Versioning
 
-This release carries the label **v5.1.1**. The directory path remains `standard/v5.0/` so the Standard's `standard/v5.0/...` references resolve; the version label and the directory path are deliberately distinct. Conformance-contract changes (signal vocabulary, schema field names, reporter wire contract) are additive at the schema and enum level and follow semantic-version discipline; breaking changes to the contract require a major-version bump and steward review.
+This release carries the label **v5.1.2**. The directory path remains `standard/v5.0/` so the Standard's `standard/v5.0/...` references resolve; the version label and the directory path are deliberately distinct. Conformance-contract changes (signal vocabulary, schema field names, reporter wire contract) are additive at the schema and enum level and follow semantic-version discipline; breaking changes to the contract require a major-version bump and steward review.
 
 ---
 
@@ -59,8 +76,9 @@ The Decision Provenance Standard text is licensed CC-BY 4.0. These reference fil
 
 ## Earlier releases
 
+- **Release 5.1.1**, with version 1.1 of the text (reading edition rev. 9, dated 2026-09-28): kept, unchanged, at tag `ref-5.1.1`.
 - **Release 5.1.0**, with version 1.0 of the text (reading edition rev. 8, dated 2026-05-30): the first release of these files. It is kept, unchanged, at tag `rev8-published`.
 
 ---
 
-*Reference files aligned to the Decision Provenance Standard, version 1.1 (reading edition rev. 9).*
+*Reference files aligned to the Decision Provenance Standard, version 1.2 (reading edition rev. 10).*

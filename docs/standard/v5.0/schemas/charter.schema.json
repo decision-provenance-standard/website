@@ -80,7 +80,7 @@
     },
     "disclosure_metadata_pointer": {
       "type": "string",
-      "description": "Required when mode_declaration is mode-2 or mode-1-with-embedded-mode-2-summary. Points to the Article 50 disclosure metadata block."
+      "description": "Required when mode_declaration is mode-2 or mode-1-with-embedded-mode-2-summary. Points to the disclosure block (Standard §4.6)."
     },
     "peer_reviewer_pool": {
       "type": "array",

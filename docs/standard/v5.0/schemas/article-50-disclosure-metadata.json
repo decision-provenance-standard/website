@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://decisionprovenancestandard.org/schemas/v5.0/article-50-disclosure-metadata.json",
-  "title": "Article 50 Disclosure Metadata Block",
-  "description": "Decision Provenance Standard — Article 50 disclosure metadata block. The five Standard §4.6.2 required fields are declaring_authority, ai_system_identity, jurisdictional_applicability, content_type_tag, generation_timestamp. The schema additionally carries disclosure_text_pointer and attached_at as permitted substrate fields (serving §6.2.3 attachment-moment audit) plus optional mode_1_edge_case_flag, last_reviewed_at, disclosure_provenance. The schema describes the fields of the disclosure block defined in Standard §4.6.2. Whether Article 50, or any other disclosure law, applies to an artifact is for the deployer to determine. The schema does not satisfy, ensure, or certify any regulatory obligation.",
+  "title": "Disclosure Block (Standard §4.6)",
+  "description": "Decision Provenance Standard — the disclosure block. The five Standard §4.6.2 required fields are declaring_authority, ai_system_identity, jurisdictional_applicability, content_type_tag, generation_timestamp. The schema additionally carries disclosure_text_pointer and attached_at as permitted extra fields (serving §6.2.3 attachment-moment audit) plus optional mode_1_edge_case_flag, last_reviewed_at, disclosure_provenance. The schema describes the fields of the disclosure block defined in Standard §4.6.2. Whether Article 50, or any other disclosure law, applies to an artifact is for the deployer to determine. The schema does not satisfy, ensure, or certify any regulatory obligation.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -82,7 +82,7 @@
     "last_reviewed_at": {
       "type": "string",
       "format": "date-time",
-      "description": "When the declaring authority last reviewed and reaffirmed the disclosure. Drives the re-review cadence the Charter declares, per Section 4."
+      "description": "When the declaring authority last reviewed and reaffirmed the disclosure. One way to show the block was reviewed within the Charter's cadence (Standard §7.4.1)."
     },
     "disclosure_provenance": {
       "type": "object",

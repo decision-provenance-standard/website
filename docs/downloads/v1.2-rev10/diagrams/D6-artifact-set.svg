@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="d6title d6desc">
+  <title id="d6title">Figure 6-1 — Artifact-Set Relationship Map</title>
+  <desc id="d6desc">An entity-relationship orientation map showing how the standard's artifacts compose: Charter, Schedule of Records, Decision Record, Disclosure Block, Conformance Signals, and Conformance Levels, plus a one-way dashed pointer to the deploying organization's methodology.</desc>
+
+  <style>
+    .ttl   { font-size: 17px; font-weight: bold; fill: #1A1A1A; }
+    .sub   { font-size: 12px; fill: #666666; }
+    .ent   { font-size: 13px; font-weight: bold; fill: #1A1A1A; }
+    .attr  { font-size: 10.5px; fill: #1A1A1A; }
+    .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 10px; fill: #1A1A1A; }
+    .rel   { font-size: 10.5px; font-style: italic; fill: #666666; }
+    .ref   { font-size: 10px; fill: #3A5A78; font-weight: bold; }
+    .box   { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    .boxw  { fill: #FFFFFF; stroke: #1A1A1A; stroke-width: 1.5; }
+    .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
+    .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
+    .dash  { stroke: #666666; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+  </style>
+
+  <defs>
+    <marker id="ah6" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#1A1A1A"/>
+    </marker>
+    <marker id="ah6g" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#666666"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="28" class="ttl">Figure 6-1 — Artifact-Set Relationship Map</text>
+  <text x="20" y="46" class="sub">One-picture orientation: how the standard's parts compose before the normative prose. Arrows in parentheses point to the detailing figure.</text>
+
+  <!-- CHARTER (central, accent = orientation anchor) -->
+  <g>
+    <rect x="350" y="70" width="260" height="118" class="accent"/>
+    <text x="360" y="92" class="ent">Charter</text>
+    <line x1="350" y1="100" x2="610" y2="100" class="dash"/>
+    <text x="360" y="118" class="attr">governs a <tspan font-weight="bold">decision class</tspan></text>
+    <text x="360" y="134" class="attr">declares a <tspan font-weight="bold">Mode</tspan> <tspan class="ref">(&#8594; Fig 3-2)</tspan></text>
+    <text x="360" y="150" class="attr">commits a <tspan font-weight="bold">Schedule of Records</tspan></text>
+    <text x="360" y="166" class="attr">names <tspan class="mono">accountable_owner</tspan></text>
+    <text x="360" y="182" class="attr">declares <tspan class="mono">conformance_level_declared</tspan></text>
+  </g>
+
+  <!-- SCHEDULE OF RECORDS (left) -->
+  <g>
+    <rect x="40" y="250" width="290" height="150" class="box"/>
+    <text x="50" y="272" class="ent">Schedule of Records</text>
+    <line x1="40" y1="280" x2="330" y2="280" class="dash"/>
+    <text x="50" y="298" class="attr">enumerates 5 required record-types (section 6.3.1):</text>
+    <text x="58" y="316" class="attr">1. Decision record</text>
+    <text x="58" y="332" class="attr">2. Re-decision record</text>
+    <text x="58" y="348" class="attr">3. Escalation record</text>
+    <text x="58" y="364" class="attr">4. Charter-amendment record</text>
+    <text x="58" y="380" class="attr">5. Disclosure-review record</text>
+  </g>
+
+  <!-- DECISION RECORD (center) -->
+  <g>
+    <rect x="370" y="250" width="270" height="150" class="box"/>
+    <text x="380" y="272" class="ent">Decision Record</text>
+    <line x1="370" y1="280" x2="640" y2="280" class="dash"/>
+    <text x="380" y="298" class="attr">dispatched under a Charter</text>
+    <text x="380" y="316" class="attr">carries <tspan class="mono">dispatch_mode</tspan></text>
+    <text x="380" y="334" class="attr">transits the lifecycle <tspan class="ref">(&#8594; Fig 5-1)</tspan></text>
+    <text x="380" y="352" class="attr">conditionally attaches an</text>
+    <text x="380" y="368" class="attr">Disclosure Block <tspan class="ref">(&#8594; Fig 4-1)</tspan></text>
+  </g>
+
+  <!-- DISCLOSURE BLOCK (right) -->
+  <g>
+    <rect x="680" y="250" width="240" height="150" class="boxw"/>
+    <text x="690" y="272" class="ent">Disclosure Block</text>
+    <line x1="680" y1="280" x2="920" y2="280" class="dash"/>
+    <text x="690" y="298" class="attr">5 required fields</text>
+    <text x="690" y="316" class="attr">4-of-5 anonymization rule</text>
+    <text x="690" y="334" class="attr">attached to Mode 2 +</text>
+    <text x="690" y="352" class="attr">Mode-1 edge-case records</text>
+    <text x="690" y="370" class="ref">(&#8594; Fig 4-1)</text>
+  </g>
+
+  <!-- CONFORMANCE SIGNALS (lower center-left) -->
+  <g>
+    <rect x="220" y="470" width="270" height="110" class="box"/>
+    <text x="230" y="492" class="ent">Conformance Signals</text>
+    <line x1="220" y1="500" x2="490" y2="500" class="dash"/>
+    <text x="230" y="518" class="attr">read off Charter + record +</text>
+    <text x="230" y="534" class="attr">lifecycle + schedule</text>
+    <text x="230" y="552" class="attr">emission cadence <tspan class="ref">(&#8594; Fig 4-3)</tspan></text>
+  </g>
+
+  <!-- CONFORMANCE LEVELS (lower right) -->
+  <g>
+    <rect x="540" y="470" width="270" height="110" class="box"/>
+    <text x="550" y="492" class="ent">Conformance Levels</text>
+    <line x1="540" y1="500" x2="810" y2="500" class="dash"/>
+    <text x="550" y="518" class="attr">Level 1 / Level 2 / Level 3</text>
+    <text x="550" y="534" class="attr">cumulative, self-declared</text>
+    <text x="550" y="552" class="attr">graded from signals <tspan class="ref">(&#8594; Fig 7-1)</tspan></text>
+  </g>
+
+  <!-- METHODOLOGY (generic, NO branded node) -->
+  <g>
+    <rect x="680" y="70" width="240" height="80" class="boxw"/>
+    <text x="690" y="100" class="ent">the deploying</text>
+    <text x="690" y="118" class="ent">organization's methodology</text>
+    <text x="690" y="140" class="sub">(generic pointer — no branded node)</text>
+  </g>
+
+  <!-- RELATIONSHIP EDGES -->
+  <!-- Charter -> Schedule -->
+  <path d="M380,188 C300,215 230,225 195,248" class="line" marker-end="url(#ah6)"/>
+  <text x="240" y="222" class="rel">commits</text>
+  <!-- Charter -> Decision Record -->
+  <path d="M490,188 L500,248" class="line" marker-end="url(#ah6)"/>
+  <text x="500" y="222" class="rel">dispatches</text>
+  <!-- Schedule -> Decision Record (enumerates) -->
+  <path d="M330,330 L368,330" class="line" marker-end="url(#ah6)"/>
+  <!-- Decision Record -> Disclosure Block -->
+  <path d="M640,330 L678,330" class="line" marker-end="url(#ah6)"/>
+  <text x="642" y="322" class="rel">attaches</text>
+  <!-- Charter/record/lifecycle/schedule -> Signals -->
+  <path d="M360,360 C320,420 320,440 340,468" class="line" marker-end="url(#ah6)"/>
+  <text x="300" y="440" class="rel">read off</text>
+  <!-- Signals -> Levels -->
+  <path d="M490,525 L538,525" class="line" marker-end="url(#ah6)"/>
+  <text x="495" y="517" class="rel">grade</text>
+  <!-- Standard (Charter cluster) -> methodology : one-way dashed, neutral -->
+  <path d="M610,118 L678,114" class="dash" marker-end="url(#ah6g)"/>
+  <text x="616" y="105" class="rel">points to (one-way)</text>
+
+  <!-- Non-normative stamp -->
+  <text x="20" y="640" class="sub">Explanatory figure (non-normative). The standard points one-way to the deploying organization's methodology; it does not depend on any named methodology.</text>
+</svg>

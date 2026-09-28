@@ -223,7 +223,7 @@
         "stores_covered": {"type": "array", "items": {"type": "string"}},
         "deletion_method": {"type": "string"}
       },
-      "description": "Standard §6.2.3.2(3): 4-sub-field attestation that the redacted content was deleted from operational stores. Field population is graded by the every_redaction_event_carries_operational_store_deletion_attestation signal; substantive correctness is the deployer's qualified personnel's territory. Required when record_type is redaction_event."
+      "description": "Standard §6.2.3.2(3): 4-sub-field attestation that the redacted content was deleted from operational stores. Field population is graded by the every_redaction_event_carries_operational_store_deletion_attestation signal; substantive correctness is for the deployer to determine. Required when record_type is redaction_event."
     },
     "archival_record_retention_basis": {
       "type": "string",

@@ -15,7 +15,7 @@ This directory holds the machine-readable reference files the Standard's normati
 - A **23-signal conformance vocabulary** across Levels 1, 2, and 3.
 - A **single-write conformance reporter API** (Charter-level escalation events).
 - A **mode-drift four-layer composed mitigation** (statistical detection, in-flow audit hook, peer-review confirmation, named human attestation).
-- **JSON Schemas** (Draft 2020-12) for the Charter object, the decision-record object, the Article 50 disclosure metadata block, and the Layer 4 attestation object.
+- **JSON Schemas** (Draft 2020-12) for the Charter object, the decision-record object, the disclosure block, and the Layer 4 attestation object.
 - Two **state machines** (Charter lifecycle, decision-record lifecycle).
 - A **cross-stream conformance test apparatus** plus a synthetic Charter library.
 
@@ -29,7 +29,7 @@ The reference files describe how process is recorded. They do not certify, ensur
 |---|---|
 | `state-machines/charter-state-machine.md` | Charter 5-state forward-only lifecycle + `review-required` RECORD-state interrupt (Standard §3) |
 | `state-machines/decision-record-state-machine.md` | Decision-record `dispatched / drafted / closed` lifecycle (Standard §5) |
-| `schemas/article-50-disclosure-metadata.json` | 5 required Article 50 disclosure metadata fields (`declaring_authority`, `ai_system_identity`, `jurisdictional_applicability`, `content_type_tag`, `generation_timestamp`) + permitted implementation extras (Standard §4.6) |
+| `schemas/article-50-disclosure-metadata.json` | The five required disclosure-block fields (`declaring_authority`, `ai_system_identity`, `jurisdictional_applicability`, `content_type_tag`, `generation_timestamp`) + permitted implementation extras (Standard §4.6) |
 | `schemas/charter.schema.json` | Charter object schema (JSON Schema Draft 2020-12) |
 | `schemas/decision-record.schema.json` | Decision-record object schema (JSON Schema Draft 2020-12) |
 | `conformance/reporter-api-spec.md` | `POST /dps/conformance/charter-escalation` contract |
@@ -73,7 +73,7 @@ The vocabulary is the locked enumeration the reporter API validates the `evidenc
 
 ## Directory Path Note
 
-The directory name is `v5.0/` and is kept unchanged so the Standard's `standard/v5.0/...` references resolve. The reference-files release label is v5.1.1 (see `release/RELEASE-NOTES.md`); the directory path stays `v5.0/`.
+The directory name is `v5.0/` and is kept unchanged so the Standard's `standard/v5.0/...` references resolve. The reference-files release label is v5.1.2 (see `release/RELEASE-NOTES.md`); the directory path stays `v5.0/`.
 
 ---
 
