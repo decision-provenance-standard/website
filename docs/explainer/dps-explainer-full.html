@@ -542,7 +542,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 <div class="hero-title">The Decision Provenance Standard — Explained in Full</div>
 <h3>What it is, who it serves, and how every part works — in plain language</h3>
 <div class="commentable" data-section="s1-1" data-label="A complete, plain-language walkthrough of the Deci...">
-  <p class="hero-subtitle">A complete, plain-language walkthrough of the Decision Provenance Standard: the problem it solves, who it is for, the Charter, the two Modes, Article 50 disclosure, the human-signature gate, the safeguard against mode drift, the three conformance levels, how it relates to other frameworks, what you get, how to start, and — most important — what it is <em>not</em>.</p>
+  <p class="hero-subtitle">A complete, plain-language walkthrough of the Decision Provenance Standard: the problem it solves, who it is for, the Charter, the two Modes, the disclosure block for AI-drafted content, the human-signature gate, the safeguard against mode drift, the three conformance levels, how it relates to other frameworks, what you get, how to start, and — most important — what it is <em>not</em>.</p>
 </div>
 </div>
 </div>
@@ -770,20 +770,20 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <p><strong>Figure 3-2 — Mode Dispatch Grammar (simplified).</strong> Two Modes, three closed enum values: <code>mode-1</code>, <code>mode-2</code>, and <code>mode-1-with-embedded-mode-2-summary</code> — with authorship judged at the content level for the third. (Full description: in the figure's embedded text alternative.)</p>
 </div>
 </div>
-<div class="slide" data-slide="8" data-title="Article 50: disclosing AI-made...">
+<div class="slide" data-slide="8" data-title="Disclosure block for AI-drafte...">
 <div class="brand-bar">
 <div class="brand-logo">
 <div class="logo-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" rx="5" fill="#1A1A1A"/><rect x="8" y="8" width="16" height="2" fill="#F5F5F5"/><rect x="8" y="13" width="16" height="2" fill="#F5F5F5"/><rect x="8" y="18" width="16" height="2" fill="#F5F5F5"/><rect x="8" y="23" width="9" height="2" fill="#3A5A78"/></svg></div>
 <span class="logo-text">Decision Provenance Standard</span>
 </div>
-<span class="section-label">Article 50: disclosing AI-made...</span>
+<span class="section-label">Disclosure block for AI-drafte...</span>
 </div>
-<h2>Article 50: disclosing AI-made content</h2>
-<div class="commentable" data-section="s8-1" data-label="When an AI authors content that reaches a person, ...">
-  <p>When an AI authors content that reaches a person, the EU AI Act (Article 50) requires transparency. The Standard does not satisfy that obligation. It <strong>structures the inputs</strong> a human needs in order to satisfy it, through a small disclosure block with exactly <strong>five required fields</strong>: <code>declaring-authority</code> (the responsible human), <code>ai-system-identity</code>, <code>jurisdictional-applicability-tag</code>, <code>content-type-tag</code>, and <code>generation-timestamp</code>.</p>
+<h2>Disclosure block for AI-drafted content</h2>
+<div class="commentable" data-section="s8-1" data-label="When an AI authors content, the Standard requires ...">
+  <p>When an AI authors content, the Standard requires its own small disclosure block, with exactly <strong>five required fields</strong>: <code>declaring-authority</code> (the person who prepares the disclosure and the organization they act for), <code>ai-system-identity</code>, <code>jurisdictional-applicability-tag</code>, <code>content-type-tag</code>, and <code>generation-timestamp</code>. The block <strong>structures the inputs</strong>; it does not satisfy any regulatory obligation. Whether Article 50 of the EU AI Act applies, and who carries any duty, is for the deployer to determine.</p>
 </div>
-<div class="commentable" data-section="s8-2" data-label="Caption: the Standard structures the inputs; it do...">
-  <blockquote class="card"><em>Caption: the Standard structures the inputs; it does not satisfy the Article 50 obligation.</em></blockquote>
+<div class="commentable" data-section="s8-2" data-label="Caption: the Standard structures the inputs; wheth...">
+  <blockquote class="card"><em>Caption: the Standard structures the inputs; whether Article 50 applies, and who carries any duty, is for the deployer to determine.</em></blockquote>
 </div>
 <div class="commentable" data-section="s8-3" data-label="A useful property follows when records are later a...">
   <p>A useful property follows when records are later anonymized. Under anonymization, <strong>four of the five fields survive unchanged</strong>; only <code>declaring-authority</code> may transform, and it transforms to a single frozen value: <code>anonymized-deployer-class:product-organization</code>. In plain terms, you can hide <em>who</em> without erasing <em>that AI authored this, where, of what type, and when.</em></p>
@@ -793,8 +793,8 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 </div>
 <div class="commentable" data-section="s8-5" data-label="Content">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="d7eTitle d7eDesc">
-  <title id="d7eTitle">Figure 4-1 (explainer) — Article 50 disclosure block: five fields and the 4-of-5 rule</title>
-  <desc id="d7eDesc">A flow showing the Article 50 disclosure block. At the top, a box holds exactly five required fields, listed in monospace: declaring-authority, ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. An arrow leads down to a gate labelled 4-of-5 anonymization. Two arrows leave the gate. The left arrow leads to a box stating that four fields pass through unchanged: ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. The right arrow, drawn with an accent border, leads to a box stating that only declaring-authority may transform, and that it transforms to the single frozen value anonymized-deployer-class:product-organization. A caption at the foot states that the Standard structures the inputs; it does not satisfy the Article 50 obligation. Color is redundant: the five-field count, the labels, and the accent border on the transform box carry the meaning in grayscale.</desc>
+  <title id="d7eTitle">Figure 4-1 (explainer) — Disclosure block: five fields and the 4-of-5 rule</title>
+  <desc id="d7eDesc">A flow showing the disclosure block. At the top, a box holds exactly five required fields, listed in monospace: declaring-authority, ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. An arrow leads down to a gate labelled 4-of-5 anonymization. Two arrows leave the gate. The left arrow leads to a box stating that four fields pass through unchanged: ai-system-identity, jurisdictional-applicability-tag, content-type-tag, and generation-timestamp. The right arrow, drawn with an accent border, leads to a box stating that only declaring-authority may transform, and that it transforms to the single frozen value anonymized-deployer-class:product-organization. A caption at the foot states that the Standard structures the inputs, and that whether Article 50 applies is for the deployer to determine. Color is redundant: the five-field count, the labels, and the accent border on the transform box carry the meaning in grayscale.</desc>
   <style>
     .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
     .sub   { font-size: 11px; fill: #666666; }
@@ -809,8 +809,8 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
     .line  { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
   </style>
   <defs><marker id="ah7e" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1A1A1A"/></marker></defs>
-  <text x="20" y="26" class="ttl">Figure 4-1 — Article 50 disclosure block: five fields, the 4-of-5 rule</text>
-  <text x="20" y="44" class="sub">When an AI authors content that reaches a person, the EU AI Act (Article 50) requires transparency.</text>
+  <text x="20" y="26" class="ttl">Figure 4-1 — Disclosure block: five fields, the 4-of-5 rule</text>
+  <text x="20" y="44" class="sub">The disclosure block is the Standard's own requirement for AI-drafted content.</text>
   <rect x="250" y="60" width="260" height="146" class="box" rx="6"/>
   <text x="380" y="80" class="hdr" text-anchor="middle">Exactly FIVE required fields</text>
   <text x="266" y="104" class="mono">declaring-authority</text>
@@ -835,11 +835,11 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <text x="424" y="378" class="monb" font-size="10.5">anonymized-deployer-class:</text>
   <text x="424" y="394" class="monb" font-size="10.5">product-organization</text>
   <text x="424" y="418" class="sub">hide WHO without erasing THAT / WHERE / WHAT / WHEN</text>
-  <text x="20" y="456" class="cap">The Standard structures the inputs; it does not satisfy the Article 50 obligation.</text>
+  <text x="20" y="456" class="cap">The Standard structures the inputs; whether Article 50 applies is for the deployer to determine.</text>
 </svg>
 </div>
-<div class="commentable" data-section="s8-6" data-label="Figure 4-1 — Article 50 Disclosure-Metadata Flow (...">
-  <p><strong>Figure 4-1 — Article 50 Disclosure-Metadata Flow (simplified).</strong> The block has exactly five required fields; under anonymization four survive unchanged and only <code>declaring-authority</code> transforms — to <code>anonymized-deployer-class:product-organization</code>. The Standard structures the inputs; it does not satisfy the Article 50 obligation. (Full description: in the figure's embedded text alternative.)</p>
+<div class="commentable" data-section="s8-6" data-label="Figure 4-1 — Disclosure Block Flow (simplified). T...">
+  <p><strong>Figure 4-1 — Disclosure Block Flow (simplified).</strong> The block has exactly five required fields; under anonymization four survive unchanged and only <code>declaring-authority</code> transforms — to <code>anonymized-deployer-class:product-organization</code>. The Standard structures the inputs; whether Article 50 applies, and who carries any duty, is for the deployer to determine. (Full description: in the figure's embedded text alternative.)</p>
 </div>
 </div>
 <div class="slide" data-slide="9" data-title="The human signature">
@@ -978,7 +978,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <p><strong>Conformance Level 1 — Charter-Conformant:</strong> the Charter is structurally complete.</p>
 </div>
 <div class="commentable" data-section="s11-3" data-label="Conformance Level 2 — Mode-Disambiguated: every re...">
-  <p><strong>Conformance Level 2 — Mode-Disambiguated:</strong> every record carries its mode; every AI-authored record carries its Article 50 block; an audit finds no silent drift.</p>
+  <p><strong>Conformance Level 2 — Mode-Disambiguated:</strong> every record carries its mode; every AI-authored record carries its disclosure block; an audit finds no silent drift.</p>
 </div>
 <div class="commentable" data-section="s11-4" data-label="Conformance Level 3 — Continuously Auditable: trig...">
   <p><strong>Conformance Level 3 — Continuously Auditable:</strong> triggers fire on schedule, escalations produce records, disclosures stay current, and the schedule is queryable on demand.</p>
@@ -992,7 +992,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 <div class="commentable" data-section="s11-7" data-label="Content">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="d4eTitle d4eDesc">
   <title id="d4eTitle">Figure 7-1 (explainer) — The three conformance levels, cumulative and self-declared</title>
-  <desc id="d4eDesc">Three nested bands showing the three cumulative conformance levels. The outermost band is Conformance Level 3 — Continuously Auditable: triggers fire on schedule, escalations produce records, disclosures stay current, the schedule is queryable on demand. Inside it sits Conformance Level 2 — Mode-Disambiguated: every record carries its mode, every AI-authored record carries its Article 50 block, an audit finds no silent drift. Inside that sits the innermost band, Conformance Level 1 — Charter-Conformant: the Charter is structurally complete. The nesting shows the levels are cumulative; a footer states the cumulative rule, that a Charter that does not grade at Level 1 cannot grade at Level 2 or 3, and that the levels are self-declared with no certifying body and a grade is input, not audit defense. Color is redundant; the nesting and the labels carry the cumulative meaning in grayscale.</desc>
+  <desc id="d4eDesc">Three nested bands showing the three cumulative conformance levels. The outermost band is Conformance Level 3 — Continuously Auditable: triggers fire on schedule, escalations produce records, disclosures stay current, the schedule is queryable on demand. Inside it sits Conformance Level 2 — Mode-Disambiguated: every record carries its mode, every AI-authored record carries its disclosure block, an audit finds no silent drift. Inside that sits the innermost band, Conformance Level 1 — Charter-Conformant: the Charter is structurally complete. The nesting shows the levels are cumulative; a footer states the cumulative rule, that a Charter that does not grade at Level 1 cannot grade at Level 2 or 3, and that the levels are self-declared with no certifying body and a grade is input, not audit defense. Color is redundant; the nesting and the labels carry the cumulative meaning in grayscale.</desc>
   <style>
     .ttl   { font-size: 15px; font-weight: bold; fill: #1A1A1A; }
     .sub   { font-size: 11px; fill: #666666; }
@@ -1010,7 +1010,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <text x="36" y="76" class="ldesc">triggers fire on schedule; escalations produce records; disclosures stay current; schedule queryable on demand</text>
   <rect x="44" y="86" width="552" height="180" class="band2" rx="8"/>
   <text x="60" y="106" class="lname">Conformance Level 2 — Mode-Disambiguated</text>
-  <text x="60" y="122" class="ldesc">every record carries its mode; every AI-authored record carries its Article 50 block; audit finds no silent drift</text>
+  <text x="60" y="122" class="ldesc">every record carries its mode; every AI-authored record carries its disclosure block; audit finds no silent drift</text>
   <rect x="68" y="132" width="504" height="110" class="band1" rx="8"/>
   <text x="84" y="156" class="lname">Conformance Level 1 — Charter-Conformant</text>
   <text x="84" y="174" class="ldesc">the Charter is structurally complete</text>
@@ -1043,7 +1043,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <p><strong>ISO/IEC 42001:2023</strong> is a management-system standard built on the Annex SL structure. The Standard's records function as documented information <em>within</em> such a management system; the Standard is not itself a management system. It informs an ISO 42001 program without being one.</p>
 </div>
 <div class="commentable" data-section="s12-4" data-label="EU AI Act Article 50 is a transparency obligation....">
-  <p><strong>EU AI Act Article 50</strong> is a transparency obligation. As described above, the Standard structures the disclosure inputs a deployer needs and does not satisfy the obligation itself.</p>
+  <p><strong>EU AI Act Article 50</strong> is a transparency obligation. As described above, the Standard structures the disclosure inputs and does not satisfy the obligation itself; whether Article 50 applies, and who carries any duty, is for the deployer to determine.</p>
 </div>
 <div class="commentable" data-section="s12-5" data-label="W3C PROV-AGENT traces machine-to-machine provenanc...">
   <p><strong>W3C PROV-AGENT</strong> traces machine-to-machine provenance at the system altitude. The Standard records human-judgment decisions at the executive altitude. The two are complementary: one traces what the machines did; the other records how the humans decided.</p>
@@ -1154,15 +1154,15 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   <p>It is a small, self-contained set of pieces.</p>
 </div>
 <div class="commentable" data-section="s14-2" data-label="The core Standard is the normative text. Four Comp...">
-  <p>The <strong>core Standard</strong> is the normative text. Four <strong>Companions</strong> support it: regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams. An <strong>Appendix</strong> holds governance and references. And there is an open-source <strong>reference implementation</strong> — published under the MIT license, while the Standard's text is separately published under CC-BY 4.0.</p>
+  <p>The <strong>core Standard</strong> is the normative text. Four <strong>Companions</strong> support it: regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams. An <strong>Appendix</strong> holds governance and references. And there are machine-readable <strong>reference files</strong> — schemas, state machines, the signal list, the reporter contract and a test plan — published under the MIT License at <code>/standard/v5.0/</code> (reference release 5.1.1), while the Standard's text is separately published under CC-BY 4.0. They are not the Standard, and the Standard does not depend on them.</p>
 </div>
-<div class="commentable" data-section="s14-3" data-label="It is one reference implementation, not &quot;the&quot; tool...">
-  <p>It is <em>one</em> reference implementation, not "the" tooling: a reference implementation structures the inputs; conformance against any framework remains a determination made by the deployer's qualified personnel. The reference implementation is not a conformance-certifying body, and nothing in it stamps an organization as certified.</p>
+<div class="commentable" data-section="s14-3" data-label="The reference files structure the inputs; conforma...">
+  <p>The reference files structure the inputs; conformance against any framework remains a determination made by the deployer's qualified personnel. They are not a conformance-certifying body, and nothing in them stamps an organization as certified.</p>
 </div>
 <div class="commentable" data-section="s14-4" data-label="Content">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="d6title d6desc">
   <title id="d6title">Figure 6-1 — Artifact-Set Relationship Map</title>
-  <desc id="d6desc">An entity-relationship orientation map showing how the standard's artifacts compose: Charter, Schedule of Records, Decision Record, Article 50 Disclosure Block, Conformance Signals, and Conformance Levels, plus a one-way dashed pointer to the deploying organization's methodology.</desc>
+  <desc id="d6desc">An entity-relationship orientation map showing how the standard's artifacts compose: Charter, Schedule of Records, Decision Record, Disclosure Block, Conformance Signals, and Conformance Levels, plus a one-way dashed pointer to the deploying organization's methodology.</desc>
 
   <style>
     .ttl   { font-size: 17px; font-weight: bold; fill: #1A1A1A; }
@@ -1221,14 +1221,14 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
     <text x="380" y="298" class="attr">dispatched under a Charter</text>
     <text x="380" y="316" class="attr">carries <tspan class="mono">dispatch_mode</tspan></text>
     <text x="380" y="334" class="attr">transits the lifecycle <tspan class="ref">(&#8594; Fig 5-1)</tspan></text>
-    <text x="380" y="352" class="attr">conditionally attaches an</text>
-    <text x="380" y="368" class="attr">Article 50 Disclosure Block <tspan class="ref">(&#8594; Fig 4-1)</tspan></text>
+    <text x="380" y="352" class="attr">conditionally attaches a</text>
+    <text x="380" y="368" class="attr">Disclosure Block <tspan class="ref">(&#8594; Fig 4-1)</tspan></text>
   </g>
 
   <g>
     <rect x="680" y="250" width="240" height="150" class="boxw"/>
-    <text x="690" y="272" class="ent">Article 50</text>
-    <text x="690" y="290" class="ent">Disclosure Block</text>
+    <text x="690" y="272" class="ent">Disclosure Block</text>
+    <text x="690" y="290" class="ent">for AI-drafted content</text>
     <line x1="680" y1="298" x2="920" y2="298" class="dash"/>
     <text x="690" y="316" class="attr">5 required fields</text>
     <text x="690" y="334" class="attr">4-of-5 anonymization rule</text>
@@ -1280,7 +1280,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 </svg>
 </div>
 <div class="commentable" data-section="s14-5" data-label="Figure 6-1 — Artifact-Set Relationship Map. A one-...">
-  <p><strong>Figure 6-1 — Artifact-Set Relationship Map.</strong> A one-picture orientation showing how the Charter, Schedule of Records, Decision Record, Article 50 Disclosure Block, Conformance Signals, and Conformance Levels compose, with a one-way pointer to the deploying organization's methodology. (Full description: in the figure's embedded text alternative.)</p>
+  <p><strong>Figure 6-1 — Artifact-Set Relationship Map.</strong> A one-picture orientation showing how the Charter, Schedule of Records, Decision Record, Disclosure Block, Conformance Signals, and Conformance Levels compose, with a one-way pointer to the deploying organization's methodology. (Full description: in the figure's embedded text alternative.)</p>
 </div>
 </div>
 <div class="slide" data-slide="15" data-title="Governance, licensing, and the...">
@@ -1293,10 +1293,10 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
 </div>
 <h2>Governance, licensing, and the trademark</h2>
 <div class="commentable" data-section="s15-1" data-label="The Standard's text is published openly under Crea...">
-  <p>The Standard's text is published openly under <strong>Creative Commons Attribution (CC-BY 4.0)</strong>, and the reference implementation is published under the <strong>MIT</strong> license. The name <strong>"Decision Provenance Standard™"</strong> is a protected trademark, held defensively; self-declared, non-certified use does not trigger certification-mark obligations.</p>
+  <p>The Standard's text is published openly under <strong>Creative Commons Attribution (CC-BY 4.0)</strong>, and the reference files are published under the <strong>MIT</strong> License. Etsion Brands Ltd. claims the name <strong>"Decision Provenance Standard™"</strong> as an unregistered trademark; the licences cover the text and files, not the name, and the permitted uses of the name are set out in Standard §11.1. Etsion Brands does not certify deployer organizations, and the name is not used as a certification mark.</p>
 </div>
 <div class="commentable" data-section="s15-2" data-label="A Founding Steward governs the text, but the Stewa...">
-  <p>A <strong>Founding Steward</strong> governs the text, but the Steward does <strong>not certify, accredit, audit, stamp, or grade</strong> any organization. There is no certification body, no auditor pool, no accreditation regime, and no plan to create any of them. The rule for vendors is <em>stamp the tool, not the org</em>: a vendor may build "Standard-conformant tooling," but no one — not even the Steward — stamps a customer organization as "certified." The institutional Steward is Etsion Brands Ltd., providing a person-first Founding Steward backed by an institutional backstop.</p>
+  <p>A <strong>Founding Steward</strong> governs the text, but the Steward does <strong>not certify, accredit, audit, stamp, or grade</strong> any organization. There is no certification body, no auditor pool, no accreditation regime, and no plan to create any of them. The rule for vendors is <em>stamp the tool, not the org</em>: a vendor may build tooling that implements the Standard, but no one — not even the Steward — stamps a customer organization as "certified." The institutional Steward is Etsion Brands Ltd., providing a person-first Founding Steward backed by an institutional backstop.</p>
 </div>
 </div>
 <div class="slide" data-slide="16" data-title="Adoption — how to start">
@@ -1373,7 +1373,7 @@ html.theme-light .logo-mark.logo-letter { color: #fff; }
   var totalSlides = slides.length;
   var currentSlide = 0;
 
-  var sections = [{"name": "The Decision Provena", "start": 0, "end": 0}, {"name": "The problem it solve", "start": 1, "end": 1}, {"name": "The firewall \u2014 read ", "start": 2, "end": 2}, {"name": "The one idea behind ", "start": 3, "end": 3}, {"name": "Who it serves, and w", "start": 4, "end": 4}, {"name": "The Charter", "start": 5, "end": 5}, {"name": "The two Modes", "start": 6, "end": 6}, {"name": "Article 50: disclosi", "start": 7, "end": 7}, {"name": "The human signature", "start": 8, "end": 8}, {"name": "The safeguard agains", "start": 9, "end": 9}, {"name": "Conformance levels", "start": 10, "end": 10}, {"name": "How it relates to ot", "start": 11, "end": 11}, {"name": "What it is NOT (the ", "start": 12, "end": 12}, {"name": "What you get", "start": 13, "end": 13}, {"name": "Governance, licensin", "start": 14, "end": 14}, {"name": "Adoption \u2014 how to st", "start": 15, "end": 15}, {"name": "The thing to remembe", "start": 16, "end": 16}];
+  var sections = [{"name": "The Decision Provena", "start": 0, "end": 0}, {"name": "The problem it solve", "start": 1, "end": 1}, {"name": "The firewall \u2014 read ", "start": 2, "end": 2}, {"name": "The one idea behind ", "start": 3, "end": 3}, {"name": "Who it serves, and w", "start": 4, "end": 4}, {"name": "The Charter", "start": 5, "end": 5}, {"name": "The two Modes", "start": 6, "end": 6}, {"name": "Disclosure block for", "start": 7, "end": 7}, {"name": "The human signature", "start": 8, "end": 8}, {"name": "The safeguard agains", "start": 9, "end": 9}, {"name": "Conformance levels", "start": 10, "end": 10}, {"name": "How it relates to ot", "start": 11, "end": 11}, {"name": "What it is NOT (the ", "start": 12, "end": 12}, {"name": "What you get", "start": 13, "end": 13}, {"name": "Governance, licensin", "start": 14, "end": 14}, {"name": "Adoption \u2014 how to st", "start": 15, "end": 15}, {"name": "The thing to remembe", "start": 16, "end": 16}];
 
   var prevBtn = document.getElementById('prevBtn');
   var nextBtn = document.getElementById('nextBtn');

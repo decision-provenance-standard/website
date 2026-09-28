@@ -496,7 +496,7 @@ svg:not(.nav-bar svg) {
 <div class="hero-title">The Decision Provenance Standard — Explained</div>
 <h3>What it is, and how every part works — in plain language</h3>
 <div class="commentable" data-section="s1-1" data-label="A short, plain-language walkthrough: the problem i...">
-  <p class="hero-subtitle">A short, plain-language walkthrough: the problem it solves, the Charter, the two Modes, Article 50 disclosure, the human-signature gate, conformance levels, and what it is <em>not</em>.</p>
+  <p class="hero-subtitle">A short, plain-language walkthrough: the problem it solves, the Charter, the two Modes, the disclosure block for AI-drafted content, the human-signature gate, conformance levels, and what it is <em>not</em>.</p>
 </div>
 </div>
 </div>
@@ -566,20 +566,20 @@ svg:not(.nav-bar svg) {
 </ul>
 </div>
 </div>
-<div class="slide" data-slide="6" data-title="Article 50: disclosing AI-made...">
+<div class="slide" data-slide="6" data-title="Disclosure block for AI-drafte...">
 <div class="brand-bar">
 <div class="brand-logo">
 <div class="logo-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28"><rect width="32" height="32" rx="5" fill="#1A1A1A"/><rect x="8" y="8" width="16" height="2" fill="#F5F5F5"/><rect x="8" y="13" width="16" height="2" fill="#F5F5F5"/><rect x="8" y="18" width="10" height="2" fill="#F5F5F5"/><circle cx="22" cy="22" r="4" fill="none" stroke="#3A5A78" stroke-width="2"/></svg></div>
 <span class="logo-text">Decision Provenance Standard</span>
 </div>
-<span class="section-label">Article 50: disclosing AI-made...</span>
+<span class="section-label">Disclosure block for AI-drafte...</span>
 </div>
-<h2>Article 50: disclosing AI-made content</h2>
-<div class="commentable" data-section="s6-1" data-label="When an AI authors content that reaches a person, ...">
-  <p>When an AI authors content that reaches a person, the EU AI Act (Article 50) requires transparency. The Standard does not satisfy that obligation — it <strong>structures the inputs</strong> a human needs to satisfy it, via a small disclosure block with five required fields: the responsible human (<strong>declaring authority</strong>), the <strong>AI system identity</strong>, the <strong>jurisdiction</strong>, the <strong>content type</strong>, and the <strong>timestamp</strong>.</p>
+<h2>Disclosure block for AI-drafted content</h2>
+<div class="commentable" data-section="s6-1" data-label="When an AI authors content, the Standard requires ...">
+  <p>When an AI authors content, the Standard requires its own small disclosure block with five required fields: the person who prepares the disclosure and the organization they act for (<strong>declaring authority</strong>), the <strong>AI system identity</strong>, the <strong>jurisdiction</strong>, the <strong>content type</strong>, and the <strong>timestamp</strong>. The block <strong>structures the inputs</strong>; it does not satisfy any regulatory obligation. Whether Article 50 of the EU AI Act applies, and who carries any duty, is for the deployer to determine.</p>
 </div>
 <div class="commentable" data-section="s6-2" data-label="A useful rule: when records are later anonymized, ...">
-  <p>A useful rule: when records are later anonymized, <strong>four of the five fields survive unchanged</strong> — only the named person may be replaced by a placeholder. You can hide <em>who</em> without erasing <em>that AI authored this, where, of what type, when.</em></p>
+  <p>A useful rule: when records are later anonymized, <strong>four of the five fields survive unchanged</strong> — only the declaring authority may be replaced by a placeholder. You can hide <em>who</em> without erasing <em>that AI authored this, where, of what type, when.</em></p>
 </div>
 </div>
 <div class="slide" data-slide="7" data-title="The human signature">
@@ -612,7 +612,7 @@ svg:not(.nav-bar svg) {
 </div>
 <div class="commentable" data-section="s8-2" data-label="Level 1 — Charter-Conformant: the Charte... (list)">
   <ul><li><strong>Level 1 — Charter-Conformant:</strong> the Charter is structurally complete.</li>
-<li><strong>Level 2 — Mode-Disambiguated:</strong> every record carries its mode; every AI-authored record carries its Article 50 block; an audit finds no silent drift.</li>
+<li><strong>Level 2 — Mode-Disambiguated:</strong> every record carries its mode; every AI-authored record carries its disclosure block; an audit finds no silent drift.</li>
 <li><strong>Level 3 — Continuously Auditable:</strong> triggers fire on schedule, escalations produce records, disclosures stay current, the schedule is queryable on demand.</li>
 </ul>
 </div>
@@ -646,7 +646,7 @@ svg:not(.nav-bar svg) {
 </div>
 <h2>What you get, and how to start</h2>
 <div class="commentable" data-section="s10-1" data-label="It is a small, self-contained set: the core Standa...">
-  <p>It is a small, self-contained set: the <strong>core Standard</strong>, four <strong>Companions</strong> (regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams), an <strong>Appendix</strong> for governance and references, and an open-source <strong>reference implementation</strong>. It is published openly under Creative Commons Attribution; the name is a protected trademark; a Founding Steward governs the text but does <em>not</em> certify anyone's conformance.</p>
+  <p>It is a small, self-contained set: the <strong>core Standard</strong>, four <strong>Companions</strong> (regulatory cross-references, a worked-charter library, implementation guidance, and the diagrams), an <strong>Appendix</strong> for governance and references, and machine-readable <strong>reference files</strong> (schemas, state machines, the signal list, the reporter contract and a test plan; MIT License, reference release 5.1.1), which are not the Standard and which the Standard does not depend on. The text is published openly under Creative Commons Attribution; Etsion Brands Ltd. claims the name as an unregistered trademark (™), and the licences cover the text and files, not the name; a Founding Steward governs the text but does <em>not</em> certify anyone's conformance.</p>
 </div>
 <div class="commentable" data-section="s10-2" data-label="Adoption is voluntary and incremental — the path i...">
   <p>Adoption is voluntary and incremental — the path is <strong>Charter-first</strong>: author one Charter for a real recurring decision, name the accountable human, declare the mode, produce records, self-declare Level 1, then work upward. One Charter, run honestly, is a conformant start.</p>
@@ -710,7 +710,7 @@ svg:not(.nav-bar svg) {
   var totalSlides = slides.length;
   var currentSlide = 0;
 
-  var sections = [{"name": "The Decision Provena", "start": 0, "end": 0}, {"name": "The problem it solve", "start": 1, "end": 1}, {"name": "The one idea behind ", "start": 2, "end": 2}, {"name": "The Charter", "start": 3, "end": 3}, {"name": "The two Modes", "start": 4, "end": 4}, {"name": "Article 50: disclosi", "start": 5, "end": 5}, {"name": "The human signature", "start": 6, "end": 6}, {"name": "Conformance levels", "start": 7, "end": 7}, {"name": "What it is NOT (the ", "start": 8, "end": 8}, {"name": "What you get, and ho", "start": 9, "end": 9}, {"name": "The thing to remembe", "start": 10, "end": 10}];
+  var sections = [{"name": "The Decision Provena", "start": 0, "end": 0}, {"name": "The problem it solve", "start": 1, "end": 1}, {"name": "The one idea behind ", "start": 2, "end": 2}, {"name": "The Charter", "start": 3, "end": 3}, {"name": "The two Modes", "start": 4, "end": 4}, {"name": "Disclosure block for", "start": 5, "end": 5}, {"name": "The human signature", "start": 6, "end": 6}, {"name": "Conformance levels", "start": 7, "end": 7}, {"name": "What it is NOT (the ", "start": 8, "end": 8}, {"name": "What you get, and ho", "start": 9, "end": 9}, {"name": "The thing to remembe", "start": 10, "end": 10}];
 
   var prevBtn = document.getElementById('prevBtn');
   var nextBtn = document.getElementById('nextBtn');
