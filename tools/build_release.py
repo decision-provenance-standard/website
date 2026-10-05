@@ -28,11 +28,15 @@ Steps (each can run alone):
   reffiles   the tag's standard/v5.0/ (reference files), byte for byte, into <site>/docs/standard/v5.0/
   gallery    re-embed the tag's SVGs in <site>/docs/diagram-gallery.html (each figure is found
              by its figure number; all must be found exactly once)
+  schemas    every JSON Schema at the tag under standard/v5.0/ and kit/declaration/, byte for
+             byte, served at the address its own $id names (<site>/docs/schemas/...), and also at
+             every address a relative $ref in another of these schemas resolves to, so a validator
+             that fetches referenced schemas over the web finds each one
   sums       SHA256SUMS.txt for the release folder, from COMMITTED bytes; run after the release
              files are committed, then commit SHA256SUMS.txt
   filldate   --date YYYY-MM-DD: fill <RELEASE-DATE> and <RELEASE-COMMIT> in the hand-edited
              site files (the commit is the tag's)
-  all        pages, pdf, diagrams, downloads, reffiles, gallery (not sums, not filldate)
+  all        pages, pdf, diagrams, downloads, reffiles, gallery, schemas (not sums, not filldate)
 
 The release folder is <site>/docs/downloads/<tag>/, or --release-dir outside the site (for a
 rehearsal). Published downloads are never rewritten: nothing under docs/downloads/ except the new
@@ -210,6 +214,8 @@ class Ctx:
             return is_under(p, docs / "standard" / "v5.0")
         if s == "gallery":
             return norm(p) == norm(docs / "diagram-gallery.html")
+        if s == "schemas":
+            return is_under(p, docs / "schemas")
         if s == "sums":
             return norm(p) == norm(self.site_release / "SHA256SUMS.txt")
         if s == "filldate":
@@ -507,6 +513,96 @@ def step_gallery(ctx):
           f"{', '.join(changed) if changed else 'none (unchanged)'}")
 
 
+SCHEMA_SOURCES = ["standard/v5.0", "kit/declaration"]  # folders whose JSON Schemas the site serves
+SCHEMA_PATH_RE = re.compile(r"schemas/[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*\.json")
+
+
+def tag_schemas(ctx):
+    """{tag path: (bytes, parsed)} for every JSON file with a $id under SCHEMA_SOURCES at the tag."""
+    out = {}
+    for folder in SCHEMA_SOURCES:
+        if not git(ctx.standard, "ls-tree", ctx.commit, "--", folder + "/").stdout.strip():
+            print(f"schemas: no {folder}/ at {ctx.tag}; skipped")
+            continue
+        for n, b in ctx.tag_files(folder).items():
+            if not n.endswith(".json"):
+                continue
+            d = json.loads(b.decode("utf-8"))
+            if isinstance(d, dict) and "$id" in d:
+                out[f"{folder}/{n}"] = (b, d)
+    if not out:
+        fail(f"no JSON Schema with a $id under {', '.join(SCHEMA_SOURCES)} at {ctx.tag}")
+    return out
+
+
+def site_path(url, what):
+    """The site path an https://decisionprovenancestandard.org/schemas/... address names."""
+    if not url.startswith(SITE_URL + "/"):
+        fail(f"{what}: {url} is not an address on {SITE_URL}")
+    rel = url[len(SITE_URL) + 1:]
+    if not SCHEMA_PATH_RE.fullmatch(rel) or ".." in rel.split("/"):
+        fail(f"{what}: {url} is not a plain address under /schemas/")
+    return rel
+
+
+def schema_addresses(ctx):
+    """{site path: (bytes, why)}: each schema at its own $id, and each target of a relative $ref
+    at the address that reference resolves to (a validator resolves it against the $id)."""
+    import posixpath
+    import urllib.parse
+    schemas = tag_schemas(ctx)
+    out = {}
+
+    def add(path, data, why):
+        if path in out and out[path][0] != data:
+            fail(f"two different files would be served at /{path}: {out[path][1]} and {why}")
+        out.setdefault(path, (data, why))
+
+    for src, (b, d) in schemas.items():
+        add(site_path(d["$id"], src), b, f"{src} ($id)")
+
+    def refs(node):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k == "$ref" and isinstance(v, str):
+                    yield v
+                else:
+                    yield from refs(v)
+        elif isinstance(node, list):
+            for v in node:
+                yield from refs(v)
+
+    for src, (b, d) in schemas.items():
+        for ref in refs(d):
+            target = ref.split("#", 1)[0]
+            if not target:
+                continue  # a reference inside the same schema
+            if urllib.parse.urlsplit(target).scheme:
+                if not any(d2["$id"] == target for _, d2 in schemas.values()):
+                    fail(f"{src}: $ref {ref} names no schema served from {', '.join(SCHEMA_SOURCES)}")
+                continue
+            file = posixpath.normpath(posixpath.join(posixpath.dirname(src), target))
+            if file not in schemas:
+                fail(f"{src}: $ref {ref} points to {file}, which is not a schema at {ctx.tag}")
+            url = urllib.parse.urljoin(d["$id"], target)
+            add(site_path(url, f"{src} $ref {ref}"), schemas[file][0], f"{file} (as {src} refers to it)")
+    return out
+
+
+def step_schemas(ctx):
+    root = ctx.docs / "schemas"
+    addresses = schema_addresses(ctx)
+    for path, (data, why) in sorted(addresses.items()):
+        lf_only(data, why)
+        ctx.put(ctx.docs / path, data)
+        print(f"schemas: /{path} <- {why}")
+    extra = sorted(p.relative_to(ctx.docs).as_posix() for p in root.rglob("*")
+                   if p.is_file() and p.relative_to(ctx.docs).as_posix() not in addresses)
+    print(f"schemas: {len(addresses)} addresses written under docs/schemas/ from {ctx.tag}")
+    if extra:
+        print("schemas: warning, docs/schemas/ also holds files not produced from the tag:", ", ".join(extra))
+
+
 def step_sums(ctx):
     if not ctx.release_in_site:
         fail("sums reads the committed release folder in the site; do not pass --release-dir")
@@ -561,8 +657,9 @@ def step_filldate(ctx):
 
 STEPS = {"joined": [step_joined], "pages": [step_pages], "pdf": [step_pdf], "diagrams": [step_diagrams],
          "downloads": [step_downloads], "reffiles": [step_reffiles], "gallery": [step_gallery],
-         "sums": [step_sums], "filldate": [step_filldate],
-         "all": [step_pages, step_pdf, step_diagrams, step_downloads, step_reffiles, step_gallery]}
+         "schemas": [step_schemas], "sums": [step_sums], "filldate": [step_filldate],
+         "all": [step_pages, step_pdf, step_diagrams, step_downloads, step_reffiles, step_gallery,
+                 step_schemas]}
 
 
 def main(argv=None):
