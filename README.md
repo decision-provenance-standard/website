@@ -15,7 +15,7 @@ These limits are deliberate. A record produced under the Standard is structured 
 | Path | What it is | License |
 |---|---|---|
 | `docs/` | The published website (GitHub Pages source), including the Standard text, companions, glossary, FAQ, diagrams, and downloads. | CC-BY 4.0 |
-| `docs/standard/v5.0/` | Reference files, release 5.1.2: JSON schemas, state machines, the conformance-signal list, the reporter contract and the test plan. | MIT |
+| `docs/standard/v5.0/` | Reference files, release 5.2.0: JSON schemas, state machines, the conformance-signal list, the reporter contract and the test plan. | MIT |
 | `tools/` | The build and check tools for the site. | Apache-2.0 |
 
 The Standard does not depend on the reference files; the normative text is the Standard. Where the two differ, the text governs.
@@ -28,15 +28,15 @@ This repository is licensed by directory:
 - **Reference files** under `docs/standard/v5.0/` — MIT License, for all of the 5.x line of reference releases. See [`docs/standard/v5.0/LICENSE`](docs/standard/v5.0/LICENSE).
 - **Build and check tools** under `tools/` — Apache License 2.0. See [`LICENSES/Apache-2.0.txt`](LICENSES/Apache-2.0.txt).
 
-Etsion Brands Ltd claims "Decision Provenance Standard" as an unregistered trademark (&trade;). The licences cover the text and files, **not** the name; permitted uses of the name are set out in Standard §11.1. See [`NOTICE`](NOTICE).
+Etsion Brands Ltd claims "Decision Provenance Standard" as an unregistered trademark (&trade;). The licenses cover the text and files, **not** the name; permitted uses of the name are set out in Standard §11.1. See [`NOTICE`](NOTICE).
 
 ## How to cite
 
 See [`CITATION.cff`](CITATION.cff), or cite as:
 
-> Etsion, Yohay. *Decision Provenance Standard*, version 1.2 (rev. 10). 2026. https://decisionprovenancestandard.org. Licensed CC-BY 4.0.
+> Etsion, Yohay. *Decision Provenance Standard*, version 1.3 (rev. 11). 2026. https://decisionprovenancestandard.org. Licensed CC-BY 4.0.
 
-Versions 1.1 (rev. 9) and 1.0 (rev. 8) stay available unchanged at their original addresses, so citations of them still resolve.
+Versions 1.2 (rev. 10), 1.1 (rev. 9) and 1.0 (rev. 8) stay available unchanged at their original addresses, so citations of them still resolve.
 
 ## Stewardship
 

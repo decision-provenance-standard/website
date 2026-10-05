@@ -2,15 +2,16 @@
 
 > An open, CC-BY 4.0 standard for audit-ready provenance of decisions made by humans and AI together. It produces structured decision records as *input* to compliance and audit work: it informs regulatory frameworks without satisfying them, conformance is self-declared with no certifying body, and it is not legal advice and not a regulatory substitute.
 
-## The Standard, version 1.2 (reading edition rev. 10): normative core + companions
+## The Standard, version 1.3 (reading edition rev. 11): normative core + companions
 
-- [Core Standard (normative)](https://decisionprovenancestandard.org/dps-v1.2-rev10-core.html): Charter, the two Modes, the disclosure block, the human-signature lifecycle, the mode-drift safeguard, conformance levels, and the firewall.
-- [Companion A — Regulatory Cross-References](https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-A.html): how the Standard's records inform the EU AI Act, GDPR, NIST AI RMF, ISO 42001, SOC 2 and more — as input, never satisfying them.
-- [Companion B — Worked Charter Library](https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-B.html): complete worked Charter examples across Mode 1 and Mode 2.
-- [Companion C — Implementation Guidance](https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-C.html): operational pre-conditions and the install path for adopting the Standard.
-- [Companion D — Diagrams](https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-D.html): the eight reference figures, each with a full text alternative.
-- [Appendix G — Governance and References](https://decisionprovenancestandard.org/dps-v1.2-rev10-appendix-G.html): version-stability rules, bibliography, and trademark/licensing.
-- [Version 1.1 (reading edition rev. 9)](https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html): the previous revision, kept unchanged at its addresses.
+- [Core Standard (normative)](https://decisionprovenancestandard.org/dps-v1.3-rev11-core.html): Charter, the two Modes, the disclosure block, the human-signature lifecycle, the mode-drift safeguard, conformance levels, and the firewall.
+- [Companion A — Regulatory Cross-References](https://decisionprovenancestandard.org/dps-v1.3-rev11-companion-A.html): how the Standard's records inform the EU AI Act, GDPR, NIST AI RMF, ISO 42001, SOC 2 and more — as input, never satisfying them.
+- [Companion B — Worked Charter Library](https://decisionprovenancestandard.org/dps-v1.3-rev11-companion-B.html): complete worked Charter examples across Mode 1 and Mode 2.
+- [Companion C — Implementation Guidance](https://decisionprovenancestandard.org/dps-v1.3-rev11-companion-C.html): operational pre-conditions and the install path for adopting the Standard.
+- [Companion D — Diagrams](https://decisionprovenancestandard.org/dps-v1.3-rev11-companion-D.html): the eight reference figures, each with a full text alternative.
+- [Appendix G — Governance and References](https://decisionprovenancestandard.org/dps-v1.3-rev11-appendix-G.html): version-stability rules, bibliography, and trademark/licensing.
+- [Version 1.2 (reading edition rev. 10)](https://decisionprovenancestandard.org/dps-v1.2-rev10-core.html): the previous revision, kept unchanged at its addresses.
+- [Version 1.1 (reading edition rev. 9)](https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html): an earlier revision, kept unchanged at its addresses.
 - [Version 1.0 (reading edition rev. 8)](https://decisionprovenancestandard.org/dps-v1.0-rev8-core.html): an earlier revision, kept unchanged at its original addresses.
 
 ## Learn
@@ -28,8 +29,9 @@
 ## Adopt
 
 - [Badges](https://decisionprovenancestandard.org/badges.html): write your own self-declaration, with your own AI assistant or a coding-agent skill, and get one piece of code: the badge with the declaration inside it. Self-declared; no one certifies it. Nothing typed leaves the page.
-- [Reference files](https://decisionprovenancestandard.org/reference-implementation.html): machine-readable reference files, release 5.1.2 (MIT): schemas, state machines, the signal list, the reporter contract and a test plan; the Standard does not depend on them.
-- [Downloads](https://decisionprovenancestandard.org/downloads.html): all six documents of v1.2 as PDF, Markdown and HTML, plus the complete release bundle with SHA-256 checksums; the v1.1 files and the rev. 8 files, including Word, stay available.
+- [Reference files](https://decisionprovenancestandard.org/reference-implementation.html): machine-readable reference files, release 5.2.0 (MIT): schemas, state machines, the signal list, the reporter contract and a test plan; the Standard does not depend on them.
+- [Downloads](https://decisionprovenancestandard.org/downloads.html): all six documents of v1.3 as PDF, Markdown and HTML, plus the complete release bundle with SHA-256 checksums; the v1.2 and v1.1 files and the rev. 8 files, including Word, stay available.
+- [Optional extensions](https://decisionprovenancestandard.org/extensions.html): proposals published beside the Standard, not part of it or of any release; one so far, portable verification 0.1.0.
 - [Announcement](https://decisionprovenancestandard.org/dps-announcement.html): what it is, why now, what is available, and how to start.
 
 ## About

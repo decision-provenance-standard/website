@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://decisionprovenancestandard.org/</loc><lastmod>2026-09-28</lastmod><priority>1.0</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-core.html</loc><lastmod>2026-09-28</lastmod><priority>0.9</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-A.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-B.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-C.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-D.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-appendix-G.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/</loc><lastmod>2026-10-05</lastmod><priority>1.0</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.3-rev11-core.html</loc><lastmod>2026-10-05</lastmod><priority>0.9</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.3-rev11-companion-A.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.3-rev11-companion-B.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.3-rev11-companion-C.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.3-rev11-companion-D.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.3-rev11-appendix-G.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-core.html</loc><lastmod>2026-09-28</lastmod><priority>0.5</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-A.html</loc><lastmod>2026-09-28</lastmod><priority>0.4</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-B.html</loc><lastmod>2026-09-28</lastmod><priority>0.4</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-C.html</loc><lastmod>2026-09-28</lastmod><priority>0.4</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-companion-D.html</loc><lastmod>2026-09-28</lastmod><priority>0.4</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-v1.2-rev10-appendix-G.html</loc><lastmod>2026-09-28</lastmod><priority>0.4</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.1-rev9-core.html</loc><lastmod>2026-09-28</lastmod><priority>0.5</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.1-rev9-companion-A.html</loc><lastmod>2026-09-28</lastmod><priority>0.4</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.1-rev9-companion-B.html</loc><lastmod>2026-09-28</lastmod><priority>0.4</priority></url>
@@ -14,20 +20,21 @@
   <url><loc>https://decisionprovenancestandard.org/dps-v1.1-rev9-companion-D.html</loc><lastmod>2026-09-28</lastmod><priority>0.4</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.1-rev9-appendix-G.html</loc><lastmod>2026-09-28</lastmod><priority>0.4</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.0-rev8-core.html</loc><lastmod>2026-05-31</lastmod><priority>0.5</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-onepager.html</loc><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-glossary.html</loc><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-faq.html</loc><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-comparison-frameworks.html</loc><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/firewall.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-onepager.html</loc><lastmod>2026-10-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-glossary.html</loc><lastmod>2026-10-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-faq.html</loc><lastmod>2026-10-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-comparison-frameworks.html</loc><lastmod>2026-10-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/firewall.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.0-rev8-companion-A.html</loc><lastmod>2026-05-31</lastmod><priority>0.4</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.0-rev8-companion-B.html</loc><lastmod>2026-05-31</lastmod><priority>0.4</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.0-rev8-companion-C.html</loc><lastmod>2026-05-31</lastmod><priority>0.4</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.0-rev8-companion-D.html</loc><lastmod>2026-05-31</lastmod><priority>0.4</priority></url>
   <url><loc>https://decisionprovenancestandard.org/dps-v1.0-rev8-appendix-G.html</loc><lastmod>2026-05-31</lastmod><priority>0.4</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-announcement.html</loc><lastmod>2026-09-28</lastmod><priority>0.6</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/dps-academic-summary.html</loc><lastmod>2026-09-28</lastmod><priority>0.6</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/diagram-gallery.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/downloads.html</loc><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/reference-implementation.html</loc><lastmod>2026-09-28</lastmod><priority>0.6</priority></url>
-  <url><loc>https://decisionprovenancestandard.org/badges.html</loc><lastmod>2026-09-28</lastmod><priority>0.6</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-announcement.html</loc><lastmod>2026-10-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/dps-academic-summary.html</loc><lastmod>2026-10-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/diagram-gallery.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/downloads.html</loc><lastmod>2026-10-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/reference-implementation.html</loc><lastmod>2026-10-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/badges.html</loc><lastmod>2026-10-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://decisionprovenancestandard.org/extensions.html</loc><lastmod>2026-10-05</lastmod><priority>0.5</priority></url>
 </urlset>

@@ -3,8 +3,8 @@ message: "If you reference or adopt the Decision Provenance Standard, please cit
 title: "Decision Provenance Standard"
 abstract: "An open standard for audit-ready provenance of consequential decisions made by humans and AI systems together: a Charter object, a decision-record lifecycle, a disclosure block for AI-drafted content, and a self-declared conformance ladder."
 type: dataset
-version: "1.2 (rev. 10)"
-date-released: "2026-09-28"
+version: "1.3 (rev. 11)"
+date-released: "2026-10-05"
 license: CC-BY-4.0
 url: "https://decisionprovenancestandard.org"
 authors:
