@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 720" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="d5title d5desc">
+  <title id="d5title">Figure 4-2 — Mode-Drift Four-Layer Composed Mitigation</title>
+  <desc id="d5desc">A four-row matrix of orthogonal mitigation layers (Layer, Actor, Detection moment, Coverage), no two layers sharing an actor or detection moment, plus a phased Layer 1 rollout timeline strip.</desc>
+
+  <style>
+    .ttl   { font-size: 17px; font-weight: bold; fill: #1A1A1A; }
+    .sub   { font-size: 12px; fill: #666666; }
+    .hdr   { font-size: 12px; font-weight: bold; fill: #1A1A1A; }
+    .cell  { font-size: 11px; fill: #1A1A1A; }
+    .mono  { font-family: "JetBrains Mono", Consolas, monospace; font-size: 10.5px; fill: #1A1A1A; }
+    .lbl   { font-size: 11px; font-weight: bold; fill: #1A1A1A; }
+    .note  { font-size: 11px; fill: #1A1A1A; }
+    .box   { fill: #FFFFFF; stroke: #1A1A1A; stroke-width: 1.5; }
+    .boxlt { fill: #F5F5F5; stroke: #1A1A1A; stroke-width: 1.5; }
+    .accent{ fill: #EAF0F5; stroke: #3A5A78; stroke-width: 2.5; }
+    .hline { stroke: #666666; stroke-width: 1; }
+    .grid  { stroke: #666666; stroke-width: 1; fill: none; }
+    .dash  { stroke: #666666; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+    .arrow { stroke: #1A1A1A; stroke-width: 1.5; fill: none; }
+  </style>
+
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#1A1A1A"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="28" class="ttl">Figure 4-2 — Mode-Drift Four-Layer Composed Mitigation</text>
+  <text x="20" y="46" class="sub">Structural answer to silent Mode 1 to Mode 2 drift. Orthogonal composition: no two layers share an actor or a detection moment.</text>
+
+  <!-- Matrix header -->
+  <g>
+    <rect x="20" y="62" width="180" height="34" class="boxlt"/>
+    <rect x="200" y="62" width="200" height="34" class="boxlt"/>
+    <rect x="400" y="62" width="220" height="34" class="boxlt"/>
+    <rect x="620" y="62" width="280" height="34" class="boxlt"/>
+    <text x="30" y="84" class="hdr">Layer</text>
+    <text x="210" y="84" class="hdr">Actor (independence axis)</text>
+    <text x="410" y="76" class="hdr">Detection moment</text>
+    <text x="410" y="90" class="hdr">(independence axis)</text>
+    <text x="630" y="84" class="hdr">Coverage</text>
+  </g>
+
+  <!-- Row 1: Layer 1 statistical detection -->
+  <g>
+    <rect x="20" y="96" width="180" height="92" class="box"/>
+    <rect x="200" y="96" width="200" height="92" class="box"/>
+    <rect x="400" y="96" width="220" height="92" class="box"/>
+    <rect x="620" y="96" width="280" height="92" class="box"/>
+    <text x="30" y="118" class="lbl">Layer 1 —</text>
+    <text x="30" y="133" class="lbl">statistical detection</text>
+    <text x="210" y="118" class="cell">independent classifier</text>
+    <text x="210" y="133" class="cell">(disjoint corpus)</text>
+    <text x="410" y="118" class="cell">post-close population</text>
+    <text x="410" y="133" class="cell">sampling</text>
+    <text x="630" y="116" class="cell">15% baseline / up to 100%</text>
+    <text x="630" y="131" class="cell">first-100 / 30% on embedded-</text>
+    <text x="630" y="146" class="cell">summary Charters; routes drift</text>
+    <text x="630" y="161" class="cell">candidates above</text>
+    <text x="630" y="176" class="mono">0.75 confidence threshold &#8594; Layer 3</text>
+  </g>
+
+  <!-- Row 2: Layer 2 in-flow audit hook -->
+  <g>
+    <rect x="20" y="188" width="180" height="92" class="box"/>
+    <rect x="200" y="188" width="200" height="92" class="box"/>
+    <rect x="400" y="188" width="220" height="92" class="box"/>
+    <rect x="620" y="188" width="280" height="92" class="box"/>
+    <text x="30" y="210" class="lbl">Layer 2 —</text>
+    <text x="30" y="225" class="lbl">in-flow audit hook</text>
+    <text x="210" y="210" class="cell">original declaring</text>
+    <text x="210" y="225" class="cell">authority</text>
+    <text x="410" y="210" class="cell">record-close hard gate</text>
+    <text x="630" y="208" class="cell">100% of Mode-1 records (4-question</text>
+    <text x="630" y="223" class="cell">Substantive-Authorship Challenge Q1-Q4;</text>
+    <text x="630" y="238" class="cell">Yes or Uncertain on Q1-Q3, not Yes on Q4,</text>
+    <text x="630" y="253" class="cell">declined, or a Layer 1 / Layer 2 mismatch</text>
+    <text x="630" y="268" class="cell">routes to Layer 3 and blocks <tspan class="mono">closed</tspan>)</text>
+  </g>
+
+  <!-- Row 3: Layer 3 Mode-Confirmation Audit primitive (accent: only layer with authority to change Mode) -->
+  <g>
+    <rect x="20" y="280" width="180" height="92" class="accent"/>
+    <rect x="200" y="280" width="200" height="92" class="box"/>
+    <rect x="400" y="280" width="220" height="92" class="box"/>
+    <rect x="620" y="280" width="280" height="92" class="box"/>
+    <text x="30" y="302" class="lbl">Layer 3 —</text>
+    <text x="30" y="317" class="lbl">Mode-Confirmation</text>
+    <text x="30" y="332" class="lbl">Audit primitive</text>
+    <text x="210" y="300" class="cell">designated peer reviewer</text>
+    <text x="210" y="315" class="cell">(named in the Charter; not the</text>
+    <text x="210" y="330" class="cell">original author; not the Charter</text>
+    <text x="210" y="345" class="cell">owner if the owner is the author)</text>
+    <text x="410" y="300" class="mono">review-required</text>
+    <text x="410" y="315" class="cell">interrupt</text>
+    <text x="630" y="300" class="cell">confirms / migrates / demotes</text>
+    <text x="630" y="315" class="cell">per section 6.4 — the ONLY</text>
+    <text x="630" y="330" class="cell">layer with authority to change</text>
+    <text x="630" y="345" class="cell">Mode classification</text>
+  </g>
+
+  <!-- Row 4: Layer 4 Named Human-Attestation Fallback (terminal binding: double border) -->
+  <g>
+    <rect x="20" y="372" width="180" height="72" class="box"/>
+    <rect x="16" y="368" width="188" height="80" fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+    <rect x="200" y="372" width="200" height="72" class="box"/>
+    <rect x="400" y="372" width="220" height="72" class="box"/>
+    <rect x="620" y="372" width="280" height="72" class="box"/>
+    <text x="30" y="394" class="lbl">Layer 4 —</text>
+    <text x="30" y="409" class="lbl">Named Human-</text>
+    <text x="30" y="424" class="lbl">Attestation Fallback</text>
+    <text x="30" y="439" class="sub">(double border = binding)</text>
+    <text x="210" y="408" class="cell">named attestor</text>
+    <text x="410" y="408" class="cell">record-close binding</text>
+    <text x="630" y="402" class="cell">100%</text>
+    <text x="630" y="420" class="mono">mode_classification_attestation</text>
+    <text x="630" y="434" class="cell">object</text>
+  </g>
+
+  <!-- Composition axes + safety property note -->
+  <g>
+    <rect x="20" y="460" width="880" height="50" class="boxlt"/>
+    <text x="30" y="480" class="note"><tspan font-weight="bold">Two composition axes:</tspan> actor-independence and detection-moment-independence (no two layers share either).</text>
+    <text x="30" y="498" class="note"><tspan font-weight="bold">Safety property:</tspan> combined false-negative bounded by the product of layer rates; false-positive bounded by Layer 3's peer gate.</text>
+  </g>
+
+  <!-- Phased Layer 1 rollout timeline strip -->
+  <g>
+    <text x="20" y="540" class="hdr">Phased Layer 1 rollout</text>
+    <line x1="20" y1="552" x2="900" y2="552" class="hline"/>
+
+    <rect x="20" y="562" width="270" height="56" class="dash"/>
+    <text x="32" y="582" class="cell">detection-only wk 1-3</text>
+    <text x="32" y="600" class="cell">(corpus A + B)</text>
+
+    <rect x="310" y="562" width="270" height="56" class="dash"/>
+    <text x="322" y="582" class="cell">detection-only wk 4-6</text>
+    <text x="322" y="600" class="cell">(corpus C adversarial)</text>
+
+    <rect x="600" y="562" width="300" height="56" class="box"/>
+    <text x="612" y="582" class="cell">enforcement wk 7+ (full firing authority</text>
+    <text x="612" y="600" class="mono">no_silent_mode_drift_in_sample)</text>
+
+    <line x1="290" y1="590" x2="310" y2="590" class="arrow" marker-end="url(#ah)"/>
+    <line x1="580" y1="590" x2="600" y2="590" class="arrow" marker-end="url(#ah)"/>
+
+    <rect x="20" y="630" width="880" height="40" class="boxlt"/>
+    <text x="30" y="654" class="note">The silent-drift failure mode is closed day-one (Layers 2/3/4 live day-one); Layer 1 adds population-level signal at wk 7+.</text>
+  </g>
+
+  <!-- Non-normative stamp -->
+  <text x="20" y="698" class="sub">Explanatory figure (non-normative). The text is the contract; this figure illustrates it.</text>
+</svg>

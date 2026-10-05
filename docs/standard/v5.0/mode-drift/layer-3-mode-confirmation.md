@@ -26,7 +26,7 @@ Peer reviewer is named in the Charter's `peer_reviewer_pool` field, populated at
 1. **Substantive expertise**: peer reviewer must hold accountable_owner or equivalent role in a Charter operating in the same Decision Provenance Standard scope.
 2. **Independence — author exclusion**: the peer reviewer for any given record MUST NOT be the original author of that record.
 3. **Independence — Charter-owner exclusion when Charter owner authored**: if the Charter's `accountable_owner` authored the record under review, the Charter owner is excluded from the peer-reviewer slot for that record.
-4. **Pool size minimum**: minimum 3 named individuals in `peer_reviewer_pool` to guarantee at least one eligible reviewer per record under exclusions 2 and 3. **Charters dispatching with a pool < 3 fail this requirement.**
+4. **Pool size (recommended)**: a pool of at least 3 named individuals in `peer_reviewer_pool` is recommended, so that at least one reviewer stays eligible for each record under exclusions 2 and 3. The text sets no pool size (Standard §3.2, §3.3), so a Charter with a smaller pool does not fail this rule.
 5. **Conflict-of-interest carve-out**: a reviewer with material involvement in the record's substantive content (consulted on the decision, party to it, financially conflicted) recuses; queue routes to the next eligible pool member. Recusal logged in audit trail as a Layer 3 routing event.
 
 The Charter owner is responsible for keeping `peer_reviewer_pool` current. Pool changes mid-Charter trigger a `peer_reviewer_pool_updated` audit-trail entry.
@@ -60,9 +60,9 @@ POST /dps/conformance/charter-escalation
 Per the wire contract (`../conformance/reporter-api-spec.md`). Layer 3-specific `escalation_type` values:
 
 - `layer_3_peer_review_demotion` — peer reviewer invoked Mode 2 → Mode 1 demotion
-- `peer_reviewer_pool_underflow` — pool dropped below 3 mid-Charter
+- `peer_reviewer_pool_underflow` — pool dropped below the recommended 3 mid-Charter
 - `charter_escalation_rule_invoked` — auto-escalation past 5-day SLA
 
 ---
 
-*Layer 3 fires at first use. Peer-review designation rule with pool minimum 3 + author/owner exclusions is the structural primitive that prevents single-actor capture of Mode classification authority.*
+*Layer 3 fires at first use. Peer-review designation rule with a recommended pool of 3 + author/owner exclusions is the structural primitive that prevents single-actor capture of Mode classification authority.*

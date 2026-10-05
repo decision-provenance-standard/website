@@ -1,7 +1,7 @@
 # Conformance Reporter API Contract — POST /dps/conformance/charter-escalation
 
-**Status**: Locked at v1.1
-**Spec version**: 1.1.0 (matches OpenAPI YAML `info.version`)
+**Status**: Locked at v1.2
+**Spec version**: 1.2.0 (matches OpenAPI YAML `info.version`)
 **Cross-references**: Standard §6 (signal vocabulary); Mode-Drift mitigation Layer 3 (audit-cadence binding)
 
 ---
@@ -18,7 +18,7 @@ POST /dps/conformance/charter-escalation
 
 **Purpose.** Single-write endpoint by which a deployer-side Conformance Reporter emits a Charter-level escalation event (Layer-1 soft-flag-rate breach, Layer-2 audit-hook breach, Layer-3 peer-review demotion, Layer-4 attestation refusal, or Charter `escalation_rule` invocation per Standard §3.2) into the Standard's escalation surface. The endpoint records process; it does not certify a Charter as compliant or grade conformance level. Grading is the conformance-level reporter's separate read surface (out of scope for this contract).
 
-**Bound to the Standard.** §3 Charter state model (`charter_id`, `escalation_rule`); §6 conformance-signal vocabulary (signals listed in §6 below are the fixed enumeration the `evidence_metric` field validates against); Mode-Drift mitigation Layer 3 audit-cadence binding (escalation events emitted by the peer-review primitive use this endpoint).
+**Bound to the Standard.** §3 Charter state model (`charter_id`, `escalation_rule`); §6 conformance-signal vocabulary (the signals of `signal-vocabulary.md`, which the `evidence_metric` enum in `reporter-api.openapi.yaml` lists one for one, are the fixed enumeration the field validates against); Mode-Drift mitigation Layer 3 audit-cadence binding (escalation events emitted by the peer-review primitive use this endpoint).
 
 ---
 
@@ -69,7 +69,7 @@ POST /dps/conformance/charter-escalation
   "escalation_id": "esc_01HXYZ...",
   "charter_id": "ch-pmm-positioning-lock",
   "accepted_at": "2026-05-12T14:33:18.421Z",
-  "received_signals": ["soft_flag_rate_breach", "no_silent_mode_drift_in_sample"],
+  "received_signals": ["no_silent_mode_drift_in_sample"],
   "schema_version": "v1.0"
 }
 ```
@@ -142,133 +142,23 @@ The endpoint is bounded to ≤ 500ms p99 server-side. If a deployer's Reporter c
 
 **Content-Type: `application/json`. UTF-8.**
 
-```json
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "schema_version",
-    "charter_id",
-    "escalation_type",
-    "evidence_window",
-    "evidence_metric",
-    "evidence_threshold",
-    "escalation_timestamp",
-    "accountable_owner_ref"
-  ],
-  "properties": {
-    "schema_version": {
-      "type": "string",
-      "const": "v1.0"
-    },
-    "charter_id": {
-      "type": "string",
-      "pattern": "^[a-z0-9][a-z0-9-]{2,127}$",
-      "description": "Stable Charter slug per Standard §3.2."
-    },
-    "escalation_type": {
-      "type": "string",
-      "enum": [
-        "layer_1_soft_flag_rate_breach",
-        "layer_1_hard_flag_record",
-        "layer_2_audit_hook_breach",
-        "layer_3_peer_review_demotion",
-        "layer_4_attestation_refusal",
-        "charter_escalation_rule_invoked",
-        "disclosure_review_cadence_overdue",
-        "schedule_of_records_exception",
-        "peer_reviewer_pool_underflow"
-      ]
-    },
-    "evidence_window": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["start", "end"],
-      "properties": {
-        "start": {"type": "string", "format": "date-time"},
-        "end": {"type": "string", "format": "date-time"}
-      }
-    },
-    "evidence_metric": {
-      "type": "string",
-      "description": "MUST be a named signal from Standard §6 (Level 1, 2, or 3 signal vocabulary). Free-text values rejected.",
-      "enum": [
-        "charter_state_is_fields_completed",
-        "mode_declaration_populated",
-        "schedule_of_records_committed",
-        "record_location_resolvable",
-        "accountable_owner_named",
-        "re_decision_triggers_minimum_met",
-        "every_record_carries_mode_declaration",
-        "every_mode_2_record_has_disclosure_block",
-        "every_mode_1_edge_case_record_has_disclosure_block",
-        "disclosure_block_required_fields_populated",
-        "no_silent_mode_drift_in_sample",
-        "re_decision_triggers_firing_on_schedule",
-        "escalation_rule_records_present_when_invoked",
-        "disclosure_review_cadence_current",
-        "schedule_of_records_queryable",
-        "conformance_level_reporter_output_recent",
-        "soft_flag_rate_breach"
-      ]
-    },
-    "evidence_threshold": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["operator", "value", "observed"],
-      "properties": {
-        "operator": {"type": "string", "enum": ["gt", "gte", "lt", "lte", "eq", "neq"]},
-        "value": {"type": ["number", "string", "boolean"]},
-        "observed": {"type": ["number", "string", "boolean"]},
-        "unit": {"type": "string"}
-      }
-    },
-    "escalation_timestamp": {
-      "type": "string",
-      "format": "date-time",
-      "description": "When the Reporter detected the escalation. MUST fall within evidence_window.start ≤ ts ≤ evidence_window.end + 24h. 422 if outside."
-    },
-    "accountable_owner_ref": {
-      "type": "string",
-      "description": "Reference to the Charter's accountable_owner per Standard §3.2. Server verifies (a) reference resolves and (b) the accountable_owner is registered under the asserted client_id."
-    },
-    "narrative": {
-      "type": "string",
-      "maxLength": 2000,
-      "description": "Optional. Reporter-supplied human-readable context. Indexed for downstream peer reviewer surface; never authoritative."
-    },
-    "linked_record_ids": {
-      "type": "array",
-      "items": {"type": "string"},
-      "maxItems": 200,
-      "description": "Optional. Decision record IDs this escalation pertains to. Bounded at 200 — for larger sets, emit a Charter-level escalation and link the schedule export."
-    },
-    "classifier_metadata": {
-      "type": "object",
-      "description": "Required when escalation_type is layer_1_*. Per Mode-Drift Layer 1 corpus-version provenance (Standard §4.8.1).",
-      "additionalProperties": false,
-      "properties": {
-        "classifier_version": {"type": "string"},
-        "corpus_version": {"type": "string"},
-        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
-      }
-    }
-  },
-  "allOf": [
-    {
-      "if": {"properties": {"escalation_type": {"pattern": "^layer_1_"}}},
-      "then": {"required": ["classifier_metadata"]}
-    }
-  ]
-}
-```
+The request body is the `CharterEscalationRequest` schema in [`reporter-api.openapi.yaml`](reporter-api.openapi.yaml) (`components.schemas.CharterEscalationRequest`). That file is the binding wire contract. This section does not copy it, so the two cannot drift apart: the `escalation_type` values, the `evidence_metric` values (the signals of [`signal-vocabulary.md`](signal-vocabulary.md), one for one), the required fields and each field's type are read from the OpenAPI file.
+
+What the OpenAPI file does not say in words:
+
+- `charter_id`: the Charter's stable identifier (Standard §3.2).
+- `evidence_metric`: one named signal from the vocabulary. Free-text values are rejected.
+- `escalation_timestamp`: when the Reporter detected the escalation. It must fall in the window the field-pair checks below give.
+- `accountable_owner_ref`: a reference to the Charter's `accountable_owner` (Standard §3.2). The server verifies that the reference resolves and that the accountable owner is registered under the asserted `client_id`.
+- `narrative`: optional context from the Reporter, at most 2000 characters. Shown to peer reviewers; never authoritative.
+- `linked_record_ids`: optional ids of the decision records the escalation pertains to, at most 200. For larger sets, emit a Charter-level escalation and link the schedule export.
+- `classifier_metadata`: required when `escalation_type` starts with `layer_1_` (Layer 1 corpus-version provenance, Standard §4.8.1).
 
 **Validation strictness.** `additionalProperties: false` at every object level. Unknown fields rejected with `400 unknown_field`. The conformance signal enumeration in `evidence_metric` is the contract's tightest binding to Standard §6 — any signal not in the enum is a contract violation, not a pass-through.
 
 **Field-pair semantic checks (422-class):**
 - `escalation_timestamp` MUST satisfy `evidence_window.start ≤ ts ≤ evidence_window.end + 24h` (24h grace allows post-window detection).
-- `escalation_type` and `evidence_metric` MUST be a recognized pair (e.g., `layer_1_soft_flag_rate_breach` → `soft_flag_rate_breach`; `schedule_of_records_exception` → `schedule_of_records_queryable` or `every_record_carries_mode_declaration`). Mismatches return `422 escalation_type_metric_mismatch`.
+- `escalation_type` and `evidence_metric` MUST be a recognized pair. The pair this contract names: `schedule_of_records_exception` → `schedule_of_records_queryable` or `every_record_carries_mode_declaration`. For `layer_1_soft_flag_rate_breach` the contract names no pair: the soft-flag rate is not one of the signals, so any `evidence_metric` value in the enum is accepted with it. A mismatch with a named pair returns `422 escalation_type_metric_mismatch`.
 - `evidence_threshold.operator` + `value` + `observed` MUST yield a true comparison consistent with the threshold being breached (e.g., if `operator=gt`, `value=0.05`, `observed=0.07` is consistent; `observed=0.03` is inconsistent → `422 evidence_threshold_not_breached`).
 
 ---
@@ -297,7 +187,7 @@ Items NOT preserved (locked): everything in §§1-6 above. Deviations require a 
 
 ---
 
-*Wire contract locked at v1.1.0.*
+*Wire contract locked at v1.2.0.*
 
 ---
 
@@ -314,3 +204,21 @@ Items NOT preserved (locked): everything in §§1-6 above. Deviations require a 
 **OpenAPI binding updated**: `reporter-api.openapi.yaml` `info.version` 1.0.0 → 1.1.0; enum extended to 9 values.
 
 **Locked at v1.1.0 for the v1.0 reference-files release.**
+
+### v1.2.0
+
+**Change**: Added `every_mode_2_record_carries_disclosure_pointer` to the `evidence_metric` enum (now 24 values, previously 23), with the signal list.
+
+**Rationale**: The text lists the signal at Level 2 (Standard §7.3.2). It reports, for an existing Level 2 criterion, the disclosure pointer the text already required from `drafted` (Standard §4.3, §6.2.2). The value was added to the enum with the signal, before this version number was raised; raising it here keeps one version number from naming two different enums.
+
+**Scope**: additive (no value removed; one value added), so existing v1.1 Reporter implementations remain valid against v1.2.
+
+**OpenAPI binding updated**: `reporter-api.openapi.yaml` `info.version` 1.1.0 → 1.2.0; `evidence_metric` enum extended to 24 values.
+
+**Released with reference files 5.2.0**, together with the field-pair amendment below, which leaves the OpenAPI file unchanged.
+
+### Additive amendment (the field-pair rule)
+
+**Change**: Section 6 points to `reporter-api.openapi.yaml` instead of carrying a copy of the request schema. The copy had drifted from the OpenAPI file: its `evidence_metric` list carried `soft_flag_rate_breach`, which is not a signal and was never in the OpenAPI enum, and it lacked eight signals the OpenAPI enum carries. The field-pair rule now names only pairs whose two values exist in the OpenAPI enums, and the response example echoes a real signal.
+
+**Scope**: additive. No value is removed from the binding contract. A request with `escalation_type: layer_1_soft_flag_rate_breach`, which the old pair example could never match with a listed signal and so returned `422`, is now accepted with any listed signal. This change leaves `reporter-api.openapi.yaml` unchanged, byte for byte.

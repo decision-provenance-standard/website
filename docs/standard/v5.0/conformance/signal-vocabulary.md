@@ -1,7 +1,7 @@
-# Conformance Signal Vocabulary — v5.1.2
+# Conformance Signal Vocabulary — v5.2.0
 
 **Authority**: Standard §6
-**Status**: 1:1 binding to the `evidence_metric` enum in the reporter API. 23-signal vocabulary across Levels 1, 2, 3.
+**Status**: 1:1 binding to the `evidence_metric` enum in the reporter API. 24-signal vocabulary across Levels 1, 2, 3.
 **Naming**: `dps_conformance_signal` in code; "Decision Provenance Standard conformance signal" in prose
 
 ---
@@ -35,6 +35,7 @@ The signal vocabulary is the named, machine-readable surface that Section 6 read
 | `every_record_carries_mode_declaration` | Decision-record state machine | Per-record | Transition into `closed` (validation: `dispatch_mode` populated) |
 | `every_mode_2_record_has_disclosure_block` | Decision-record state machine | Per-record (Mode 2, within the §4.6 requirement) | Transition into `closed` |
 | `every_mode_1_edge_case_record_has_disclosure_block` | Decision-record state machine | Per-record (Mode 1 + edge case, within the §4.6 requirement) | Transition into `closed` |
+| `every_mode_2_record_carries_disclosure_pointer` | Conformance reporter | Per-record (Mode 2 and `mode-1-with-embedded-mode-2-summary`, from `drafted` onward) | Validation: `disclosure_metadata_pointer` populated from `drafted` onward (Standard §4.3, §6.2.2), unless the Charter places the output outside the §4.6 requirement under §4.6.1. The reporter reads the Charter's declaration or, for a Charter written before v1.1 (reading edition rev. 9) that relies on the §4.6.1 transition sentence, the record the deployer points to. Each emission names the Charter reference it relied on. The schema does not make this check, because it cannot see the Charter |
 | `disclosure_block_required_fields_populated` | Decision-record state machine | Per-record | Validation: the five disclosure-block fields (Standard §4.6.2) all populated |
 | `no_silent_mode_drift_in_sample` | **Layer 3 Mode-Confirmation Audit primitive** | Sample-level (NOT per-record) | Per the §4.8.2 emission cadence — Layer 3 audit cadence (15% rolling, with first-100 + edge-case overrides) |
 | `every_affirmed_record_carries_affirmation_event` | Decision-record state machine | Per-record (at `affirmed`) | Validation: `affirmation_record` populated with timestamp + actor identity + method per §5.1(3) |
@@ -102,4 +103,4 @@ This vocabulary **records process**, **NOT** evidence. Writing about these signa
 
 ---
 
-*Signal vocabulary at v5.1.2 (23 signals: 6 Level 1, 11 Level 2, 6 Level 3). Amendments require steward review.*
+*Signal vocabulary at v5.2.0 (24 signals: 6 Level 1, 12 Level 2, 6 Level 3). Amendments require steward review.*

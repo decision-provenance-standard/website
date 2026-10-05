@@ -12,7 +12,7 @@ Machine-readable reference files for the Decision Provenance Standard: schemas, 
 
 This directory holds the machine-readable reference files the Standard's normative text points to:
 
-- A **23-signal conformance vocabulary** across Levels 1, 2, and 3.
+- A **24-signal conformance vocabulary** across Levels 1, 2, and 3.
 - A **single-write conformance reporter API** (Charter-level escalation events).
 - A **mode-drift four-layer composed mitigation** (statistical detection, in-flow audit hook, peer-review confirmation, named human attestation).
 - **JSON Schemas** (Draft 2020-12) for the Charter object, the decision-record object, the disclosure block, and the Layer 4 attestation object.
@@ -34,7 +34,7 @@ The reference files describe how process is recorded. They do not certify, ensur
 | `schemas/decision-record.schema.json` | Decision-record object schema (JSON Schema Draft 2020-12) |
 | `conformance/reporter-api-spec.md` | `POST /dps/conformance/charter-escalation` contract |
 | `conformance/reporter-api.openapi.yaml` | OpenAPI 3.1 wire contract |
-| `conformance/signal-vocabulary.md` | 23-signal vocabulary across Levels 1, 2, 3 (6 L1 + 11 L2 + 6 L3) + audit-cadence binding |
+| `conformance/signal-vocabulary.md` | 24-signal vocabulary across Levels 1, 2, 3 (6 L1 + 12 L2 + 6 L3) + audit-cadence binding |
 | `mode-drift/layer-1-detection.md` | Statistical detection scaffolding |
 | `mode-drift/layer-2-audit-hook.md` | 4-question challenge prompt at decision-record close |
 | `mode-drift/layer-3-mode-confirmation.md` | `review-required` RECORD-state interrupt + peer-review designation |
@@ -59,12 +59,12 @@ Layer 1 (statistical detection) ships as detection-only scaffolding; its enforce
 
 ## Conformance Signal Coverage
 
-The 23-signal vocabulary maps the Standard's structural requirements to named, machine-readable signals:
+The 24-signal vocabulary maps the Standard's structural requirements to named, machine-readable signals:
 
 | Level | Count | Scope |
 |---|---|---|
 | Level 1 | 6 | Charter structural completeness |
-| Level 2 | 11 | Decision-record discipline |
+| Level 2 | 12 | Decision-record discipline |
 | Level 3 | 6 | Continuously auditable |
 
 The vocabulary is the locked enumeration the reporter API validates the `evidence_metric` field against. See `conformance/signal-vocabulary.md`.
@@ -73,7 +73,7 @@ The vocabulary is the locked enumeration the reporter API validates the `evidenc
 
 ## Directory Path Note
 
-The directory name is `v5.0/` and is kept unchanged so the Standard's `standard/v5.0/...` references resolve. The reference-files release label is v5.1.2 (see `release/RELEASE-NOTES.md`); the directory path stays `v5.0/`.
+The directory name is `v5.0/` and is kept unchanged so the Standard's `standard/v5.0/...` references resolve. The reference-files release label is v5.2.0 (see `release/RELEASE-NOTES.md`); the directory path stays `v5.0/`.
 
 ---
 

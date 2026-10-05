@@ -58,14 +58,14 @@ Use to validate per-record disclosure attachment for Mode 1 edge case + UK juris
 
 Use to validate escalation-driven Mode demotion + `prior_state_archive` population + reporter API `escalation_type: charter_escalation_rule_invoked`.
 
-## Charter 5 — `peer-reviewer-pool-underflow` (failure case)
+## Charter 5 — `peer-reviewer-pool-underflow` (escalation case)
 
 | Field | Value |
 |---|---|
 | `charter_id` | `peer-reviewer-pool-underflow` |
 | `peer_reviewer_pool` | Initially 3, reduces to 2 mid-Charter |
 
-Use to validate `peer_reviewer_pool_underflow` escalation emits when pool drops below 3.
+Use to validate `peer_reviewer_pool_underflow` escalation emits when pool drops below the recommended 3. The Charter itself stays valid: the text sets no pool size.
 
 ## Charter 6 — `idempotency-replay` (API contract failure case)
 

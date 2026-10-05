@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: Decision Provenance Standard Conformance Reporter API
-  version: 1.1.0
+  version: 1.2.0
   description: |
     POST /dps/conformance/charter-escalation — single-write endpoint by which a
     deployer-side Conformance Reporter emits a Charter-level escalation event into
@@ -124,6 +124,7 @@ components:
             - every_record_carries_mode_declaration
             - every_mode_2_record_has_disclosure_block
             - every_mode_1_edge_case_record_has_disclosure_block
+            - every_mode_2_record_carries_disclosure_pointer
             - disclosure_block_required_fields_populated
             - no_silent_mode_drift_in_sample
             - re_decision_triggers_firing_on_schedule

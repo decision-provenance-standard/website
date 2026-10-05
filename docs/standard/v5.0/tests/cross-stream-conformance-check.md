@@ -57,7 +57,7 @@ For each Charter in `fields-completed`:
 2. Apply each peer-reviewer disposition: confirm, request migration, invoke demotion
 3. Assert state transitions match decision-record state machine
 4. Assert `prior_state_archive` populated on demotion with `demotion_path` enum
-5. Assert `peer_reviewer_pool_underflow` escalation emitted when pool drops below 3
+5. Assert `peer_reviewer_pool_underflow` escalation emitted when pool drops below the recommended 3 (the Charter stays valid)
 
 ### Category E — Layer 4 Attestation
 

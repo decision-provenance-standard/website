@@ -12,7 +12,7 @@
     "kind": { "enum": ["organization", "product"] },
     "name": { "type": "string", "minLength": 1, "maxLength": 120, "pattern": "\\S", "description": "The organization's or the product's name." },
     "declaration_page": { "type": "string", "pattern": "^https://[^\\s/?#@\"'<>`]+[^\\s@\"'<>`]*$", "maxLength": 500, "description": "Optional. The public https:// page where the declaration can be read (usually the page carrying the badge). It may not contain spaces, quotes, angle brackets or backticks." },
-    "standard_version": { "enum": ["v1.2-rev10", "v1.1-rev9", "v1.0-rev8"], "description": "The version the declaration is made against. New declarations use v1.2-rev10, the current text: v1.2 is a minor release, so a Charter that meets v1.1 also meets v1.2. v1.1-rev9 and v1.0-rev8 are still accepted for declarations already made against them." },
+    "standard_version": { "enum": ["v1.3-rev11", "v1.2-rev10", "v1.1-rev9", "v1.0-rev8"], "description": "The version the declaration is made against. New declarations use v1.3-rev11, the current text: v1.3 is a minor release, so a Charter that meets v1.2 also meets v1.3. v1.2-rev10, v1.1-rev9 and v1.0-rev8 are still accepted for declarations already made against them." },
     "charters": {
       "type": "array", "minItems": 1, "maxItems": 20, "uniqueItems": true,
       "items": { "type": "string", "minLength": 1, "maxLength": 200, "pattern": "\\S" },
