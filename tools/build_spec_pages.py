@@ -162,7 +162,7 @@ def embed_images(html_text, diagrams):
         cap = html.escape(alt) if alt else ""
         figcap = f"<figcaption>{cap}</figcaption>" if cap else ""
         return (f'<figure class="dps-figure">'
-                f'<img alt="{html.escape(alt)}" src="{data_uri}" loading="lazy" decoding="async">'
+                f'<img alt="{html.escape(alt)}" src="{data_uri}" decoding="async">'
                 f'{figcap}</figure>')
 
     return img_re.sub(repl, html_text), stats
@@ -408,7 +408,7 @@ li{margin:.3rem 0;}
   .layout{grid-template-columns:1fr;max-width:none;}
   .wrap{max-width:none;padding:0;}
   h2{border-color:#999;} th{background:#333;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .dps-figure img{border-color:#bbb;}
+  .dps-figure img{border-color:#bbb;max-height:24cm;width:auto;}
   a{color:var(--ink);text-decoration:none;}
 }
 """
