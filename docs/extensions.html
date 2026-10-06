@@ -82,7 +82,7 @@ body{margin:0;background:var(--paper);color:var(--ink);
   border:1px solid transparent;}
 .navlink:hover{background:var(--rule-soft);color:var(--accent);}
 .navlink.active{background:var(--accent);color:#fff;}
-.wrap{max-width:820px;margin:0 auto;padding:2.5rem 1.6rem 6rem;min-width:0;}
+.wrap{width:100%;max-width:820px;margin:0 auto;padding:2.5rem 1.6rem 6rem;min-width:0;}
 .layout{display:grid;grid-template-columns:1fr;gap:0;}
 @media(min-width:1180px){
   .layout{grid-template-columns:minmax(0,1fr) 270px;max-width:1240px;margin:0 auto;
@@ -114,6 +114,7 @@ blockquote p{margin:.4rem 0;}
 blockquote strong{color:var(--ink);}
 table{border-collapse:collapse;width:100%;margin:1.4rem 0;font-size:.88rem;
   font-family:'Manrope',system-ui,sans-serif;}
+@media screen and (max-width:1179.98px){table{display:block;overflow-x:auto;}}
 th,td{border:1px solid var(--rule);padding:.5rem .7rem;text-align:left;vertical-align:top;}
 th{background:var(--accent);color:#fff;font-weight:600;}
 tr:nth-child(even) td{background:var(--rule-soft);}
@@ -165,7 +166,7 @@ li{margin:.3rem 0;}
 <div class="layout">
 <main class="wrap" id="top">
 <h1>Optional Extensions</h1>
-<p>An optional extension is an addition that sits beside the Standard without changing it. This page lists the extensions published so far.</p>
+<p>An optional extension is an addition that sits beside the Standard without changing it. This page lists the extensions the Steward has added to this site so far. The standard repository may hold others while they are under review.</p>
 <blockquote><p><strong>An extension is not part of the Standard.</strong> Its requirements bind only an implementation that says it uses that extension, at that version. It does not change what a core field means or when one is required, and where an extension and the Standard's text disagree, the text governs. Extensions are not part of the Standard's releases: they are not in its downloads, bundles or checksum lists. Using one makes no one certified, compliant or approved.</p></blockquote>
 <h2 id="portable-verification">Portable verification 0.1.0</h2>
 <p>How to export sealed decision records so that someone else can check them, and how that check reports what it found. It adds two objects beside the records, an export and a verification report, and adds no field to a decision record.</p>
