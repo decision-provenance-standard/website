@@ -114,7 +114,7 @@ blockquote p{margin:.4rem 0;}
 blockquote strong{color:var(--ink);}
 table{border-collapse:collapse;width:100%;margin:1.4rem 0;font-size:.88rem;
   font-family:'Manrope',system-ui,sans-serif;}
-@media screen and (max-width:1179.98px){table{display:block;overflow-x:auto;}}
+@media screen and (max-width:1179.98px){table{display:block;overflow-x:auto;}.topnav{position:static;}}
 th,td{border:1px solid var(--rule);padding:.5rem .7rem;text-align:left;vertical-align:top;}
 th{background:var(--accent);color:#fff;font-weight:600;}
 tr:nth-child(even) td{background:var(--rule-soft);}
@@ -176,7 +176,7 @@ li{margin:.3rem 0;}
 </blockquote>
 <p>The Decision Provenance Standard is a <strong>record format</strong>: a defined way to write down how a decision was made, so it can be found, understood, and trusted later. The set of blocks is closed — you cannot invent new ones at runtime — which is what makes records comparable and gradeable across any organization.</p>
 <h2 id="the-four-fixed-blocks">The four fixed blocks</h2>
-<table>
+<table tabindex="0">
 <thead>
 <tr>
 <th>Block</th>

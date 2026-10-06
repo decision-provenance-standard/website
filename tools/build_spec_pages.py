@@ -267,6 +267,25 @@ def wrap_masthead(body_html, rel):
     return body_html[:start] + '\n' + masthead + body_html[start + m.end():]
 
 
+LONG_CODE = 50  # characters; only identifiers this long get break points
+
+
+def prepare_tables(body_html):
+    """Layout aids for tables; no text changes. Every table can take keyboard focus, so a table
+    that scrolls sideways inside its box can be scrolled with the arrow keys in every browser.
+    Inside tables, a code identifier of LONG_CODE or more characters may wrap after its
+    underscores (<wbr>), so one very long name cannot push its table past the reading column."""
+    def table(m):
+        def code(c):
+            inner = c.group(1)
+            if "<" in inner or len(html.unescape(inner)) < LONG_CODE:
+                return c.group(0)
+            return "<code>" + inner.replace("_", "_<wbr>") + "</code>"
+        return re.sub(r"<code>(.*?)</code>", code, m.group(0), flags=re.S)
+    body_html = re.sub(r"<table>.*?</table>", table, body_html, flags=re.S)
+    return body_html.replace("<table>", '<table tabindex="0">')
+
+
 def jsonld(page, title, desc):
     canonical = f"{DOMAIN}/{page}"
     article = {"@context": "https://schema.org", "@type": "TechArticle",
@@ -348,7 +367,7 @@ blockquote p{margin:.4rem 0;}
 blockquote strong{color:var(--ink);}
 table{border-collapse:collapse;width:100%;margin:1.4rem 0;font-size:.88rem;
   font-family:'Manrope',system-ui,sans-serif;}
-@media screen and (max-width:1179.98px){table{display:block;overflow-x:auto;}}
+@media screen and (max-width:1179.98px){table{display:block;overflow-x:auto;}.topnav{position:static;}}
 th,td{border:1px solid var(--rule);padding:.5rem .7rem;text-align:left;vertical-align:top;}
 th{background:var(--accent);color:#fff;font-weight:600;}
 tr:nth-child(even) td{background:var(--rule-soft);}
@@ -498,6 +517,7 @@ def render_page(text, doc, docs, rel, diagrams):
     body = demote_headings(body)
     body = wrap_masthead(body, rel)
     body, stats = embed_images(body, diagrams)
+    body = prepare_tables(body)
     body += related
     canonical = f"{DOMAIN}/{page}"
     out = PAGE.format(title=html.escape(title), favicon=FAVICON, css=CSS,
